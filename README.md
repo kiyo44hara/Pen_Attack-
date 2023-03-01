@@ -1,4 +1,4 @@
-# <Pen Attack!>
+# Pen Attack!
 
 ## サイト概要
 ### サイトテーマ
