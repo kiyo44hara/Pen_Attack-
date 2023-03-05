@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  appeal_point: MyText
+  improve_point: MyText
+  production_time: 1
+  star: MyString
+
+two:
+  title: MyString
+  body: MyText
+  appeal_point: MyText
+  improve_point: MyText
+  production_time: 1
+  star: MyString
