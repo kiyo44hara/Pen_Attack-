@@ -1,0 +1,7 @@
+<h2>プロフィール編集画面</h2>
+<%= form_with model: @member do |f| %>
+  <%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*' %>
+  <%= f.text_field :name, autofocus: true, id:'inputName', placeholder:'ニックネーム(10文字以内)' %>
+  <%= f.text_area :introduction, autofocus: true, pleceholder:'自己紹介を記入' %>
+  <%= f.submit '変更を保存', class: 'btn btn-secondary' %>
+<% end %>
