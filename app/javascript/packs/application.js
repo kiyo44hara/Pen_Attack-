@@ -12,7 +12,6 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
-// この間に適用させたい専用のCSSを置く
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
