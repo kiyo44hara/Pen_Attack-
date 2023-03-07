@@ -1,1 +1,37 @@
-<h1>トップ画面です(会員一覧)</h1>
+<h1>管理者トップ画面です(会員一覧)</h1>
+
+  <table>
+    <!--会員一覧見出し-->
+    <tr>
+      <th>会員id</th>
+      <th>ニックネーム</th>
+      <th>メールアドレス</th>
+      <th>会員ステータス</th>
+      <th>ステータス更新</th>
+    </tr>
+    <% @members.each do |member| %>
+    <!--会員一覧レコード-->
+    <tr>
+      <th><%= member.id %></th>
+      <th><%= member.name %></th>
+      <th><%= member.email %></th>
+
+      <!--会員ステータス表記方法-->
+      <th>
+        <% if member.is_deleted == false %>
+          <span class= 'text-success'>有効</span>
+        <% else %>
+          <span>退会</span>
+        <% end %>
+      </th>
+
+      <th>
+        <% if member.is_deleted == false %>
+          <%= button_to "退会させる", admin_member_path(member), method: :patch, data: {confirm: "メンバーを退会させますか？" },class: "btn btn-danger"%>
+        <% else %>
+          <%= button_to "復活させる", admin_member_path(member), method: :patch, data: {confirm: "メンバーのアカウントを復活させますか？" },class: "btn btn-success"%>
+        <% end %>
+      </th>
+    </tr>
+    <% end %>
+  </table>

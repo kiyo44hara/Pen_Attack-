@@ -1,0 +1,11 @@
+<% if post.yelld_by?(current_member) %>
+  <%= link_to post_yell_path(post), method: :delete, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= post.yell.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to post_yell_path(post), method: :post, remote: true do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= post.yell.count %> いいね
+  <% end %>
+<% end %>
