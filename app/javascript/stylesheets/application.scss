@@ -16,9 +16,20 @@ header, footer {
 }
 
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+footer h6 {
+  text-align: center;
+  line-height: 60px;
+  color: white;
+}
+
+footer img{
+  height: auto;
+  width: 80px;
 }
 
 /*　ハンバーガーボタン　*/
@@ -101,7 +112,7 @@ nav.hamburger-menu li:first-child{
 }
 
 nav.hamburger-menu ul li:hover{
-  background :#ddd;
+  background :rgba(0,0,0,0.57);
 }
 
 nav.hamburger-menu ul li a{
