@@ -17,3 +17,17 @@ import '@fortawesome/fontawesome-free/js/all'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// ハンバーガーメニューの関数
+
+$(document).on('turbolinks:load', function() {
+    $('.hamburger').click(function() {
+        $(this).toggleClass('active');
+
+        if ($(this).hasClass('active')) {
+            $('.hamburger-menu').addClass('active');
+        } else {
+            $('.hamburger-menu').removeClass('active');
+        }
+    });
+});
