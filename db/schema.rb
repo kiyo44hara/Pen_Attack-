@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2023_03_09_061447) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "member_id"
     t.string "title", null: false
     t.text "body", null: false
     t.text "appeal_point", null: false

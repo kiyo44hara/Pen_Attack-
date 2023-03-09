@@ -2,8 +2,13 @@ class Post < ApplicationRecord
 
     has_many :post_tags, dependent: :destroy
     has_many :tags, through: :post_tags
+    belongs_to :member
 
   has_one_attached :image
+
+  def get_image(width, height)
+    image.variant(resize_to_fill: [width, height]).processed
+  end
 
 # 複数タグを取り扱う為のメソッドです(postsコントローラーのcreate参照)
 # 既存のタグを除いて、新しいタグのみ保存されるように記述しています。

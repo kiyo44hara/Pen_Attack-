@@ -7,6 +7,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.member_id = current_member.id
     tag_list = params[:post][:name].split(',')
     # tag_list = 投稿の中身全てと、タグの名前。詳細はpostモデルを参照してください。
     if @post.save
@@ -54,7 +55,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :appeal_point, :improve_point, :production_time, :star)
+    params.require(:post).permit(:title, :body, :image, :appeal_point, :improve_point, :production_time, :star)
   end
 
 # 投稿者以外の介入を受けた場合、トップページに飛ぶようにしています
