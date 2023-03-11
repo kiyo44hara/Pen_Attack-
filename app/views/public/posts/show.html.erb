@@ -1,0 +1,32 @@
+<h4>詳細画面</h4>
+
+  <h4>画像</h4>
+  <div><%= image_tag @post.get_image(500,500) %></div>
+
+  <h4>
+    <span>閲覧数設置♡</span>
+    <span>応援ボタン設置</span>
+    <span>編集ボタン設置</span>
+    <!--レート機能の情報を持ってきています-->
+    <%= render "new_star", post: @post %>
+  </h4>
+
+  <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
+  <h3><%= @post.title %>
+    <span>
+      <% @post_tags.each do |tag| %>
+      <%= tag.name %>
+      <% end %>
+    </span>
+  </h3>
+
+  <h5><%= @post.body %></h5>
+
+
+  <h5><%= @post.appeal_point %></h5>
+
+
+  <h5><%= @post.improve_point %></h5>
+
+  <h5><%= @post.production_time %>時間</h5>
+

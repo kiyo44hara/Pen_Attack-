@@ -11,7 +11,7 @@
       let option = {
           starOn: "<%= asset_path('star-on.png') %>",
           starOff: "<%= asset_path('star-off.png') %>",
-          scoreName: 'book[rate]',
+          scoreName: 'post[star]',
         };
       raty(raty_elem,option);
      });
@@ -22,7 +22,7 @@
     <script>
     $(document).on('turbolinks:load', function() {
         let raty_<%= post.id %> = document.querySelector('#star_<%= post.id %>');
-        rate_<%= post.id %>.innerHTML = ""
+        star_<%= post.id %>.innerHTML = ""
         let option_<%= post.id %> = {
             starOn: "<%= asset_path('star-on.png') %>",
             starOff: "<%= asset_path('star-off.png') %>",
