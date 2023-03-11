@@ -1,5 +1,6 @@
 class Member < ApplicationRecord
   has_many :posts
+  has_many :yells, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -2,15 +2,26 @@ class Post < ApplicationRecord
 
     has_many :post_tags, dependent: :destroy
     has_many :tags, through: :post_tags
+    has_many :yells, dependent: :destroy
     belongs_to :member
 
+  # 制作時間の単位をそれぞれ、分・時間・日で分けています。
   enum unit: { minutes: 0, time: 1, day: 2 }
 
+  # 投稿イラスト設定
   has_one_attached :image
 
   def get_image(width, height)
     image.variant(resize_to_fill: [width, height]).processed
   end
+
+
+  # 応援機能の作成と削除のメソッド
+  def yelled?(member)
+    yells.where(member_id: member.id).exists?
+  end
+
+
 
 # 複数タグを取り扱う為のメソッドです(postsコントローラーのcreate参照)
 # 既存のタグを除いて、新しいタグのみ保存されるように記述しています。
@@ -33,4 +44,6 @@ class Post < ApplicationRecord
         self.tags << new_post_tag
     end
   end
+
+
 end

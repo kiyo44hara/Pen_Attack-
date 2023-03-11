@@ -5,8 +5,11 @@
 
   <h4>
     <span>閲覧数設置♡</span>
-    <span>応援ボタン設置</span>
-    <span>編集ボタン設置</span>
+    <span><%= render "yell_button", post: @post %></span>
+
+  <% if @post.member == current_member %>
+    <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
+  <% end %>
     <!--レート機能の情報を持ってきています-->
     <%= render "star", post: @post %>
   </h4>
