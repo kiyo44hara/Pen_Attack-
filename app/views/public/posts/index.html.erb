@@ -1,0 +1,11 @@
+<h4>投稿一覧</h4>
+
+<% @posts.each do |post| %>
+<div>
+ <%= image_tag post.member.get_profile_image(30,30) %><span><%= post.member.name %></span>
+</div>
+ <div><%= image_tag post.get_image(100,100) %></div>
+ <div><%= post.title %></div>
+ <div>応援ボタン設置</div>
+
+<% end %>

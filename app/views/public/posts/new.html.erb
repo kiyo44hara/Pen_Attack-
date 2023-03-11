@@ -1,0 +1,11 @@
+<h4>新規投稿</h4>
+<%= form_with model: @post do |f| %>
+  <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= render "post_new_edit", f: f %>
+
+  <!--レート機能の情報を持ってきています-->
+  <%= render "star", f: f %>
+
+  <div><%= f.submit '作品を投稿' %></div>
+<% end %>
