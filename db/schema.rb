@@ -90,7 +90,8 @@ ActiveRecord::Schema.define(version: 2023_03_09_061447) do
     t.text "appeal_point", null: false
     t.text "improve_point", null: false
     t.integer "production_time", null: false
-    t.string "star"
+    t.integer "unit", default: 0, null: false
+    t.string "star", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

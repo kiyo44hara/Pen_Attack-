@@ -8,7 +8,7 @@
     <span>応援ボタン設置</span>
     <span>編集ボタン設置</span>
     <!--レート機能の情報を持ってきています-->
-    <%= render "new_star", post: @post %>
+    <%= render "star", post: @post %>
   </h4>
 
   <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
@@ -20,13 +20,18 @@
     </span>
   </h3>
 
+  <h4>製作者:<%= @post.member.name %></h4>
+
   <h5><%= @post.body %></h5>
 
-
+  <h5>ここ見て！</h5>
   <h5><%= @post.appeal_point %></h5>
 
-
+  <h5>制作時間</h5>
   <h5><%= @post.improve_point %></h5>
 
-  <h5><%= @post.production_time %>時間</h5>
+  <h5>
+    <%= @post.production_time %>
+    <span><%= @post.unit_i18n %></span>
+  </h5>
 

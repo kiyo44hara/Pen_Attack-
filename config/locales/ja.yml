@@ -1,0 +1,7 @@
+ja:
+  enums:
+    post:
+      unit:
+        minutes: "分"
+        time: "時間"
+        day: "日"

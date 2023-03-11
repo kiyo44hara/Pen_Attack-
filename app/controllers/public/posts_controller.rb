@@ -55,14 +55,14 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :appeal_point, :improve_point, :production_time, :star)
+    params.require(:post).permit(:title, :body, :image, :appeal_point, :improve_point, :production_time, :unit, :star)
   end
 
 # 投稿者以外の介入を受けた場合、トップページに飛ぶようにしています
   def is_matching_login_member
     post = Post.find(params[:id])
     member_id = post.member_id
-    unless member_id == current_member
+    unless member_id == current_member.id
       redirect_to root_path
     end
   end

@@ -4,6 +4,8 @@ class Post < ApplicationRecord
     has_many :tags, through: :post_tags
     belongs_to :member
 
+  enum unit: { minutes: 0, time: 1, day: 2 }
+
   has_one_attached :image
 
   def get_image(width, height)

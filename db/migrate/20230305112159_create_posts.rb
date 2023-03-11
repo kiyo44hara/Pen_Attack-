@@ -7,7 +7,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.text :appeal_point, null: false
       t.text :improve_point, null: false
       t.integer :production_time, null: false
-      t.string :star
+      t.integer :unit, null: false, default: 0
+      t.string :star, null: false
 
       t.timestamps
     end

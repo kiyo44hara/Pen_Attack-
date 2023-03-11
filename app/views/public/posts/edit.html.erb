@@ -1,0 +1,27 @@
+<h4>編集画面</h4>
+<div><%= image_tag @post.get_image(200,200) %></div>
+<%= form_with model: @post do |f| %>
+  <%= render "post_new_edit", f: f %>
+
+  <!--レートの情報を持ってきています-->
+  <div id= 'star'>
+      <%= f.hidden_field :star, id: :review_star %>
+  </div>
+
+    <div id = 'post_raty'></div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+      let raty_elem = document.querySelector('#post_raty');
+      raty_elem.innerHTML = ""
+      let option = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          scoreName: 'post[star]',
+        };
+      raty(raty_elem,option);
+     });
+    </script>
+
+  <div><%= f.submit '変更を保存', class: 'btn btn-success' %></div>
+
+<% end %>
