@@ -1,0 +1,7 @@
+<h4><%= @member.name %>さんの応援一覧</h4>
+
+<% @yell_posts.each do |post| %>
+<%= render "public/template/index", post: post %>
+
+<div><%= render "public/posts/yell_button", post: post %></div>
+<% end %>

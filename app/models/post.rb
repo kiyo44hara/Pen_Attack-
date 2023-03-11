@@ -17,8 +17,8 @@ class Post < ApplicationRecord
 
 
   # 応援機能の作成と削除のメソッド
-  def yelled?(member)
-    yells.where(member_id: member.id).exists?
+  def yelled_by?(member)
+    yells.exists?(member_id: member.id)
   end
 
 

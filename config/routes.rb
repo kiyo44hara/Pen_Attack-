@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     # 管理者トップページ(会員一覧・会員退会機能)
     get '/' => 'members#index'
     resources :members, only: [:update]
-    # ↑の記述があってるかわからない。トップ画面のアクションとして成立するのか確認する。またリーダブルコードとして修正するならどうするのが良いかも確認。
 
     # 管理者側検索画面
     get 'searches' => 'searches#search', as:'search'
@@ -40,12 +39,18 @@ Rails.application.routes.draw do
 
     # 顧客側の投稿機能に、応援、コメント機能をネストさせています
     resources :posts, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
-      resources :yells, only: [:create, :destroy]
+      resource :yells, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
 
     # 顧客側のマイページ
-    resources :members, only: [:show, :edit, :update, :destroy]
+    resources :members, only: [:show, :edit, :update, :destroy] do
+      member do
+        get :yells
+      end
+    end
+
+  #↓ scope end
   end
 
 end

@@ -11,12 +11,12 @@
       <th><%= @member.name %></th>
     </tr>
     <tr>
-      <th>紹介文入ります<%= @member.introduction %></th>
+      <th>紹介文が入ります<%= @member.introduction %></th>
     </tr>
     <tr>
       <th>新規投稿ボタン追加します</th>
     </tr>
     <tr>
-      <th>応援した作品一覧のリンクを作ります</th>
+      <th><%= link_to '応援一覧', yells_member_path(@member) %></th>
     </tr>
   </table>
