@@ -24,4 +24,13 @@ class Member < ApplicationRecord
       member.name = "guestmember"
     end
   end
+
+  # メンバー検索
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @member = Member.where("name LIKE ?", "#{words}%")
+    else
+      @member = Member.where("name LIKE ?", "%#{words}%")
+    end
+  end
 end

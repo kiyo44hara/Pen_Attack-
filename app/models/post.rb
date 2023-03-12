@@ -22,6 +22,15 @@ class Post < ApplicationRecord
     yells.exists?(member_id: member.id)
   end
 
+  # 投稿タイトル検索
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @post = Post.where("name LIKE ?", "#{words}%")
+    else
+      @post = Post.where("name LIKE ?", "%#{words}%")
+    end
+  end
+
 
 
 # 複数タグを取り扱う為のメソッドです(postsコントローラーのcreate参照)

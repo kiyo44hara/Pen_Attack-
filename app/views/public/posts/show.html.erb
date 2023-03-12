@@ -45,7 +45,11 @@
     <% @post.post_comments.each do |post_comment| %>
           <tr>
             <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
-            <td><%= post_comment.comment %></td>
+            <% if post_comment.is_deleted == false %>
+              <td><%= post_comment.comment %></td>
+            <% else %>
+              <td>このコメントは不適切と判断されたため、管理者によって削除されました。</td>
+            <% end %>
           </tr>
 
 
@@ -80,4 +84,4 @@
     <% end %>
 
 
-    <h1>余白</h1>
+    <h1>余白</h1><h1>余白</h1><h1>余白</h1><h1>余白</h1>

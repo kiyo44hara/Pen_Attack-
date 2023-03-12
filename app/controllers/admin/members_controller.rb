@@ -1,12 +1,10 @@
 class Admin::MembersController < ApplicationController
-    before_action :authenticate_admin!
 
   def index
     @members = Member.all
   end
 
   # 会員のステータス更新。
-  # また、ApplicationControllerにて、管理者権限と、会員本人以外はステータスの更新ができないようにしています。
   def update
     @member = Member.find(params[:id])
     if @member.is_deleted == false
