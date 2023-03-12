@@ -38,3 +38,46 @@
     <span><%= @post.unit_i18n %></span>
   </h5>
 
+  <h3>コメント</h3>
+
+  <table>
+    <!--1、コメントしたメンバーのアイコン＋コメント-->
+    <% @post.post_comments.each do |post_comment| %>
+          <tr>
+            <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
+            <td><%= post_comment.comment %></td>
+          </tr>
+
+
+    <!--コメントしたメンバーの名前(マイページリンク付き)-->
+          <tr>
+            <td>
+              <%= link_to member_path(post_comment.member.id) do %>
+                <%= post_comment.member.name %>
+              <% end %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+          <!--コメント削除機能-->
+              <% if post_comment.member == current_member %>
+                <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを削除しますか？" } do %>
+                  <button type="button" class="btn btn-danger btn-sm">コメント削除</button>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+
+    <% end %>
+  </table>
+
+
+  <!--コメント投稿エリア-->
+    <%= form_with(model: [@post, @post_comment], local: true) do |f| %>
+      <%= f.text_area :comment, placeholder: 'コメントを入力して下さい' %>
+      <div><%= f.submit '送信' %></div>
+    <% end %>
+
+
+    <h1>余白</h1>

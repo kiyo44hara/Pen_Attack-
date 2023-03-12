@@ -3,6 +3,7 @@ class Post < ApplicationRecord
     has_many :post_tags, dependent: :destroy
     has_many :tags, through: :post_tags
     has_many :yells, dependent: :destroy
+    has_many :post_comments, dependent: :destroy
     belongs_to :member
 
   # 制作時間の単位をそれぞれ、分・時間・日で分けています。
