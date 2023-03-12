@@ -21,5 +21,10 @@
     </script>
 
   <div><%= f.submit '変更を保存', class: 'btn btn-success' %></div>
-
 <% end %>
+
+<div>
+  <%= link_to post_path(@post.id), method: :delete,data: {confirm: "本当に投稿を削除しますか？" } do %>
+    <button type="button" class="btn btn-danger btn-sm">投稿を削除する</button>
+  <% end %>
+</div>
