@@ -21,6 +21,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_tags = @post.tags
+    @post_comment = PostComment.new
   end
 
   def index
@@ -50,6 +51,9 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to member_path(@post.member.id)
   end
 
   private

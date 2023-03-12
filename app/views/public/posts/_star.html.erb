@@ -20,17 +20,15 @@
 <% else %>
     <div id="star_<%= post.id %>"></div>
     <script>
-    $(document).on('turbolinks:load', function() {
-        let raty_<%= post.id %> = document.querySelector('#star_<%= post.id %>');
-        star_<%= post.id %>.innerHTML = ""
-        let option_<%= post.id %> = {
-            starOn: "<%= asset_path('star-on.png') %>",
-            starOff: "<%= asset_path('star-off.png') %>",
-            score: "<%= post.star %>",
-            readOnly: true,
-          };
-        raty(raty_<%= post.id %> ,option_<%= post.id %>);
-    });
+    $('#star_<%= post.id %>').empty();
+    var elem = document.getElementById('star_<%= post.id %>')
+    var opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      score: "<%= post.star %>",
+      readOnly: true
+    };
+    raty(elem,opt)
     </script>
 
 <% end %>

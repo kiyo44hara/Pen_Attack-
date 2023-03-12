@@ -1,5 +1,7 @@
 class Member < ApplicationRecord
   has_many :posts
+  has_many :yells, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -20,6 +22,15 @@ class Member < ApplicationRecord
     find_or_create_by!(name: 'guestmember', email: 'guest1@example.com') do |member|
       member.password = SecureRandom.urlsafe_base64
       member.name = "guestmember"
+    end
+  end
+
+  # メンバー検索
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @member = Member.where("name LIKE ?", "#{words}")
+    else
+      @member = Member.where("name LIKE ?", "%#{words}%")
     end
   end
 end

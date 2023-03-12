@@ -10,18 +10,21 @@
 
     <div id = 'post_raty'></div>
     <script>
-      $(document).on('turbolinks:load', function() {
-      let raty_elem = document.querySelector('#post_raty');
-      raty_elem.innerHTML = ""
-      let option = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          scoreName: 'post[star]',
-        };
-      raty(raty_elem,option);
-     });
+    $('#post_raty').empty();
+    var elem = document.getElementById('post_raty')
+    var opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      score: "<%= @post.star %>",
+    };
+    raty(elem,opt)
     </script>
 
   <div><%= f.submit '変更を保存', class: 'btn btn-success' %></div>
-
 <% end %>
+
+<div>
+  <%= link_to post_path(@post.id), method: :delete,data: {confirm: "本当に投稿を削除しますか？" } do %>
+    <button type="button" class="btn btn-danger btn-sm">投稿を削除する</button>
+  <% end %>
+</div>

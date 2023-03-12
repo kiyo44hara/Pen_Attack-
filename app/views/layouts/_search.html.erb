@@ -1,0 +1,4 @@
+<%= f.text_field :word %>
+<%= f.select :range, options_for_select([["クリエイター"],["イラスト"],["タグ"]]) %>
+<%= f.select :search, options_for_select([["完全一致","perfect_match"],["部分一致","partial_match"]]) %>
+<%= f.submit "検索" %>

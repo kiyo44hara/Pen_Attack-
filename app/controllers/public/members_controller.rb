@@ -1,6 +1,11 @@
 class Public::MembersController < ApplicationController
   before_action :ensure_guest_member, only: [:edit]
 
+  def yells
+    @member = Member.find(params[:id])
+    yells = Yell.where(member_id: @member.id).pluck(:post_id)
+    @yell_posts = Post.find(yells)
+  end
 
   def show
     @member = Member.find(params[:id])
