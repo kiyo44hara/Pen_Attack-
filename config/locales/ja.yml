@@ -5,3 +5,8 @@ ja:
         minutes: "分"
         time: "時間"
         day: "日"
+
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"

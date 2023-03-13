@@ -1,4 +1,11 @@
 <h4>投稿一覧</h4>
+<p>
+  <%= link_to '新着順', posts_path(latest: "ture") %>
+  <%= link_to '古い順', posts_path(old: "ture") %>
+  <%= link_to '星(多い)', posts_path(star_latest: "ture") %>
+  <%= link_to '星(少ない)', posts_path(star_old: "ture") %>
+</p>
+
 <% @posts.each do |post| %>
 <%= render "public/template/index", post: post %>
 

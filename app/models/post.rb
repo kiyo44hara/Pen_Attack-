@@ -4,10 +4,17 @@ class Post < ApplicationRecord
     has_many :tags, through: :post_tags
     has_many :yells, dependent: :destroy
     has_many :post_comments, dependent: :destroy
+    has_many :view_counts, dependent: :destroy
     belongs_to :member
 
   # 制作時間の単位をそれぞれ、分・時間・日で分けています。
   enum unit: { minutes: 0, time: 1, day: 2 }
+
+  # 投稿並び替え機能
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :star_latest, -> {order(star: :desc)}
+  scope :star_old, -> {order(star: :asc)}
 
   # 投稿イラスト設定
   has_one_attached :image

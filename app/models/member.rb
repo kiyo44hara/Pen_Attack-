@@ -2,6 +2,7 @@ class Member < ApplicationRecord
   has_many :posts
   has_many :yells, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :view_counts, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

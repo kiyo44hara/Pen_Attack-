@@ -20,12 +20,23 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    current_member.view_counts.create(post_id: @post.id)
     @post_tags = @post.tags
     @post_comment = PostComment.new
   end
 
   def index
-    @posts = Post.all
+    if params[:latest]
+      @posts = Post.latest
+    elsif params[:old]
+      @posts = Post.old
+    elsif params[:star_latest]
+      @posts = Post.star_latest
+    elsif params[:star_old]
+      @posts = Post.star_old
+    else
+      @posts = Post.all
+    end
   end
 
   def edit
