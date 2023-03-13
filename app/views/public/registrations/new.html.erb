@@ -1,7 +1,7 @@
 <body class= main-content>
-  <div class= "containe-fluidr">
+  <div class= "containe-fluid">
     <div class= "row">
-        <div class= "col-6">
+        <div class= "col-sm-6 col-md-12 col-lg-6">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "public/shared/error_messages", resource: resource %>
 
@@ -32,11 +32,12 @@
               <h6>既に会員の方は<%= render "public/shared/links" %></h6>
             </main>
         </div>
-            <!--Aboutテンプレート-->
-        <div class= "col-6-left ">
+
+        <div class= "col-sm-6 col-md-12 col-lg-6">
           <div class= "h2-content">
-            <h2>創作活動を頑張る</br>
-            あなたを応援します！</h2>
+            <h2 class= "text-content">創作活動を頑張る</br>
+              あなたを応援します！
+            </h2>
           </div>
         </div>
 

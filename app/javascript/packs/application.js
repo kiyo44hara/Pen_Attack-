@@ -13,6 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import "../stylesheets/public/registrations"
+import "../stylesheets/public/sessions"
 import '@fortawesome/fontawesome-free/js/all'
 
 

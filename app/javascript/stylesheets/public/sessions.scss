@@ -1,0 +1,55 @@
+.log_in-main-content {
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('/assets/ログイン画面.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: inline-block;
+}
+
+.log_in-sign_in {
+  text-align: center;
+  border-radius: 15px;
+  background-color: rgba(255,255,255,0.80);
+  height: 450px;
+}
+
+.log_in-title-logo{
+  max-height: 80%;
+  max-width: 80%;
+}
+
+.field {
+ padding: 10px;
+}
+
+.sign_up_link{
+  display: inline-block;
+  margin-left: 190px;
+}
+
+.log_in-actions{
+  display: inline-block;
+  margin-right: 10px;
+  float: right;
+}
+
+.log_in-actions input[type="submit"]{
+  font-size: 30px;
+  border-radius: 5px;
+  height: 60px;
+  width: 200;
+}
+
+.log_in-h1-content {
+  height: 80vh;
+}
+
+.log_in-text-content{
+  padding: 400px 80px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.50);
+}
