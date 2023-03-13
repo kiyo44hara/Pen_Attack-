@@ -3,7 +3,7 @@
   <div><%= image_tag @post.get_image(500,500) %></div>
 
   <h4>
-    <span>閲覧数設置♡</span>
+    <span><%= @post.view_counts.count %>♡</span>
     <!--レート機能の情報を持ってきています-->
     <%= render "public/posts/star", post: @post %>
 
@@ -21,6 +21,8 @@
       <% end %>
     </span>
   </h3>
+
+  <h6><%= l @post.created_at %></h6>
 
   <h4>製作者:<%= @post.member.name %></h4>
 

@@ -4,7 +4,7 @@
   <div><%= image_tag @post.get_image(500,500) %></div>
 
   <h4>
-    <span>閲覧数設置♡</span>
+    <span><%= @post.view_counts.count %>♡</span>
     <span><%= render "yell_button", post: @post %></span>
 
   <% if @post.member == current_member %>
@@ -22,6 +22,8 @@
       <% end %>
     </span>
   </h3>
+
+  <h6><%= l.post.created_at %></h6>
 
   <h4>製作者:<%= @post.member.name %></h4>
 

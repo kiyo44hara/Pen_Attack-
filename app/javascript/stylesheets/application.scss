@@ -1,15 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-
-body {
-  background-image: url('/assets/test.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-}
-
 header, footer {
     height: 60px;
     width: 100%;
@@ -89,7 +80,7 @@ nav.hamburger-menu {
   top  : 0;
   left : 0;
   color: #000;
-  background: rgba(0,0,0,0.57);
+  background: rgba(0,0,0,0.80);
   transform: translateX(100%);
   transition: all 0.6s;
   width: 100%;
