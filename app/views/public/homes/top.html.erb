@@ -1,4 +1,38 @@
-<h1>トップ画面</h1>
-<%= link_to destroy_member_session_path, method: :delete,class: 'nav-link text-black' do %>
-  <i class="fas fa-sign-out-alt"></i> ログアウト(仮設置)
-<% end %>
+<body class= "tops-content">
+  <div class= "container-fluid">
+
+    <!--管理者側から顧客側に情報をお知らせするページです-->
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <main class= "tops-main-content">
+          <div class= "tops-main-image">
+            <img class= "main-image" src="/assets/top-image.png">
+            <p class= "main-text">イラストが完成したら、タグをつけて投稿しよう!</p>
+            <div class= "tops-main-button">
+              <%= link_to new_post_path do %>
+                <button type="button" class="btn btn-primary">新規投稿</button>
+              <% end %>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "new-post-index">
+          <h2 class="text">新着イラスト</h2>
+          <div class= "image-index">
+            <% @posts.each do |post| %>
+              <div class= "image">
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.get_image(120,120) %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -74,7 +74,7 @@
 
 
 // レスポンシブ対応
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1220px) {
   .sign_in {
     margin-left: 0px;
   }
@@ -84,13 +84,13 @@
   }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:991px) {
   .sign_in {
     margin-left: 120px;
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:576px) {
   .sign_in {
     margin: 0 auto;
     width: 430px;

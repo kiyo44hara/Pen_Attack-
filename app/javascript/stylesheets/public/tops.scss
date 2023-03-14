@@ -1,0 +1,66 @@
+.tops-content {
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('/assets/トップ画面.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: inline-block;
+}
+
+.tops-main-content {
+  // background-color: rgba(0,0,0,0.50);
+  height: 560px;
+}
+
+.tops-main-image {
+  // background-color: rgba(0,0,0,0.50);
+  width: 800px;
+  height: 550px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-image {
+  padding: 20px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.main-text {
+  color: white;
+  text-align: center;
+}
+
+.tops-main-button {
+  text-align: right;
+}
+
+.new-post-index {
+  background-color: rgba(255,255,255,0.50);
+  height: 230px;
+  width: 100%;
+}
+
+.new-post-index .row{
+  margin: 0 auto;
+}
+
+.new-post-index .text {
+  color: white;
+  padding: 15px 0 0 15px;
+}
+
+.new-post-index .image-index{
+  display: block;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.new-post-index .image {
+  //  flex: 0 0 auto;
+    display: inline-block;
+    width: 120px;
+   margin: 10px 20px 20px 10px;
+}
