@@ -16,7 +16,7 @@
   height: 80vh;
 }
 
-h2{
+.text-content{
   padding: 100px;
   text-align: center;
   color: white;
@@ -70,4 +70,29 @@ h2{
   border-radius: 5px;
   height: 60px;
   width: 200;
+}
+
+
+// レスポンシブ対応
+@media screen and (max-width:1220px) {
+  .sign_in {
+    margin-left: 0px;
+  }
+
+  .text-content {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .sign_in {
+    margin-left: 120px;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .sign_in {
+    margin: 0 auto;
+    width: 430px;
+  }
 }
