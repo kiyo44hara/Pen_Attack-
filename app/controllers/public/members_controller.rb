@@ -10,10 +10,21 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts
+    if params[:star_latest]
+      @posts = Post.star_latest.limit(8)
+    elsif params[:star_old]
+      @posts = Post.star_old.limit(8)
+    elsif params[:old]
+      @posts = Post.old.limit(8)
+    else params[:latest]
+      @posts = Post.latest.limit(8)
+    end
+
   end
 
   def edit
     @member = Member.find(params[:id])
+    @posts = @member.posts
   end
 
   def update

@@ -1,2 +1,0 @@
-      invoke  active_record
-      create    db/migrate/20230315112830_add_introduction_to_members.rb

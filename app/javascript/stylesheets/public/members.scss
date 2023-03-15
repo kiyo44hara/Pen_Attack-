@@ -65,19 +65,21 @@
 }
 
 .my-page-title {
- background-color: red;
+ // background-color: red;
  width: 500px;
  height: 80px;
  position: absolute;
  top: 20px;
- left: 20px;
+ left: 200px;
 }
 
 .my-page-title .title {
  background-color: rgba(0,0,0,0.30);
+ width: 160px;
  display: inline-block;
  font-weight: bold;
- border-radius: 15px;
+ border-radius: 10px;
+ text-align: center;
 }
 
 .my-page-title .title-text1 {
@@ -100,4 +102,25 @@
 .my-page-posts .image {
  float: left;
  margin: 10px 50px 0 50px;
+}
+
+.my-page-image-title {
+ font-size: 20px;
+ text-align: center;
+ font-weight: bold;
+}
+
+.my-page-image-star, .my-page-image-button {
+ text-align: center;
+}
+
+// 編集ページ
+.profile_edit-button {
+ position: absolute;
+ top: 750px;
+ left: 70px;
+ font-size: 25px;
+ width: 200px;
+ height: 70px;
+ border-radius: 15px;
 }

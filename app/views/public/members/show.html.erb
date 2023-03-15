@@ -33,28 +33,14 @@
           </div>
         </main>
       </div>
-
-          <!--メンバーの投稿一覧-->
-      <div class= "col-sm-12 col-md-9 col-lg-9">
-        <div class= "member-post-index">
-          <div class= "my-page-title">
-            <h2 class= "title">投稿作品</h2>
-              <span class= "title-text1">【<%= @member.name %>】</span>
-              <span class= "title-text2">さんのマイページ</span>
-          </div>
-
-          <div class= "my-page-posts">
-            <% @posts.each do |post| %>
-              <div class= "image">
-                <%= link_to post_path(post.id) do %>
-                  <%= image_tag post.get_image(200,200) %>
-                <% end %>
-              </div>
-            <% end %>
+      
+          <!--右ページ-->
+          <%= render "post_index" %>
+            <!--< paginate @posts %>-->
           </div>
         </div>
       </div>
 
 
-    </div>
   </div>
+</div>
