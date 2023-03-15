@@ -1,3 +1,55 @@
-// Place all the styles related to the public/members controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.my-page-form {
+ position: relative;
+ width: 350px;
+ height: 900px;
+ background-color: rgba(0,0,0,0.10);
+}
+
+.my-page-form img {
+ padding: 22px 22px 0 50px;
+}
+
+.my-page-form .name {
+ font-size: 25px;
+ font-weight: bold;
+ text-align: center;
+}
+
+.my-page-form .btn {
+ width: 60px;
+ position: absolute;
+ right: 30px;
+}
+
+.introduction {
+ position: absolute;
+ top: 360px;
+ right: 15px;
+ width: 320px;
+ height: 360px;
+ background-color: white;
+ border: 1px solid rgba(20,20,20,100);
+ border-radius: 15px;
+ padding: 7px;
+}
+
+.introduction .box {
+ white-space: pre-wrap;
+ font-size: 15px;
+}
+
+.my-page-button-new .btn{
+ position: absolute;
+ top: 750px;
+ left: 70px;
+ font-size: 25px;
+ width: 200px;
+ height: 70px;
+ border-radius: 15px;
+}
+
+.yells-link a {
+ position: absolute;
+ top: 850px;
+ left: 110px;
+}

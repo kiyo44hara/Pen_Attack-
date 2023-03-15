@@ -15,6 +15,7 @@ import "../stylesheets/application"
 import "../stylesheets/public/registrations"
 import "../stylesheets/public/sessions"
 import "../stylesheets/public/tops"
+import "../stylesheets/public/members"
 import '@fortawesome/fontawesome-free/js/all'
 
 

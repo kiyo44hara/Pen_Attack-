@@ -2,6 +2,6 @@
 <%= form_with model: @member do |f| %>
   <%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*' %>
   <%= f.text_field :name, autofocus: true, id:'inputName', placeholder:'ニックネーム(10文字以内)' %>
-  <%= f.text_area :introduction, autofocus: true, pleceholder:'自己紹介を記入' %>
+  <%= f.text_area :introduction, autofocus: true, maxlength: 300, pleceholder:'自己紹介を記入(300文字以内)' %>
   <%= f.submit '変更を保存', class: 'btn btn-secondary' %>
 <% end %>
