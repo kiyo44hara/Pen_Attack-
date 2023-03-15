@@ -1,7 +1,8 @@
 <div class= "container-fluid">
     <div class= "row">
-      <div class= "col-sm-12 col-md-12 col-lg-6">
 
+      <!--メンバーの情報画面-->
+      <div class= "col-sm-12 col-md-3 col-lg-3">
         <main class= "my-page-form">
           <!--プロフィールアイコン-->
           <div class= "image">
@@ -26,32 +27,34 @@
               <button type="button" class="btn btn-primary">新規投稿</button>
               <% end %>
           </div>
+          <!--応援一覧リンク-->
+          <div class= "yells-link">
+            <%= link_to '応援した作品一覧', yells_member_path(@member) %>
+          </div>
+        </main>
+      </div>
 
-          <div class= "yells-link"><%= link_to '応援した作品一覧', yells_member_path(@member) %></div>
+          <!--メンバーの投稿一覧-->
+      <div class= "col-sm-12 col-md-9 col-lg-9">
+        <div class= "member-post-index">
+          <div class= "my-page-title">
+            <h2 class= "title">投稿作品</h2>
+              <span class= "title-text1">【<%= @member.name %>】</span>
+              <span class= "title-text2">さんのマイページ</span>
+          </div>
 
-          <!--  <table>-->
-          <!--    <tr>-->
-          <!--      <%= image_tag @member.get_profile_image(250,250) %>-->
+          <div class= "my-page-posts">
+            <% @posts.each do |post| %>
+              <div class= "image">
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.get_image(200,200) %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-          <!--      <% if @member.name != 'guestmember' %>-->
-          <!--      <p><%= link_to 'プロフィール編集', edit_member_path %></p>-->
-          <!--      <% end %>-->
-          <!--    </tr>-->
-          <!--    <tr>-->
-          <!--      <th></th>-->
-          <!--    </tr>-->
-          <!--    <tr>-->
-          <!--      <th>紹介文が入ります<%= @member.introduction %></th>-->
-          <!--    </tr>-->
-          <!--    <tr>-->
-          <!--      <th>新規投稿ボタン追加します</th>-->
-          <!--    </tr>-->
-          <!--    <tr>-->
-          <!--      <th><%= link_to '応援一覧', yells_member_path(@member) %></th>-->
-          <!--    </tr>-->
-          <!--  </table>-->
-          <!--</div>-->
 
-      </main>
     </div>
   </div>

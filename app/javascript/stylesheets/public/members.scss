@@ -1,3 +1,4 @@
+// 左画面(プロフィール詳細)
 .my-page-form {
  position: relative;
  width: 350px;
@@ -52,4 +53,51 @@
  position: absolute;
  top: 850px;
  left: 110px;
+}
+
+// 右画面(投稿一覧)
+.member-post-index {
+ position: relative;
+ margin-top: 20px;
+ width: 1400px;
+ height: 880px;
+ background-color: rgba(0,0,0,0.10);
+}
+
+.my-page-title {
+ background-color: red;
+ width: 500px;
+ height: 80px;
+ position: absolute;
+ top: 20px;
+ left: 20px;
+}
+
+.my-page-title .title {
+ background-color: rgba(0,0,0,0.30);
+ display: inline-block;
+ font-weight: bold;
+ border-radius: 15px;
+}
+
+.my-page-title .title-text1 {
+ font-size: 25px;
+ font-weight: bold;
+}
+
+.my-mage-title .title-text2 {
+ font-size: 20px;
+}
+
+.my-page-posts {
+ position: absolute;
+ top: 100px;
+ right: 100px;
+ width: 1200px;
+ height: 900px;
+}
+
+.my-page-posts .image {
+ float: left;
+ margin: 10px 50px 0 50px;
 }
