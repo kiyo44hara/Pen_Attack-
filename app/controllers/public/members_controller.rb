@@ -24,7 +24,7 @@ class Public::MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts
+    @posts = @member.posts.latest.limit(8)
   end
 
   def update

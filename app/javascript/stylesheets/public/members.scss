@@ -115,12 +115,58 @@
 }
 
 // 編集ページ
+.my-page-edit-back {
+ background-color: black;
+}
+
 .profile_edit-button {
  position: absolute;
- top: 750px;
- left: 70px;
- font-size: 25px;
+ left: 300px;
+}
+
+.profile_edit-button .btn {
+ margin-top: 10px;
  width: 200px;
  height: 70px;
+ font-size: 25px;
  border-radius: 15px;
+}
+
+.my-page-form label {
+ padding: 10px 10px;
+ margin: 10px 0 0 100px;
+ color: #ffffff;
+ background-color: #384878;
+ cursor: pointer;
+ border-radius: 15px;
+}
+
+.my-page-form input[type= "file"] {
+ display: none;
+}
+
+.my-page-form p {
+ color: white;
+ text-align: center;
+ margin-top: 10px;
+}
+
+.my-page-form .edit {
+ color: limegreen;
+}
+
+.my-page-form .text-area {
+ margin: 10px 0 0 20px;
+}
+
+.front-color {
+ position: relative;
+}
+
+.front-color .color {
+ position: absolute;
+ top: 0px;
+ background-color: rgba(0,0,0,0.50);
+ width: 1400px;
+ height: 880px;
 }
