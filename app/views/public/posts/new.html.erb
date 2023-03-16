@@ -1,15 +1,59 @@
-<h4>新規投稿</h4>
-<%= form_with model: @post do |f| %>
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  <%= render "post_new_edit", f: f %>
+<body class= "post-new-content">
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "post-new-page">
+            <div class= "items">
+              <h3 class= "title">新規投稿</h3>
+              <%= form_with model: @post do |f| %>
+                <h4>画像</h4>
+                <span><%= f.file_field :image, accept: "image/*" %></span>
+                <div>
+                  <h4>タイトル</h4>
+                  <span><%= f.text_field :title %></span>
+                </div>
 
-  <!--レート機能の情報を持ってきています-->
-  <div id= 'star'>
-    <%= f.hidden_field :star, id: :review_star %>
+                <div>
+                  <h4>作品紹介</h4>
+                  <span><%= f.text_area :body %></span>
+                </div>
+
+                <div>
+                  <h4>ここ見て！</h4>
+                  <span><%= f.text_field :appeal_point %></span>
+                </div>
+
+                <div>
+                  <h4>改善点</h4>
+                  <span><%= f.text_field :improve_point %></span>
+                </div>
+
+                <div>
+                  <h4>制作時間</h4>
+                  <span>
+                    <%= f.select :production_time, *[1..50] %>
+                    <%= f.select :unit, Post.units.keys.map {|k| [I18n.t("enums.post.unit.#{k}"), k]} %>
+                  </span>
+                </div>
+
+                <div>
+                  <h4>タグ</h4>
+                  <span><%= f.text_field :name, value: @tag_list %></span>
+                </div>
+                <div id= 'star'>
+                <%= f.hidden_field :star, id: :review_star %>
+                </div>
+
+                <%= render "star", post: @post %>
+
+                <div class= "post_new-button"><%= f.submit '作品を投稿', class: 'btn btn-success' %></div>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
+</body>
 
-  <%= render "star", post: @post %>
-
-  <div><%= f.submit '作品を投稿' %></div>
-<% end %>
+<!--< render "post_new_edit", f: f %>-->
+<!--あとでレイアウトを修正しやすくするために、テンプレートを適応させていません。-->

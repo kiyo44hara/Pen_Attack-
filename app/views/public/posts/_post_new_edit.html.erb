@@ -1,18 +1,32 @@
+<div>
   <h4>タイトル</h4>
-  <%= f.text_field :title %>
+  <span><%= f.text_field :title %></span>
+</div>
 
+<div>
   <h4>作品紹介</h4>
-  <%= f.text_area :body %>
+  <span><%= f.text_area :body %></span>
+</div>
 
+<div>
   <h4>ここ見て！</h4>
-  <%= f.text_field :appeal_point %>
+  <span><%= f.text_field :appeal_point %></span>
+</div>
 
+<div>
   <h4>改善点</h4>
-  <%= f.text_field :improve_point %>
+  <span><%= f.text_field :improve_point %></span>
+</div>
 
+<div>
   <h4>制作時間</h4>
-  <%= f.select :production_time, *[1..50] %>
-  <%= f.select :unit, Post.units.keys.map {|k| [I18n.t("enums.post.unit.#{k}"), k]} %>
+  <span>
+    <%= f.select :production_time, *[1..50] %>
+    <%= f.select :unit, Post.units.keys.map {|k| [I18n.t("enums.post.unit.#{k}"), k]} %>
+  </span>
+</div>
 
+<div>
   <h4>タグ</h4>
-  <%= f.text_field :name, value: @tag_list %>
+  <span><%= f.text_field :name, value: @tag_list %></span>
+</div>

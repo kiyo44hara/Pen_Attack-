@@ -1,3 +1,72 @@
-// Place all the styles related to the public/posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.post-new-content {
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('/assets/明るめ背景.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: inline-block;
+}
+
+.post-new-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,0.80);
+  width: 800px;
+  height: 920px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.post-new-page .items {
+  // background-color: white;
+  width: 700px;
+  height: 600px;
+  margin-bottom: 200px;
+  text-align: center;
+}
+
+.post-new-page .title {
+  width: 150px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: rgba(0,0,0,0.30);
+}
+
+.post-new-page h4 {
+  padding: 10px;
+}
+
+// 投稿編集画面
+.post-edit-content {
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('/assets/ひかえめ背景.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: inline-block;
+}
+
+.post-edit-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,0.80);
+  width: 800px;
+  height: 990px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.post-edit-page .title {
+  width: 150px;
+  margin-bottom: 30px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: rgba(0,0,0,0.30);
+}
