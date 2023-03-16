@@ -6,11 +6,15 @@
       <div class= "col-sm-12 col-md-12 col-lg-12">
         <main class= "tops-main-content">
           <div class= "tops-main-image">
-            <img class= "main-image" src="/assets/top-image.png">
+            <div class= "tops-main-title">
+              <span class= "text1">今週のお題</br></span>
+              <span class= "text2">「水遊び」</span>
+            </div>
+                <img class= "main-image" src="/assets/top-image.png">
             <p class= "main-text">イラストが完成したら、タグをつけて投稿しよう!</p>
             <div class= "tops-main-button">
               <%= link_to new_post_path do %>
-                <button type="button" class="btn btn-primary">新規投稿</button>
+              <button type="button" class="btn btn-primary">新規投稿</button>
               <% end %>
             </div>
           </div>

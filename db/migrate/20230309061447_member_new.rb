@@ -1,5 +1,5 @@
 class MemberNew < ActiveRecord::Migration[6.1]
-  
+
   def change
     create_table :members do |t|
       ## Database authenticatable
@@ -32,7 +32,7 @@ class MemberNew < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       t.string :name, null: false
-      t.text :introduction
+      t.text :introduction, default: "初めまして！よろしくおねがいします！"
       t.boolean :is_deleted, null: false, default: "false"
       t.timestamps null: false
     end

@@ -1,9 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-main {
+.application-main {
   padding-bottom: 120px;
 }
+
+textarea {
+  resize: none;
+}
+
 header, footer {
     height: 60px;
     width: 100%;

@@ -15,6 +15,7 @@ import "../stylesheets/application"
 import "../stylesheets/public/registrations"
 import "../stylesheets/public/sessions"
 import "../stylesheets/public/tops"
+import "../stylesheets/public/members"
 import '@fortawesome/fontawesome-free/js/all'
 
 
@@ -40,5 +41,14 @@ $(document).on('turbolinks:load', function() {
         } else {
             $('.hamburger-menu').removeClass('active');
         }
+    });
+});
+
+// アップロードしたいファイルを選択した時に、ファイル名が表示される
+
+$(document).on('turbolinks:load', function() {
+    $('input').on('change', function () {
+    var file = $(this).prop('files')[0];
+    $('p').text(file.name);
     });
 });

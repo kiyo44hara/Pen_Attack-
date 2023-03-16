@@ -15,11 +15,31 @@
 }
 
 .tops-main-image {
+  position: relative;
   // background-color: rgba(0,0,0,0.50);
   width: 800px;
   height: 550px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.tops-main-title {
+  height: 120px;
+  width: 250px;
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.70);
+  display: inline-block;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  padding: 20px;
+}
+
+.tops-main-title .text2 {
+  font-size: 40px;
 }
 
 .main-image {
@@ -41,6 +61,7 @@
   background-color: rgba(255,255,255,0.50);
   height: 230px;
   width: 100%;
+  text-align: center;
 }
 
 .new-post-index .row{
@@ -59,8 +80,7 @@
 }
 
 .new-post-index .image {
-  //  flex: 0 0 auto;
-    display: inline-block;
-    width: 120px;
-   margin: 10px 20px 20px 10px;
+  display: inline-block;
+  width: 120px;
+  margin: 10px 20px 20px 10px;
 }
