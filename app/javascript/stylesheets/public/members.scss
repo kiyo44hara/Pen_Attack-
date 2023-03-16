@@ -3,7 +3,8 @@
  position: relative;
  width: 350px;
  height: 900px;
- background-color: rgba(0,0,0,0.10);
+ // 要素の大枠が見える化するので、必要に応じて色を変えて下さい
+ background-color: white;
 }
 
 .my-page-form img {
@@ -19,7 +20,7 @@
 .my-page-form .btn {
  width: 60px;
  position: absolute;
- right: 30px;
+ right: 145px;
 }
 
 .introduction {
@@ -169,4 +170,26 @@
  background-color: rgba(0,0,0,0.50);
  width: 1400px;
  height: 880px;
+}
+
+// レスポンシブ対応
+@media screen and (max-width:991px) {
+  .my-page-form {
+   left: 300px;
+  }
+
+  .member-post-index {
+    left: 120px;
+    width: 0px;
+  }
+
+  .my-page-posts {
+   right: 0px;
+   width: 0px;
+   left: 200px;
+  }
+
+  .my-page-posts .image {
+   padding-bottom: 70px;
+  }
 }
