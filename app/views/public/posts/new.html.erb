@@ -5,7 +5,11 @@
   <%= render "post_new_edit", f: f %>
 
   <!--レート機能の情報を持ってきています-->
-  <%= render "star", f: f %>
+  <div id= 'star'>
+    <%= f.hidden_field :star, id: :review_star %>
+  </div>
+
+  <%= render "star", post: @post %>
 
   <div><%= f.submit '作品を投稿' %></div>
 <% end %>

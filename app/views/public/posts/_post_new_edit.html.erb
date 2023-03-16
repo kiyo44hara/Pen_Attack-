@@ -11,7 +11,7 @@
   <%= f.text_field :improve_point %>
 
   <h4>制作時間</h4>
-  <%= f.text_field :production_time %>
+  <%= f.select :production_time, *[1..50] %>
   <%= f.select :unit, Post.units.keys.map {|k| [I18n.t("enums.post.unit.#{k}"), k]} %>
 
   <h4>タグ</h4>

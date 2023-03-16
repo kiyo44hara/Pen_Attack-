@@ -47,7 +47,11 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+
     tag_list = params[:post][:name].split(',')
+
+    params[:post][:star] = params[:score]
+
     if @post.update(post_params)
       #↓ もともと投稿につけられてたタグを@oldに格納し、削除しています(編集時にタグを削除した場合のエラー回避)
        @old_relations = PostTag.where(post_id: @post.id)

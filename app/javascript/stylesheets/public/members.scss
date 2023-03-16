@@ -115,6 +115,12 @@
  text-align: center;
 }
 
+.my-pagenite {
+ position: absolute;
+ bottom: 200px;
+ right: 500px;
+}
+
 // 編集ページ
 .my-page-edit-back {
  background-color: black;
@@ -196,7 +202,15 @@
   }
 
   .front-color .color {
+   top: -20px;
    width: 770px;
-   height: 3030px;
+   height: 3050px;
+  }
+
+  .my-pagenite {
+   top: -120px;
+   right: 20px;
+   bottom: 0px;
+   left: 0px;
   }
 }

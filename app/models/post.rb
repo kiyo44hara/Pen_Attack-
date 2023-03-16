@@ -19,8 +19,13 @@ class Post < ApplicationRecord
   # 投稿イラスト設定
   has_one_attached :image
 
+  # 画像を省略して表示したい場合
   def get_image(width, height)
     image.variant(resize_to_fill: [width, height]).processed
+  end
+  # 画像をフルサイズで表示したい場合
+  def get_imege_full(width, height)
+    image.variant(resize_to_limit: [width, height]).processed
   end
 
 

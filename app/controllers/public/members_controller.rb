@@ -11,20 +11,20 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
     @posts = @member.posts
     if params[:star_latest]
-      @posts = Post.star_latest.limit(8)
+      @posts = Post.star_latest.page(params[:page]).per(8)
     elsif params[:star_old]
-      @posts = Post.star_old.limit(8)
+      @posts = Post.star_old.page(params[:page]).per(8)
     elsif params[:old]
-      @posts = Post.old.limit(8)
+      @posts = Post.old.page(params[:page])
     else params[:latest]
-      @posts = Post.latest.limit(8)
+      @posts = Post.latest.page(params[:page]).per(8)
     end
 
   end
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts.latest.limit(8)
+    @posts = @member.posts.page(params[:page]).per(8)
   end
 
   def update

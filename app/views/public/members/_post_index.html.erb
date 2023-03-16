@@ -33,6 +33,7 @@
                   <!--詳細ボタン-->
                   <%= link_to "詳細画面", post_path(post.id), class: "btn btn-primary"%>
                 </div>
+              <div class= "my-pagenite"><%= paginate @posts%></div>
               </div>
             <% end %>
           </div>
