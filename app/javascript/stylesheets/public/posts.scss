@@ -40,7 +40,7 @@
 }
 
 // 投稿編集画面
-.post-edit-content {
+.post-edit-content, .post-show-content {
   margin: 0 auto;
   width: 100%;
   background-image: url('/assets/ひかえめ背景.png');
@@ -69,4 +69,67 @@
   display: inline-block;
   border-radius: 15px;
   background-color: rgba(0,0,0,0.30);
+}
+
+// 投稿詳細画面
+.post-show-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.post-show-page .items {
+  color: white;
+  // 目印
+  // background-color: rgba(0,0,0,0.30);
+  width: 800px;
+  text-align: center;
+}
+
+.items .item1 {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.items .tag-name {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.items .body {
+  border-radius: 5px;
+  white-space: pre-wrap;
+  background-color: rgba(255,255,255,0.15);
+}
+
+.items h5 {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,100);
+  padding: 5px;
+}
+
+.comment-area {
+  margin-top: 150px;
+  // 目印
+  background-color: rgba(255,255,255,0.15);
+  width: 800px;
+}
+
+.comment-area .comment {
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.comment-area .comment-member {
+  padding-bottom: 20px;
+}
+
+.comment-area img {
+  padding-left: 20px;
+}
+
+.comment-area .delete-btn {
+  position: relative;
+  left: 550px;
 }

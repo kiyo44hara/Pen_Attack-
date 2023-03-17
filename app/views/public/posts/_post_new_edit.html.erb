@@ -1,21 +1,21 @@
 <div>
   <h4>タイトル</h4>
-  <span><%= f.text_field :title %></span>
+  <span><%= f.text_area :title, placeholder:'作品名(15文字以内)', maxlength: 15,cols: 40, rows: 1 %></span>
 </div>
 
 <div>
   <h4>作品紹介</h4>
-  <span><%= f.text_area :body %></span>
+  <span><%= f.text_area :body, placeholder:'(300文字以内)', maxlength: 300,cols: 50, rows: 5 %></span>
 </div>
 
 <div>
   <h4>ここ見て！</h4>
-  <span><%= f.text_field :appeal_point %></span>
+  <span><%= f.text_area :appeal_point, placeholder:'(100文字以内)', maxlength: 100,cols: 50, rows: 3 %></span>
 </div>
 
 <div>
   <h4>改善点</h4>
-  <span><%= f.text_field :improve_point %></span>
+  <span><%= f.text_area :improve_point, placeholder:'(100文字以内)', maxlength: 100,cols: 50, rows: 3 %></span>
 </div>
 
 <div>
@@ -28,5 +28,5 @@
 
 <div>
   <h4>タグ</h4>
-  <span><%= f.text_field :name, value: @tag_list %></span>
+  <span><%= f.text_field :name, value: @tag_list, placeholder:'複数タグをつけたいときは「,」で区切って入力して下さい。'%></span>
 </div>

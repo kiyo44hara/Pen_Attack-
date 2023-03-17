@@ -1,5 +1,5 @@
 <% if post.id === nil %>
-    <div id = 'post_raty'></div>
+    <span id = 'post_raty'></span>
     <script>
       $(document).on('turbolinks:load', function() {
       let raty_elem = document.querySelector('#post_raty');
@@ -14,7 +14,7 @@
     </script>
 
 <% else %>
-    <div id="star_<%= post.id %>"></div>
+    <span id="star_<%= post.id %>"></span>
     <script>
     $('#star_<%= post.id %>').empty();
     var elem = document.getElementById('star_<%= post.id %>')
