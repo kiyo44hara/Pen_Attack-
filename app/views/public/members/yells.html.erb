@@ -1,7 +1,12 @@
-<h4><%= @member.name %>さんの応援一覧</h4>
+<body class= "post-index-content">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-12 col-lg-12">
 
-<% @yell_posts.each do |post| %>
-<%= render "public/template/index", post: post %>
+          <h4 class= "post-index-title">
+            <img class= "index-image" src="/assets/応援一覧用.png"><%= @member.name %>さんの応援一覧
+            </h4>
+          <%= render "public/posts/index", post: @posts %>
 
-<div><%= render "public/posts/yell_button", post: post %></div>
-<% end %>
+    </div>
+  </div>
+</body>

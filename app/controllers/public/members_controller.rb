@@ -4,7 +4,8 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    @yell_posts = Post.find(yells)
+    # @yell_posts = Post.find(yells)
+    @posts = Post.find(yells)
   end
 
   def show

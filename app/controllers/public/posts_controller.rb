@@ -27,13 +27,9 @@ class Public::PostsController < ApplicationController
 
   def index
     if params[:latest]
-      @posts = Post.latest
+      @posts = Post.latest.page(params[:page])
     elsif params[:old]
-      @posts = Post.old
-    elsif params[:star_latest]
-      @posts = Post.star_latest
-    elsif params[:star_old]
-      @posts = Post.star_old
+      @posts = Post.old.page(params[:page])
     else
       @posts = Post.all
     end
