@@ -10,17 +10,26 @@ class Post < ApplicationRecord
   # 制作時間の単位をそれぞれ、分・時間・日で分けています。
   enum unit: { minutes: 0, time: 1, day: 2 }
 
-  # 投稿並び替え機能
+  # 投稿並び替え機能(一覧用))
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
-  scope :star_latest, -> {order(star: :desc)}
-  scope :star_old, -> {order(star: :asc)}
+
+  # 投稿並び替え(個人の情報だけ引っ張ってくれる)
+  scope :my_latest, -> (member_id) { where(member_id: member_id).order(created_at: :desc)}
+  scope :my_old, -> (member_id) { where(member_id: member_id).order(created_at: :asc)}
+  scope :my_star_latest, -> (member_id) { where(member_id: member_id).order(star: :desc)}
+  scope :my_star_old, -> (member_id) { where(member_id: member_id).order(star: :asc)}
 
   # 投稿イラスト設定
   has_one_attached :image
 
+  # 画像を省略して表示したい場合
   def get_image(width, height)
     image.variant(resize_to_fill: [width, height]).processed
+  end
+  # 画像をフルサイズで表示したい場合
+  def get_imege_full(width, height)
+    image.variant(resize_to_limit: [width, height]).processed
   end
 
 

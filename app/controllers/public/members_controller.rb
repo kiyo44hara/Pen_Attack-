@@ -4,27 +4,27 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    @yell_posts = Post.find(yells)
+    # @yell_posts = Post.find(yells)
+    @posts = Post.find(yells)
   end
 
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts
-    if params[:star_latest]
-      @posts = Post.star_latest.limit(8)
-    elsif params[:star_old]
-      @posts = Post.star_old.limit(8)
-    elsif params[:old]
-      @posts = Post.old.limit(8)
-    else params[:latest]
-      @posts = Post.latest.limit(8)
+    if params[:my_star_latest]
+      @posts = Post.my_star_latest(current_member.id).page(params[:page]).per(8)
+    elsif params[:my_star_old]
+      @posts = Post.my_star_old(current_member.id).page(params[:page]).per(8)
+    elsif params[:my_old]
+      @posts = Post.my_old(current_member.id).page(params[:page])
+    else params[:my_latest]
+      @posts = Post.my_latest(current_member.id).page(params[:page]).per(8)
     end
-
   end
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts.latest.limit(8)
+    @posts = @member.posts.page(params[:page]).per(8)
   end
 
   def update

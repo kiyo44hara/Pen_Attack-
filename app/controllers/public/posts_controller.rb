@@ -27,13 +27,9 @@ class Public::PostsController < ApplicationController
 
   def index
     if params[:latest]
-      @posts = Post.latest
+      @posts = Post.latest.page(params[:page])
     elsif params[:old]
-      @posts = Post.old
-    elsif params[:star_latest]
-      @posts = Post.star_latest
-    elsif params[:star_old]
-      @posts = Post.star_old
+      @posts = Post.old.page(params[:page])
     else
       @posts = Post.all
     end
@@ -47,7 +43,11 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+
     tag_list = params[:post][:name].split(',')
+
+    params[:post][:star] = params[:score]
+
     if @post.update(post_params)
       #↓ もともと投稿につけられてたタグを@oldに格納し、削除しています(編集時にタグを削除した場合のエラー回避)
        @old_relations = PostTag.where(post_id: @post.id)

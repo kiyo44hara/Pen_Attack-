@@ -1,0 +1,41 @@
+  <p class= "post-soat">
+    <%= link_to '新着順', posts_path(latest: "ture") %>
+    <%= link_to '古い順', posts_path(old: "ture") %>
+  </p>
+
+<div class= "index-page">
+  <div class= "items">
+  <% @posts.each do |post| %>
+
+        <div class= "item">
+             <p><%= image_tag post.member.get_profile_image(15,15) %>
+                <span class="member-name">
+                  <%= link_to member_path(post.member.id) do %>
+                    <%= post.member.name %>
+                  <% end %>
+                </span>
+              </p>
+
+
+            <div>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.get_image(100,100) %>
+              <% end %>
+            </div>
+            <h6><%= post.title %></h6>
+
+            <% if post.yelled_by?(current_member) %>
+            <%= link_to post_yells_path(post.id), method: :delete do %>
+              <button type="button" class="btn btn-danger btn"><i class="fas fa-thumbs-up"></i></button>
+            <% end %>
+          <!--応援ボタン作成-->
+          <% else %>
+            <%= link_to post_yells_path(post.id), method: :post do %>
+              <button type="button" class="btn btn-primary btn"><i class="far fa-thumbs-up"></i></button>
+            <% end %>
+          <% end %>
+        </div>
+  <% end %>
+  <!--<div class= "index-pagenate"><= paginate @posts%></div>-->
+  </div>
+</div>

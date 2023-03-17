@@ -1,89 +1,97 @@
-<h4>詳細画面</h4>
+<body class= "post-show-content">
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "post-show-page">
+          <div class= "items">
 
-  <h4>画像</h4>
-  <div><%= image_tag @post.get_image(500,500) %></div>
+            <div><%= image_tag @post.get_imege_full(800,800) %></div>
+            <!--閲覧数～レートの表示-->
+            <h4 class= "item1">
+              <span><%= @post.view_counts.count %><i class="fas fa-heart" style="color: rgba(255,129,137,100);"></i></span>
+              <span><%= render "yell_button", post: @post %></span>
 
-  <h4>
-    <span><%= @post.view_counts.count %>♡</span>
-    <span><%= render "yell_button", post: @post %></span>
-
-  <% if @post.member == current_member %>
-    <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
-  <% end %>
-    <!--レート機能の情報を持ってきています-->
-    <%= render "star", post: @post %>
-  </h4>
-
-  <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
-  <h3><%= @post.title %>
-    <span>
-      <% @post_tags.each do |tag| %>
-      <%= tag.name %>
-      <% end %>
-    </span>
-  </h3>
-
-  <h6><%= l @post.created_at %></h6>
-
-  <h4>製作者:<%= @post.member.name %></h4>
-
-  <h5><%= @post.body %></h5>
-
-  <h5>ここ見て！</h5>
-  <h5><%= @post.appeal_point %></h5>
-
-  <h5>制作時間</h5>
-  <h5><%= @post.improve_point %></h5>
-
-  <h5>
-    <%= @post.production_time %>
-    <span><%= @post.unit_i18n %></span>
-  </h5>
-
-  <h3>コメント</h3>
-
-  <table>
-    <!--1、コメントしたメンバーのアイコン＋コメント-->
-    <% @post.post_comments.each do |post_comment| %>
-          <tr>
-            <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
-            <% if post_comment.is_deleted == false %>
-              <td><%= post_comment.comment %></td>
-            <% else %>
-              <td>このコメントは不適切と判断されたため、管理者によって削除されました。</td>
+            <% if @post.member == current_member %>
+              <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
             <% end %>
-          </tr>
+              <!--レート機能の情報を持ってきています-->
+              <span><%= render "star", post: @post %></span>
+            </h4>
 
-
-    <!--コメントしたメンバーの名前(マイページリンク付き)-->
-          <tr>
-            <td>
-              <%= link_to member_path(post_comment.member.id) do %>
-                <%= post_comment.member.name %>
-              <% end %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-          <!--コメント削除機能-->
-              <% if post_comment.member == current_member %>
-                <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを削除しますか？" } do %>
-                  <button type="button" class="btn btn-danger btn-sm">コメント削除</button>
+            <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
+            <h3 class= "item2"><%= @post.title %>
+              <span class= "tag-name">
+                <% @post_tags.each do |tag| %>
+                <%= tag.name %>
                 <% end %>
+              </span>
+            </h3>
+            <!--制作日-->
+            <h6><%= l @post.created_at %></h6>
+            <!--作品紹介-->
+            <h6 class= "body"><%= @post.body %></h6>
+            <!--アピールポイント-->
+            <h5 class= "point-time">ここ見て！</h5>
+            <h6><%= @post.appeal_point %></h6>
+
+            <h5>改善点</h5>
+            <h6><%= @post.improve_point %></h6>
+
+            <h5>制作時間</h5>
+            <h6>
+              <%= @post.production_time %>
+              <span><%= @post.unit_i18n %></span>
+            </h6>
+
+            <div class= "comment-area">
+            <h3>コメント</h3>
+
+            <table>
+              <!--1、コメントしたメンバーのアイコン＋コメント-->
+              <% @post.post_comments.each do |post_comment| %>
+                    <tr>
+                      <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
+                      <% if post_comment.is_deleted == false %>
+                        <td class= "comment"><%= post_comment.comment %></td>
+                      <% else %>
+                        <td class= "comment">このコメントは不適切と判断されたため、管理者によって削除されました。</td>
+                      <% end %>
+                    </tr>
+
+
+              <!--コメントしたメンバーの名前(マイページリンク付き)-->
+                    <tr>
+                      <td class= "comment-member">
+                        <%= link_to member_path(post_comment.member.id) do %>
+                          <%= post_comment.member.name %>
+                        <% end %>
+                      </td>
+
+                      <td class= "delete-btn">
+                    <!--コメント削除機能-->
+                        <% if post_comment.member == current_member %>
+                          <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを削除しますか？" } do %>
+                            <button type="button" class="btn btn-danger btn-sm">コメント削除</button>
+                          <% end %>
+                        <% end %>
+                      </td>
+                    </tr>
               <% end %>
-            </td>
-          </tr>
+              <!--コメント投稿エリア-->
+              <div class= "comment-text">
+                <%= form_with(model: [@post, @post_comment], local: true) do |f| %>
+                  <%= f.text_area :comment, placeholder: 'コメントを入力して下さい(200文字以内)', maxlength: 200, cols: 50, rows: 5 %>
+                  <div><%= f.submit 'コメント送信' %></div>
+                <% end %>
+              </div>
+            </table>
+            </div>
 
-    <% end %>
-  </table>
+          <!--class="items"終了-->
+          </div>
 
-
-  <!--コメント投稿エリア-->
-    <%= form_with(model: [@post, @post_comment], local: true) do |f| %>
-      <%= f.text_area :comment, placeholder: 'コメントを入力して下さい' %>
-      <div><%= f.submit '送信' %></div>
-    <% end %>
-
-
-    <h1>余白</h1><h1>余白</h1><h1>余白</h1><h1>余白</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

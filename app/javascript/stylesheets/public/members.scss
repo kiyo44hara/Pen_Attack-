@@ -62,7 +62,7 @@
  margin-top: 20px;
  width: 1400px;
  height: 880px;
- // background-color: rgba(0,0,0,0.10);
+ background-color: rgba(0,0,0,0.10);
 }
 
 .my-page-title {
@@ -96,8 +96,6 @@
  position: absolute;
  top: 100px;
  right: 100px;
- width: 1200px;
- height: 900px;
 }
 
 .my-page-posts .image {
@@ -106,13 +104,19 @@
 }
 
 .my-page-image-title {
- font-size: 20px;
+ font-size: 13px;
  text-align: center;
  font-weight: bold;
 }
 
 .my-page-image-star, .my-page-image-button {
  text-align: center;
+}
+
+.my-pagenite {
+ position: absolute;
+ top: 620px;
+ right: 100px;
 }
 
 // 編集ページ
@@ -168,7 +172,6 @@
 .front-color .color {
  position: absolute;
  top: 0px;
- left: 110px;
  background-color: rgba(0,0,0,0.50);
  width: 1200px;
  height: 880px;
@@ -196,7 +199,15 @@
   }
 
   .front-color .color {
+   top: -20px;
    width: 770px;
-   height: 3030px;
+   height: 3050px;
+  }
+
+  .my-pagenite {
+   top: -120px;
+   right: 20px;
+   bottom: 0px;
+   left: 0px;
   }
 }

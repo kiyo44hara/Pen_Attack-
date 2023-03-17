@@ -1,16 +1,44 @@
-<% if @range == 'クリエイター' %>
-  <% @members.each do |member| %>
+<body class= "post-index-content">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-12 col-lg-12">
 
-    <%= image_tag member.get_profile_image(100,100) %></br>
-    <%= member.name %>
-  <% end %>
-<% elsif @range == 'イラスト' %>
-  <% @posts.each do |post| %>
-  <%= render "public/template/index", post: post %>
-  <% end %>
-<% else %>
-  <% @posts.each do |post| %>
-  <%= render "public/template/index", post: post %>
-  <% end %>
-<% end %>
+            <% if @range == 'クリエイター' %>
+            <h4 class= "post-index-title">
+              <img class= "index-image" src="/assets/メンバー検索用.png">メンバー検索結果
+            </h4>
+              <% @members.each do |member| %>
+                <%= image_tag member.get_profile_image(100,100) %></br>
+                <%= member.name %>
+              <% end %>
 
+            <% elsif @range == 'イラスト' %>
+            <h4 class= "post-index-title">
+              <img class= "index-image" src="/assets/投稿検索用.png">投稿ワード検索結果
+            </h4>
+              <%= render "public/posts/index", post: @posts %>
+
+            <% else %>
+              <h4 class= "post-index-title">
+                <img class= "index-image" src="/assets/タグ検索用.png">タグワード検索結果
+              </h4>
+              <%= render "public/posts/index", post: @posts %>
+            <% end %>
+    </div>
+  </div>
+</body>
+
+
+
+
+<!--<body class= "post-index-content">-->
+<!--  <div class= "row">-->
+<!--    <div class= "col-sm-12 col-md-12 col-lg-12">-->
+
+<!--          <h4 class= "post-index-title">-->
+<!--            <img class= "index-image" src="/assets/投稿一覧用.png">投稿一覧-->
+<!--            </h4>-->
+<!--          <= render "index", post: @posts %>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</body>-->

@@ -1,14 +1,12 @@
-<h4>投稿一覧</h4>
-<p>
-  <%= link_to '新着順', posts_path(latest: "ture") %>
-  <%= link_to '古い順', posts_path(old: "ture") %>
-  <%= link_to '星(多い)', posts_path(star_latest: "ture") %>
-  <%= link_to '星(少ない)', posts_path(star_old: "ture") %>
-</p>
+<body class= "post-index-content">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-12 col-lg-12">
 
-<% @posts.each do |post| %>
-<%= render "public/template/index", post: post %>
+          <h4 class= "post-index-title">
+            <img class= "index-image" src="/assets/投稿一覧用.png">投稿一覧
+          </h4>
+          <%= render "index", post: @posts %>
 
-<div><%= render "yell_button", post: post %></div>
-
-<% end %>
+    </div>
+  </div>
+</body>
