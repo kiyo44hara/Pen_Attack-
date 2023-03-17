@@ -10,16 +10,15 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts
-    if params[:star_latest]
-      @posts = Post.star_latest.page(params[:page]).per(8)
-    elsif params[:star_old]
-      @posts = Post.star_old.page(params[:page]).per(8)
-    elsif params[:old]
-      @posts = Post.old.page(params[:page])
-    else params[:latest]
-      @posts = Post.latest.page(params[:page]).per(8)
+    if params[:my_star_latest]
+      @posts = Post.my_star_latest(current_member.id).page(params[:page]).per(8)
+    elsif params[:my_star_old]
+      @posts = Post.my_star_old(current_member.id).page(params[:page]).per(8)
+    elsif params[:my_old]
+      @posts = Post.my_old(current_member.id).page(params[:page])
+    else params[:my_latest]
+      @posts = Post.my_latest(current_member.id).page(params[:page]).per(8)
     end
-
   end
 
   def edit
