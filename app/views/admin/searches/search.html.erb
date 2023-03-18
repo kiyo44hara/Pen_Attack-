@@ -14,14 +14,18 @@
               <img class= "index-image" src="/assets/投稿検索用.png">投稿ワード検索結果
             </h4>
             <p class= "post-soat">
-              <%= link_to '新着順', admin_search_path(latest: "ture") %>
-              <%= link_to '古い順', admin_search_path(old: "ture") %>
+              <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word) %>
+              <%= link_to '古い順', admin_search_path(old: "ture", range: @range, word: @word) %>
             </p>
             <%= render "public/posts/index", post: @posts %>
           <% else %>
             <h4 class= "post-index-title">
               <img class= "index-image" src="/assets/タグ検索用.png">タグワード検索結果
             </h4>
+            <p class= "post-soat">
+              <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word) %>
+              <%= link_to '古い順', admin_search_path(old: "ture", range: @range, word: @word) %>
+            </p>
             <%= render "public/posts/index", post: @posts %>
           <% end %>
     </div>

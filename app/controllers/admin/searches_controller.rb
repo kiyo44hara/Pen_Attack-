@@ -2,14 +2,26 @@ class Admin::SearchesController < ApplicationController
 
   def search
     @range = params[:range]
+    @word = params[:word]
     if @range == "クリエイター"
-      @members = Member.looks(params[:search], params[:word])
+      if params[:old]
+        @members = Member.looks(params[:search], params[:word]).old.page(params[:page])
+      else
+        @members = Member.looks(params[:search], params[:word]).latest.page(params[:page])
+      end
     elsif @range == "イラスト"
-      @posts = Post.looks(params[:search], params[:word])
+      if params[:old]
+        @posts = Post.looks(params[:search], params[:word]).old.page(params[:page])
+      else
+        @posts = Post.looks(params[:search], params[:word]).latest.page(params[:page])
+      end
     else
-      tags = Tag.looks(params[:search], params[:word])
-      post_tags = PostTag.where(tag_id: tags.pluck(:id))
-      @posts = Post.find(post_tags.pluck(:post_id))
+      @tag = Tag.find_by(name: params[:word])
+      if params[:old]
+        @posts = @tag.posts.page(params[:page]).old
+      else
+        @posts = @tag.posts.page(params[:page]).latest
+      end
     end
   end
 end

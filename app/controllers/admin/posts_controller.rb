@@ -1,11 +1,11 @@
 class Admin::PostsController < ApplicationController
   def index
     if params[:latest]
-      @posts = Post.latest
+      @posts = Post.latest.page(params[:page])
     elsif params[:old]
-      @posts = Post.old
+      @posts = Post.old.page(params[:page])
     else
-      @posts = Post.all
+      @posts = Post.all.page(params[:page])
     end
 
   end

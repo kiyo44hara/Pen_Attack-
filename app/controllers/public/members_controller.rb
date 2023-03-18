@@ -5,7 +5,7 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
     # @yell_posts = Post.find(yells)
-    @posts = Post.find(yells)
+    @posts = Kaminari.paginate_array(Post.find(yells)).page(params[:page])
   end
 
   def show
