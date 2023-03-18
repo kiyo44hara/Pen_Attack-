@@ -4,10 +4,6 @@ class Admin::PostsController < ApplicationController
       @posts = Post.latest
     elsif params[:old]
       @posts = Post.old
-    elsif params[:star_latest]
-      @posts = Post.star_latest
-    elsif params[:star_old]
-      @posts = Post.star_old
     else
       @posts = Post.all
     end
