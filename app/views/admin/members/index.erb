@@ -1,1 +1,50 @@
-<h1>トップ画面です(会員一覧)</h1>
+<body class= log_in-admin-content>
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <main class= "admin-member-index">
+          <div class= "items">
+            <h1>会員一覧</h1>
+
+              <table div class="table-responsive table-bordered table table-hover ">
+                <!--会員一覧見出し-->
+                <tr>
+                  <th class= "member-title">会員id</th>
+                  <th class= "member-title">ニックネーム</th>
+                  <th class= "member-title">メールアドレス</th>
+                  <th class= "member-title">会員ステータス</th>
+                  <th class= "member-title">ステータス更新</th>
+                </tr>
+                <% @members.each do |member| %>
+                <!--会員一覧レコード-->
+                <tr>
+                  <th><%= member.id %></th>
+                  <th><%= member.name %></th>
+                  <th><%= member.email %></th>
+
+                  <!--会員ステータス表記方法-->
+                  <th>
+                    <% if member.is_deleted == false %>
+                      <span class= 'text-success'>有効</span>
+                    <% else %>
+                      <span>退会</span>
+                    <% end %>
+                  </th>
+
+                  <th>
+                    <% if member.is_deleted == false %>
+                      <%= button_to "退会させる", admin_member_path(member), method: :patch, data: {confirm: "メンバーを退会させますか？" },class: "btn btn-danger"%>
+                    <% else %>
+                      <%= button_to "復活させる", admin_member_path(member), method: :patch, data: {confirm: "メンバーのアカウントを復活させますか？" },class: "btn btn-success"%>
+                    <% end %>
+                  </th>
+                </tr>
+                <% end %>
+                <td class= "admin-pagenate"><%= paginate @members%></td>
+              </table>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>

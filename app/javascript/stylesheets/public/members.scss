@@ -1,0 +1,213 @@
+// 左画面(プロフィール詳細)
+.my-page-form {
+ position: relative;
+ width: 350px;
+ height: 900px;
+ // 要素の大枠が見える化するので、必要に応じて色を変えて下さい
+ background-color: white;
+}
+
+.my-page-form img {
+ padding: 22px 22px 0 50px;
+}
+
+.my-page-form .name {
+ font-size: 25px;
+ font-weight: bold;
+ text-align: center;
+}
+
+.my-page-form .btn {
+ width: 60px;
+ position: absolute;
+ right: 145px;
+}
+
+.introduction {
+ position: absolute;
+ top: 360px;
+ right: 15px;
+ width: 320px;
+ height: 360px;
+ background-color: white;
+ border: 1px solid rgba(20,20,20,100);
+ border-radius: 15px;
+ padding: 7px;
+}
+
+.introduction .box {
+ white-space: pre-wrap;
+ font-size: 15px;
+}
+
+.my-page-button-new .btn{
+ position: absolute;
+ top: 750px;
+ left: 70px;
+ font-size: 25px;
+ width: 200px;
+ height: 70px;
+ border-radius: 15px;
+}
+
+.yells-link a {
+ position: absolute;
+ top: 850px;
+ left: 110px;
+}
+
+// 右画面(投稿一覧)
+.member-post-index {
+ position: relative;
+ margin-top: 20px;
+ width: 1400px;
+ height: 880px;
+ background-color: rgba(0,0,0,0.10);
+}
+
+.my-page-title {
+ // background-color: red;
+ width: 500px;
+ height: 80px;
+ position: absolute;
+ top: 20px;
+ left: 200px;
+}
+
+.my-page-title .title {
+ background-color: rgba(0,0,0,0.30);
+ width: 160px;
+ display: inline-block;
+ font-weight: bold;
+ border-radius: 10px;
+ text-align: center;
+}
+
+.my-page-title .title-text1 {
+ font-size: 25px;
+ font-weight: bold;
+}
+
+.my-mage-title .title-text2 {
+ font-size: 20px;
+}
+
+.my-page-posts {
+ position: absolute;
+ top: 100px;
+ right: 100px;
+}
+
+.my-page-posts .image {
+ float: left;
+ margin: 10px 50px 0 50px;
+}
+
+.my-page-image-title {
+ font-size: 13px;
+ text-align: center;
+ font-weight: bold;
+}
+
+.my-page-image-star, .my-page-image-button {
+ text-align: center;
+}
+
+.my-pagenite {
+ position: absolute;
+ top: 620px;
+ right: 100px;
+}
+
+// 編集ページ
+.my-page-edit-back {
+ background-color: black;
+}
+
+.profile_edit-button {
+ position: absolute;
+ left: 300px;
+}
+
+.profile_edit-button .btn {
+ margin-top: 10px;
+ right: 25px;
+ width: 200px;
+ height: 70px;
+ font-size: 25px;
+ border-radius: 15px;
+}
+
+.my-page-form label {
+ padding: 10px 10px;
+ margin: 10px 0 0 100px;
+ color: #ffffff;
+ background-color: #384878;
+ cursor: pointer;
+ border-radius: 15px;
+}
+
+.my-page-form input[type= "file"] {
+ display: none;
+}
+
+.my-page-form p {
+ color: white;
+ text-align: center;
+ margin-top: 10px;
+}
+
+.my-page-form .edit {
+ color: limegreen;
+}
+
+.my-page-form .text-area {
+ margin: 10px 0 0 20px;
+}
+
+.front-color {
+ position: relative;
+}
+
+.front-color .color {
+ position: absolute;
+ top: 0px;
+ background-color: rgba(0,0,0,0.50);
+ width: 1200px;
+ height: 880px;
+}
+
+// レスポンシブ対応
+@media screen and (max-width:991px) {
+  .my-page-form {
+   left: 300px;
+  }
+
+  .member-post-index {
+    left: 120px;
+    width: 0px;
+  }
+
+  .my-page-posts {
+   right: 0px;
+   width: 0px;
+   left: 200px;
+  }
+
+  .my-page-posts .image {
+   padding-bottom: 70px;
+  }
+
+  .front-color .color {
+   top: -20px;
+   width: 770px;
+   height: 3050px;
+  }
+
+  .my-pagenite {
+   top: -120px;
+   right: 20px;
+   bottom: 0px;
+   left: 0px;
+  }
+}

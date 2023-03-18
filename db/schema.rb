@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_06_102149) do
+ActiveRecord::Schema.define(version: 2023_03_09_061447) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2023_03_06_102149) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.text "introduction"
+    t.text "introduction", default: "初めまして！よろしくおねがいします！"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2023_03_06_102149) do
     t.integer "member_id", null: false
     t.integer "post_id", null: false
     t.text "comment", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -80,15 +81,18 @@ ActiveRecord::Schema.define(version: 2023_03_06_102149) do
     t.integer "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id", "tag_id"], name: "index_post_tags_on_post_id_and_tag_id", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "member_id"
     t.string "title", null: false
     t.text "body", null: false
     t.text "appeal_point", null: false
     t.text "improve_point", null: false
     t.integer "production_time", null: false
-    t.string "star"
+    t.integer "unit", default: 0, null: false
+    t.string "star", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

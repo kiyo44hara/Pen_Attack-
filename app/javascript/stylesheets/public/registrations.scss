@@ -1,0 +1,97 @@
+.main-content {
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('/assets/新規登録画面.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: inline-block;
+}
+
+.h2-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.text-content{
+  padding: 100px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.80);
+  border-radius: 15px;
+}
+
+.sign_in {
+  margin: 80px 120px;
+  background-color: rgba(255,255,255,0.80);
+  border-radius: 15px;
+  text-align: center;
+  width: 550px;
+  height: 600px;
+}
+
+.image-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.title-logo {
+  background-color: rgba(0,0,0,0.80);
+  border-radius: 15px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.form-group {
+  margin: 20px;
+}
+
+.form-control {
+  background-color: rgba(255,255,255,0.80);
+}
+
+.sign_in input[type="text"],input[type="email"],input[type="password"],input[type="password_confirmation"] {
+  height: 50px;
+}
+
+.actions {
+  padding: 50px 0;
+}
+
+.actions input[type="submit"]{
+  font-size: 30px;
+  border-radius: 5px;
+  height: 60px;
+  width: 200;
+}
+
+
+// レスポンシブ対応
+@media screen and (max-width:1220px) {
+  .sign_in {
+    margin-left: 0px;
+  }
+
+  .text-content {
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .sign_in {
+    margin-left: 120px;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .sign_in {
+    margin: 0 auto;
+    width: 430px;
+  }
+}

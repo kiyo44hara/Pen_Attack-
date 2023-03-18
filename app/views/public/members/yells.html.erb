@@ -1,0 +1,12 @@
+<body class= "post-index-content">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-12 col-lg-12">
+
+          <h4 class= "post-index-title">
+            <img class= "index-image" src="/assets/応援一覧用.png"><%= @member.name %>さんの応援一覧
+            </h4>
+          <%= render "public/posts/index", post: @posts %>
+
+    </div>
+  </div>
+</body>

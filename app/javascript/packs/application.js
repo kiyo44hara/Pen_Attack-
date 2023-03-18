@@ -12,8 +12,45 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
+import "../stylesheets/public/registrations"
+import "../stylesheets/public/sessions"
+import "../stylesheets/public/tops"
+import "../stylesheets/public/members"
+import "../stylesheets/public/posts"
+import "../stylesheets/admin/admins"
 import '@fortawesome/fontawesome-free/js/all'
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
+
+// ハンバーガーメニューの関数
+
+$(document).on('turbolinks:load', function() {
+    $('.hamburger').click(function() {
+        $(this).toggleClass('active');
+
+        if ($(this).hasClass('active')) {
+            $('.hamburger-menu').addClass('active');
+        } else {
+            $('.hamburger-menu').removeClass('active');
+        }
+    });
+});
+
+// アップロードしたいファイルを選択した時に、ファイル名が表示される
+
+$(document).on('turbolinks:load', function() {
+    $('input').on('change', function () {
+    var file = $(this).prop('files')[0];
+    $('p').text(file.name);
+    });
+});

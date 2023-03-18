@@ -1,7 +1,38 @@
-<h2>プロフィール編集画面</h2>
-<%= form_with model: @member do |f| %>
-  <%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*' %>
-  <%= f.text_field :name, autofocus: true, id:'inputName', placeholder:'ニックネーム(10文字以内)' %>
-  <%= f.text_area :introduction, autofocus: true, pleceholder:'自己紹介を記入' %>
-  <%= f.submit '変更を保存', class: 'btn btn-secondary' %>
-<% end %>
+<body class= "my-page-edit-back">
+  <div class= "container-fluid">
+      <div class= "row">
+
+        <div class= "col-sm-12 col-md-12 col-lg-3">
+          <main class= "my-page-form">
+            <!--プロフィールアイコン-->
+            <div class= "image">
+              <%= image_tag @member.get_profile_image(250,250) %>
+            </div>
+            <!--ファイル選択アイコン-->
+            <%= form_with model: @member do |f| %>
+            <label>
+              <input type= "file" name= "file">ファイルを選択
+            </label>
+            <span class= "edit">編集中</span>
+            <p>新しいプロフィール画像を選択してください</p>
+            <div class= "change-profile_image"><%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*' %></div>
+            <!--名前変更  -->
+            <div class= "name"><%= f.text_field :name, autofocus: true, id:'inputName', placeholder:'ニックネーム(10文字以内)', maxlength: 10 %></div>
+            <!--自己紹介エリア-->
+              <div class= "text-area"><%= f.text_area :introduction, autofocus: true, maxlength: 300,cols: 40, rows: 10, pleceholder:'自己紹介を記入(300文字以内)' %></div>
+
+            <!--新規投稿ボタン-->
+            <div class= "profile_edit-button"><%= f.submit '変更を保存', class: 'btn btn-success' %></div>
+            <% end %>
+          </main>
+        </div>
+        <!--メンバーの投稿一覧-->
+        <div class= "col-sm-12 col-md-12 col-lg-9">
+          <div class= "front-color">
+            <%= render "member" %>
+              <div class= "color"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>

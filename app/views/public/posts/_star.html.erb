@@ -1,0 +1,30 @@
+<% if post.id === nil %>
+    <span id = 'post_raty'></span>
+    <script>
+      $(document).on('turbolinks:load', function() {
+      let raty_elem = document.querySelector('#post_raty');
+      raty_elem.innerHTML = ""
+      let option = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          scoreName: 'post[star]',
+        };
+      raty(raty_elem,option);
+     });
+    </script>
+
+<% else %>
+    <span id="star_<%= post.id %>"></span>
+    <script>
+    $('#star_<%= post.id %>').empty();
+    var elem = document.getElementById('star_<%= post.id %>')
+    var opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      score: "<%= post.star %>",
+      readOnly: true
+    };
+    raty(elem,opt)
+    </script>
+
+<% end %>

@@ -1,13 +1,30 @@
 class Public::MembersController < ApplicationController
   before_action :ensure_guest_member, only: [:edit]
 
+  def yells
+    @member = Member.find(params[:id])
+    yells = Yell.where(member_id: @member.id).pluck(:post_id)
+    # @yell_posts = Post.find(yells)
+    @posts = Kaminari.paginate_array(Post.find(yells)).page(params[:page])
+  end
 
   def show
     @member = Member.find(params[:id])
+    @posts = @member.posts
+    if params[:my_star_latest]
+      @posts = Post.my_star_latest(current_member.id).page(params[:page]).per(8)
+    elsif params[:my_star_old]
+      @posts = Post.my_star_old(current_member.id).page(params[:page]).per(8)
+    elsif params[:my_old]
+      @posts = Post.my_old(current_member.id).page(params[:page])
+    else params[:my_latest]
+      @posts = Post.my_latest(current_member.id).page(params[:page]).per(8)
+    end
   end
 
   def edit
     @member = Member.find(params[:id])
+    @posts = @member.posts.page(params[:page]).per(8)
   end
 
   def update

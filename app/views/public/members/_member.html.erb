@@ -1,0 +1,40 @@
+       <!--ページ紹介-->
+        <div class= "member-post-index">
+          <div class= "my-page-title">
+            <h2 class= "title">投稿作品</h2>
+            <span class= "title-text1">【<%= @member.name %>】</span>
+            <span class= "title-text2">さんのマイページ</span>
+            <p>
+            <%= link_to '新着順　|', member_path(@member.id, latest: "ture") %>
+            <%= link_to '古い順　|', member_path(@member.id, old: "ture") %>
+            <%= link_to '星(多い)　|', member_path(@member.id, star_latest: "ture") %>
+            <%= link_to '星(少ない)　', member_path(@member.id, star_old: "ture") %>
+            </p>
+          </div>
+
+<!--画像一覧-->
+          <div class= "my-page-posts">
+            <% @posts.each do |post| %>
+              <!--投稿画像-->
+              <div class= "image">
+                <%= link_to post_path(post.id) do %>
+                  <%= image_tag post.get_image(200,200) %>
+                <% end %>
+                 <!--タイトルとレート-->
+                <div class= "my-page-image-title"><%= post.title %></div>
+                <div class= "my-page-image-star"><%= render "public/posts/star", post: post %></div>
+                <!--編集ボタンor応援ボタンが表示される-->
+                <div class= "my-page-image-button">
+                  <% if post.member == current_member %>
+                    <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
+                  <% else %>
+                    <%= render "public/posts/yell_button", post: post %>
+                  <% end %>
+                  <!--詳細ボタン-->
+                  <%= link_to "詳細画面", post_path(post.id), class: "btn btn-primary"%>
+                </div>
+              <div class= "my-pagenite"><%= paginate @posts%></div>
+              </div>
+            <% end %>
+          </div>
+        </div>

@@ -1,0 +1,21 @@
+ja:
+  enums:
+    post:
+      unit:
+        minutes: "分"
+        time: "時間"
+        day: "日"
+
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+
+
+  views:
+    pagination:
+      first: "&laquo; 最初のページ"
+      last: "最後のページ &laquo;"
+      previous: "&rsaquo; 前のページ"
+      next: "次のページ &rsaquo;"
+      truncate: "..."

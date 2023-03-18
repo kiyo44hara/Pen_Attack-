@@ -11,7 +11,25 @@
   </head>
 
   <body>
-  
-    <%= yield %>
-  </body>
+      <main class= "application-main">
+         <header>
+           <!--検索窓-->
+           <% if member_signed_in? %>
+              <%= form_with url: search_path, method: :get do |f| %>
+              <%= render 'layouts/search', f: f %>
+              <% end %>
+           <% else %>
+              <%= form_with url: admin_search_path, method: :get do |f| %>
+              <%= render 'layouts/search', f: f %>
+              <% end %>
+           <% end %>
+           <!--ハンバーガーメニュー-->
+           <%= render 'layouts/header' %>
+         </header>
+          <%= yield %>
+       </main>
+         <footer>
+           <%= render 'layouts/footer' %>
+         </footer>
+    </body>
 </html>

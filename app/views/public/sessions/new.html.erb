@@ -1,30 +1,46 @@
-<h2>Log in</h2>
+<body class= log_in-main-content>
+  <div class= "container-fluid">
+    <div class= "row">
+              <div class= "col-sm-12 col-md-12 col-lg-6">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <img class= log_in-title-logo src="/assets/title-logo.png">
+              <main class= "log_in-sign_in">
+                <div class="field">
+                  <%= link_to 'ゲストログイン', members_guest_sign_in_path, class: "btn btn-primary btn-lg btn-block mb-3", method: :post %>
+                </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= link_to 'ゲストログイン', members_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-  </div>
+                <div class="field">
+                  <%= f.label :メールアドレス %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレスを入力', class: "btn btn-light btn-sm btn-block mb-3" %>
+                </div>
 
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス' %>
-  </div>
+                <div class="field">
+                  <%= f.label :パスワード %>
+                  <%= f.password_field :password, autocomplete: "current-password", placeholder: 'パスワードを入力', class: "btn btn-light btn-sm btn-block mb-3" %>
+                </div>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'パスワード' %>
-  </div>
+                <% if devise_mapping.rememberable? %>
+                  <div class="last-field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </div>
+                <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                <div class="log_in-actions">
+                  <%= f.submit "ログイン", class: 'btn btn-primary' %>
+                </div>
+              <% end %>
+                <div class= "sign_up_link">
+                  会員登録がお済みでない方は<%= render "public/shared/links" %>
+                </div>
+              </main>
+              </div>
+
+              <div class= "col-sm-12 col-md-12 col-lg-6">
+                <div class= "log_in-h1-content">
+                  <h1 class= "log_in-text-content">創作活動を頑張る</br>
+                    あなたを応援します！
+                </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
   </div>
-<% end %>
-<div>会員登録がお済みでない方は<%= render "public/shared/links" %></div>
-
-<!--Aboutテンプレート-->
-<%= render 'public/template/about' %>
+</body>

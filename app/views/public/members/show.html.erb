@@ -1,22 +1,42 @@
-<h1>マイページ</h1>
-  <table>
-    <tr>
-      <%= image_tag @member.get_profile_image(300,300) %>
+<div class= "container-fluid">
+      <div class= "row">
 
-      <% if @member.name != 'guestmember' %>
-      <p><%= link_to 'プロフィール編集', edit_member_path %></p>
-      <% end %>
-    </tr>
-    <tr>
-      <th><%= @member.name %></th>
-    </tr>
-    <tr>
-      <th>紹介文入ります<%= @member.introduction %></th>
-    </tr>
-    <tr>
-      <th>新規投稿ボタン追加します</th>
-    </tr>
-    <tr>
-      <th>応援した作品一覧のリンクを作ります</th>
-    </tr>
-  </table>
+        <!--メンバーの情報画面-->
+        <div class= "col-sm-12 col-md-12 col-lg-3">
+          <main class= "my-page-form">
+            <!--プロフィールアイコン-->
+            <div class= "image">
+              <%= image_tag @member.get_profile_image(250,250) %>
+            </div>
+            <div class= "name"><%= @member.name %></div>
+            <!--編集アイコン-->
+            <div class= "edit">
+              <% if @member.name != 'guestmember' %>
+                <%= link_to edit_member_path do %>
+                  <button type="button" class="btn btn-secondary"><i class="fas fa-user-cog"></i></button>
+                <% end %>
+              <% end %>
+            </div>
+            <!--自己紹介エリア-->
+            <div class= "introduction">
+              <div class= "box"><%= @member.introduction %></div>
+            </div>
+            <!--新規投稿ボタン-->
+            <div class= "my-page-button-new">
+                <%= link_to new_post_path do %>
+                <button type="button" class="btn btn-primary">新規投稿</button>
+                <% end %>
+            </div>
+            <!--応援一覧リンク-->
+            <div class= "yells-link">
+              <%= link_to '応援した作品一覧', yells_member_path(@member) %>
+            </div>
+          </main>
+        </div>
+
+            <!--右ページ-->
+            <div class= "col-sm-12 col-md-12 col-lg-9">
+              <%= render "member" %>
+            </div>
+    </div>
+  </div>
