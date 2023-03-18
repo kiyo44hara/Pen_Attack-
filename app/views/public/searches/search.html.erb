@@ -15,30 +15,21 @@
             <h4 class= "post-index-title">
               <img class= "index-image" src="/assets/投稿検索用.png">投稿ワード検索結果
             </h4>
+            <p class= "post-soat">
+              <%= link_to '新着順', search_path(latest: "ture", range: @range, word: @word) %>
+              <%= link_to '古い順', search_path(old: "ture", range: @range, word: @word) %>
+            </p>
               <%= render "public/posts/index", post: @posts %>
-
-            <% else %>
+            <% else %><!--タグの検索結果です-->
               <h4 class= "post-index-title">
                 <img class= "index-image" src="/assets/タグ検索用.png">タグワード検索結果
               </h4>
+              <p class= "post-soat">
+                <%= link_to '新着順', search_path(latest: "ture", range: @range, word: @word) %>
+                <%= link_to '古い順', search_path(old: "ture", range: @range, word: @word) %>
+              </p>
               <%= render "public/posts/index", post: @posts %>
             <% end %>
     </div>
   </div>
 </body>
-
-
-
-
-<!--<body class= "post-index-content">-->
-<!--  <div class= "row">-->
-<!--    <div class= "col-sm-12 col-md-12 col-lg-12">-->
-
-<!--          <h4 class= "post-index-title">-->
-<!--            <img class= "index-image" src="/assets/投稿一覧用.png">投稿一覧-->
-<!--            </h4>-->
-<!--          <= render "index", post: @posts %>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</body>-->
