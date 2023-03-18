@@ -11,13 +11,13 @@
           <a href="#"><%= link_to 'マイページ', member_path(current_member) %></a>
         </li>
         <li>
-          <a href="#"><%= link_to '新規投稿', root_path %></a>
+          <a href="#"><%= link_to '新規投稿', new_post_path %></a>
         </li>
         <li>
-          <a href="#"><%= link_to '投稿一覧', root_path %></a>
+          <a href="#"><%= link_to '投稿一覧', posts_path %></a>
         </li>
         <li>
-          <a href="#"><%= link_to '応援一覧', root_path %></a>
+          <a href="#"><%= link_to '応援一覧', yells_member_path(current_member) %></a>
         </li>
         <li>
           <a href="#"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete %></a>
@@ -42,9 +42,6 @@
         </li>
         <li>
           <a href="#"><%= link_to 'ログイン', new_member_session_path %></a>
-        </li>
-        <li>
-          <a href="#"><%= link_to 'ゲストログイン', members_guest_sign_in_path %></a>
         </li>
       <% end %>
     </ul>

@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :is_matching_login_member, only: [:edit, :update, :destroy]
+  # before_action :is_matching_login_member, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -31,7 +31,7 @@ class Public::PostsController < ApplicationController
     elsif params[:old]
       @posts = Post.old.page(params[:page])
     else
-      @posts = Post.all
+      @posts = Post.all.page(params[:page])
     end
   end
 
@@ -74,11 +74,16 @@ class Public::PostsController < ApplicationController
   end
 
 # 投稿者以外の介入を受けた場合、トップページに飛ぶようにしています
-  def is_matching_login_member
-    post = Post.find(params[:id])
-    member_id = post.member_id
-    unless member_id == current_member.id
-      redirect_to root_path
-    end
-  end
+  # def is_matching_login_member
+  #   if request.path == "/member/:id"
+  #     member = Member.find(params[:id])
+  #     post.id = member.post.id
+  #   else
+  #     post = Post.find(params[:id])
+  #     member_id = post.member_id
+  #   end
+  #   unless member_id == current_member.id
+  #     redirect_to root_path
+  #   end
+  # end
 end
