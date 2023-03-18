@@ -1,7 +1,7 @@
 class Admin::MembersController < ApplicationController
 
   def index
-    @members = Member.all.page(params[:page]).per(9)
+    @members = Member.all.page(params[:page]).per(10)
   end
 
   # 会員のステータス更新。
