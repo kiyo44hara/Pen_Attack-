@@ -10,12 +10,13 @@
             </div>
             <!--ファイル選択アイコン-->
             <%= form_with model: @member do |f| %>
-            <label>
-              <input type= "file" name= "file">ファイルを選択
-            </label>
             <span class= "edit">編集中</span>
-            <p>新しいプロフィール画像を選択してください</p>
-            <div class= "change-profile_image"><%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*' %></div>
+            <div class= "change-profile_image">
+              <label>
+                <%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*', class: "file_selecter" %>ファイルを選択
+              </label>
+            </div>
+            <p class="file_name">新しいプロフィール画像を選択してください</p>
             <!--名前変更  -->
             <div class= "name"><%= f.text_field :name, autofocus: true, id:'inputName', placeholder:'ニックネーム(10文字以内)', maxlength: 10 %></div>
             <!--自己紹介エリア-->

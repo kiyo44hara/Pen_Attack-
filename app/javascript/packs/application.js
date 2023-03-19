@@ -52,8 +52,8 @@ $(document).on('turbolinks:load', function() {
 // アップロードしたいファイルを選択した時に、ファイル名が表示される
 
 $(document).on('turbolinks:load', function() {
-    $('input').on('change', function () {
+    $('.file_selecter').on('change', function () {
     var file = $(this).prop('files')[0];
-    $('p').text(file.name);
+    $('.file_name').text(file.name);
     });
 });

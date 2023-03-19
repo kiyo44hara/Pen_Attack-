@@ -16,7 +16,7 @@ class Public::MembersController < ApplicationController
     elsif params[:my_star_old]
       @posts = Post.my_star_old(current_member.id).page(params[:page]).per(8)
     elsif params[:my_old]
-      @posts = Post.my_old(current_member.id).page(params[:page])
+      @posts = Post.my_old(current_member.id).page(params[:page]).per(8)
     else params[:my_latest]
       @posts = Post.my_latest(current_member.id).page(params[:page]).per(8)
     end
