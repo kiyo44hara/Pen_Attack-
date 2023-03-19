@@ -20,12 +20,13 @@ import "../stylesheets/public/posts"
 import "../stylesheets/admin/admins"
 import '@fortawesome/fontawesome-free/js/all'
 
-const images = require.context('../images', true)
-const imagePath = (name) => images(name, true)
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
 import Raty from "raty.js"
 window.raty = function(elem,opt) {
