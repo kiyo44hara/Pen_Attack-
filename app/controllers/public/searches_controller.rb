@@ -5,11 +5,7 @@ class Public::SearchesController < ApplicationController
     @range = params[:range]
     @word = params[:word]
     if @range == "クリエイター"
-      if params[:old]
-        @members = Member.looks(params[:search], params[:word]).old.page(params[:page])
-      else
-        @members = Member.looks(params[:search], params[:word]).latest.page(params[:page])
-      end
+        @members = Member.looks(params[:search], params[:word]).page(params[:page])
     elsif @range == "イラスト"
       if params[:old]
          @posts = Post.looks(params[:search], params[:word]).old.page(params[:page])
@@ -19,9 +15,9 @@ class Public::SearchesController < ApplicationController
     else
       @tag = Tag.find_by(name: params[:word])
       if params[:old]
-        @posts = @tag.posts.page(params[:page]).old
+        @posts = @tag.posts.old.page(params[:page])
       else
-        @posts = @tag.posts.page(params[:page]).latest
+        @posts = @tag.posts.latest.page(params[:page])
       end
     end
   end

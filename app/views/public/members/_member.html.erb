@@ -25,11 +25,11 @@
                 <div class= "my-page-image-star"><%= render "public/posts/star", post: post %></div>
                 <!--編集ボタンor応援ボタンが表示される-->
                 <div class= "my-page-image-button">
-                  <% if post.member == current_member %>
-                    <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
-                  <% else %>
+                  <!--<% if post.member == current_member %>-->
+                  <!--  <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>-->
+                  <!--<% else %>-->
                     <%= render "public/posts/yell_button", post: post %>
-                  <% end %>
+                  <!--<% end %>-->
                   <!--詳細ボタン-->
                   <%= link_to "詳細画面", post_path(post.id), class: "btn btn-primary"%>
                 </div>
