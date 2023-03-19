@@ -3,7 +3,8 @@
     <div class= "row">
               <div class= "col-sm-12 col-md-12 col-lg-6">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <img class= log_in-title-logo src="/assets/title-logo.png">
+                  <!--<img class= log_in-title-logo src="/assets/title-logo.png">-->
+                <img class= title-logo src="<%= asset_pack_path 'media/images/title-logo.png' %>">
               <main class= "log_in-sign_in">
                 <div class="field">
                   <%= link_to 'ゲストログイン', members_guest_sign_in_path, class: "btn btn-primary btn-lg btn-block mb-3", method: :post %>
