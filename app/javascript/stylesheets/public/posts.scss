@@ -1,7 +1,7 @@
 .post-new-content {
   margin: 0 auto;
   width: 100%;
-  background-image: url('/assets/明るめ背景.png');
+  background-image:image-url("/assets/akarume.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -43,7 +43,7 @@
 .post-edit-content, .post-show-content {
   margin: 0 auto;
   width: 100%;
-  background-image: url('/assets/ひかえめ背景.png');
+  background-image:image-url("/assets/hikaeme.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
