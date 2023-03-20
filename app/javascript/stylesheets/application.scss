@@ -2,21 +2,26 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .application-main {
-  padding-bottom: 120px;
+  padding: 60px 0;
 }
 
 textarea {
   resize: none;
 }
 
+header{
+  top: 0;
+  z-index: 1000;
+}
+
 header, footer {
-    height: 60px;
-    width: 100%;
-    background-color: rgba(0,0,0,0.57);
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.57);
 }
 
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
 }
@@ -30,6 +35,11 @@ footer h6 {
 footer img{
   height: auto;
   width: 80px;
+}
+
+.search_area {
+  text-align: center;
+  padding: 15px;
 }
 
 /*　ハンバーガーボタン　*/
@@ -130,4 +140,7 @@ nav.hamburger-menu a {
 /* このクラスを、jQueryで付与・削除する */
 nav.hamburger-menu.active {
   transform: translateX(85%);
+  position: fixed;
+  top: 0;
+  left: -130px;
 }

@@ -13,12 +13,8 @@ class Post < ApplicationRecord
   # 投稿並び替え機能(一覧用))
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
-
-  # 投稿並び替え(個人の情報だけ引っ張ってくれる)
-  scope :my_latest, -> (member_id) { where(member_id: member_id).order(created_at: :desc)}
-  scope :my_old, -> (member_id) { where(member_id: member_id).order(created_at: :asc)}
-  scope :my_star_latest, -> (member_id) { where(member_id: member_id).order(star: :desc)}
-  scope :my_star_old, -> (member_id) { where(member_id: member_id).order(star: :asc)}
+  scope :star_latest, -> { order(star: :desc)}
+  scope :star_old, -> { order(star: :asc)}
 
   # 投稿イラスト設定
   has_one_attached :image

@@ -4,22 +4,23 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    # @yell_posts = Post.find(yells)
     @posts = Kaminari.paginate_array(Post.find(yells)).page(params[:page])
   end
 
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts
-    if params[:my_star_latest]
-      @posts = Post.my_star_latest(current_member.id).page(params[:page]).per(8)
-    elsif params[:my_star_old]
-      @posts = Post.my_star_old(current_member.id).page(params[:page]).per(8)
-    elsif params[:my_old]
-      @posts = Post.my_old(current_member.id).page(params[:page]).per(8)
-    else params[:my_latest]
-      @posts = Post.my_latest(current_member.id).page(params[:page]).per(8)
+    case params[:sort]
+    when "latest"
+      @posts = @posts.latest
+    when "old"
+      @posts = @posts.old
+    when "star_latest"
+      @posts = @posts.star_latest
+    when "star_old"
+      @posts = @posts.star_old
     end
+    @posts = @posts.page(params[:page]).per(8)
   end
 
   def edit
