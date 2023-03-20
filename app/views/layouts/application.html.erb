@@ -10,8 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-      <main class= "application-main">
+    <body>
          <header>
            <!--検索窓-->
            <% if member_signed_in? %>
@@ -26,6 +25,7 @@
            <!--ハンバーガーメニュー-->
            <%= render 'layouts/header' %>
          </header>
+       <main class= "application-main">
           <%= yield %>
        </main>
          <footer>

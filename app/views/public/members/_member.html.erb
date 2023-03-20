@@ -5,10 +5,10 @@
             <span class= "title-text1">【<%= @member.name %>】</span>
             <span class= "title-text2">さんのマイページ</span>
             <p>
-            <%= link_to '新着順　|', member_path(@member.id, latest: "ture") %>
-            <%= link_to '古い順　|', member_path(@member.id, old: "ture") %>
-            <%= link_to '星(多い)　|', member_path(@member.id, star_latest: "ture") %>
-            <%= link_to '星(少ない)　', member_path(@member.id, star_old: "ture") %>
+            <%= link_to '新着順　|', member_path(@member.id, sort: :latest) %>
+            <%= link_to '古い順　|', member_path(@member.id, sort: :old) %>
+            <%= link_to '星(多い)　|', member_path(@member.id, sort: :star_latest) %>
+            <%= link_to '星(少ない)　', member_path(@member.id, sort: :star_old) %>
             </p>
           </div>
 

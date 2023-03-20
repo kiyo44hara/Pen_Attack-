@@ -28,5 +28,5 @@
 
 <div>
   <h4>タグ</h4>
-  <span><%= f.text_field :name, value: @tag_list, placeholder:'複数タグをつけたいときは「,」で区切って入力して下さい。'%></span>
+  <span><%= f.text_area :name, value: @tag_list, placeholder:'複数タグをつけたいときは「,」で区切って入力して下さい。', cols: 60, rows: 1%></span>
 </div>

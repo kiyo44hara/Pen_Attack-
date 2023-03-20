@@ -14,7 +14,9 @@ class Public::SearchesController < ApplicationController
       end
     else
       @tag = Tag.find_by(name: params[:word])
-      if params[:old]
+      if !@tag.present?
+        @posts = Kaminari.paginate_array([]).page(params[:page])
+      elsif params[:old]
         @posts = @tag.posts.old.page(params[:page])
       else
         @posts = @tag.posts.latest.page(params[:page])

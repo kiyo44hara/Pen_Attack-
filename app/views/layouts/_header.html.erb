@@ -1,12 +1,15 @@
 <div class="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
 </div>
 
 <nav class="hamburger-menu">
     <ul>
       <% if member_signed_in? %>
+        <li>
+          <a href="#"><%= link_to 'トップページ', root_path %></a>
+        </li>
         <li>
           <a href="#"><%= link_to 'マイページ', member_path(current_member) %></a>
         </li>
