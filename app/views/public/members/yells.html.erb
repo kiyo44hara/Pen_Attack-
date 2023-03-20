@@ -3,7 +3,7 @@
     <div class= "col-sm-12 col-md-12 col-lg-12">
 
           <h4 class= "post-index-title">
-            <img class= "index-image" src="/assets/応援一覧用.png"><%= @member.name %>さんの応援一覧
+            <img class= "index-image" src="<%= asset_pack_path "media/images/yell_index.png" %>"><%= @member.name %>さんの応援
             </h4>
           <%= render "public/posts/index", post: @posts %>
 
