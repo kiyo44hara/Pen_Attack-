@@ -3,8 +3,11 @@
     <div class= "col-sm-12 col-md-12 col-lg-12">
 
           <h4 class= "post-index-title">
-            <img class= "index-image" src="/assets/投稿一覧用.png">投稿一覧
+            <img class= "index-image" src="<%= asset_pack_path "media/images/post_index.png" %>">投稿一覧
           </h4>
+          <p class= "post-soat">
+          <%= link_to '新着順', posts_path(latest: "ture") %>
+          <%= link_to '古い順', posts_path(old: "ture") %>
           <%= render "index", post: @posts %>
 
     </div>
