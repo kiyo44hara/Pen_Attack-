@@ -12,14 +12,14 @@ class Admin::SearchesController < ApplicationController
         @posts = Post.looks(params[:search], params[:word]).latest.page(params[:page])
       end
     else
-      @tag = Tag.find_by(name: params[:word])
+      @tag = Tag.looks(params[:search], params[:word])
       # もし該当するタグがなくても、画面が表示されるように記述
       if !@tag.present?
-        @posts = Kaminari.paginate_array([]).page(params[:page])
+        @posts = Kaminari.paginate_array(["あいうえお"]).page(params[:page])
       elsif params[:old]
-        @posts = @tag.posts.page(params[:page]).old
+        @posts = Kaminari.paginate_array@posts.page(params[:page]).old
       else
-        @posts = @tag.posts.page(params[:page]).latest
+        @posts = @posts.page(params[:page]).latest
       end
     end
   end

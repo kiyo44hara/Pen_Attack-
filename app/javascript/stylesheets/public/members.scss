@@ -58,9 +58,11 @@
 
 // 右画面(投稿一覧)
 .member-post-index {
- position: relative;
- margin-top: 20px;
- width: 1400px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 20px 100px;
+ width: 1200px;
  height: 880px;
  // background-color: rgba(0,0,0,0.10);
 }
@@ -93,9 +95,7 @@
 }
 
 .my-page-posts {
- position: absolute;
- top: 100px;
- right: 100px;
+ margin: 70px auto;
 }
 
 .my-page-posts .image {
@@ -114,9 +114,7 @@
 }
 
 .my-pagenite {
- position: absolute;
- top: 620px;
- right: 100px;
+ margin: 50px 0 0 950px;
 }
 
 // 編集ページ
@@ -166,48 +164,51 @@
 }
 
 .front-color {
- position: relative;
+ margin: 20px 100px;
+ width: 1200px;
+ height: 880px;
 }
 
 .front-color .color {
  position: absolute;
  top: 0px;
+ left: 200px;
  background-color: rgba(0,0,0,0.50);
- width: 100%;
+ width: 1200px;
  height: 880px;
 }
 
 // レスポンシブ対応
-@media screen and (max-width:991px) {
-  .my-page-form {
-   left: 300px;
-  }
+// @media screen and (max-width:991px) {
+//   .my-page-form {
+//    left: 300px;
+//   }
 
-  .member-post-index {
-    left: 120px;
-    width: 0px;
-  }
+//   .member-post-index {
+//     left: 120px;
+//     width: 0px;
+//   }
 
-  .my-page-posts {
-   right: 0px;
-   width: 0px;
-   left: 200px;
-  }
+//   .my-page-posts {
+//    right: 0px;
+//    width: 0px;
+//    left: 200px;
+//   }
 
-  .my-page-posts .image {
-   padding-bottom: 70px;
-  }
+//   .my-page-posts .image {
+//    padding-bottom: 70px;
+//   }
 
-  .front-color .color {
-   top: -20px;
-   width: 770px;
-   height: 3050px;
-  }
+//   .front-color .color {
+//    top: -20px;
+//    width: 770px;
+//    height: 3050px;
+//   }
 
-  .my-pagenite {
-   top: -120px;
-   right: 20px;
-   bottom: 0px;
-   left: 0px;
-  }
-}
+//   .my-pagenite {
+//    top: -120px;
+//    right: 20px;
+//    bottom: 0px;
+//    left: 0px;
+//   }
+// }

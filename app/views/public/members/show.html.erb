@@ -11,10 +11,11 @@
             <div class= "name"><%= @member.name %></div>
             <!--編集アイコン-->
             <div class= "edit">
-              <% if @member.name != 'guestmember' %>
-                <%= link_to edit_member_path do %>
-                  <button type="button" class="btn btn-secondary"><i class="fas fa-user-cog"></i></button>
-                <% end %>
+            <!--名前がゲストメンバーではない＋マイページの本人だったら編集ボタンを表示-->
+              <% if @member.name != 'guestmember' && current_member == @member %>
+                    <%= link_to edit_member_path do %>
+                      <button type="button" class="btn btn-secondary"><i class="fas fa-user-cog"></i></button>
+                    <% end %>
               <% end %>
             </div>
             <!--自己紹介エリア-->
@@ -37,6 +38,7 @@
             <!--右ページ-->
             <div class= "col-sm-12 col-md-12 col-lg-9">
               <%= render "member" %>
+              <div class= "my-pagenite"><%= paginate @posts%></div>
             </div>
     </div>
   </div>
