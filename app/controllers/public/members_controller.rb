@@ -4,7 +4,7 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    @posts = Kaminari.paginate_array(Post.find(yells)).page(params[:page])
+    @posts = Post.where(id: yells).page(params[:page])
   end
 
   def show
@@ -25,13 +25,17 @@ class Public::MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts.page(params[:page]).per(8)
+    @posts = @member.posts
   end
 
   def update
     @member = Member.find(params[:id])
-    @member.update(member_params)
-    redirect_to member_path
+    if @member.update(member_params)
+       redirect_to member_path
+    else
+      @posts = @member.posts
+      render:edit
+    end
   end
 
   def destroy

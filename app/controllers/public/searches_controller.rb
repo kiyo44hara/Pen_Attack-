@@ -13,13 +13,13 @@ class Public::SearchesController < ApplicationController
         @posts = Post.looks(params[:search], params[:word]).latest.page(params[:page])
       end
     else
-      @tag = Tag.find_by(name: params[:word])
-      if !@tag.present?
-        @posts = Kaminari.paginate_array([]).page(params[:page])
-      elsif params[:old]
-        @posts = @tag.posts.old.page(params[:page])
+      tags = Tag.looks(params[:search], params[:word])
+      # タグに紐づいた投稿を取り出す(flatten：配列を整える。uniq：レコードの重複を防ぐ)
+      post_ids = tags.map { |tag| tag.posts.pluck(:id) }.flatten.uniq
+      if params[:old]
+        @posts = Post.where(id: post_ids).old.page(params[:page])
       else
-        @posts = @tag.posts.latest.page(params[:page])
+        @posts = Post.where(id: post_ids).latest.page(params[:page])
       end
     end
   end

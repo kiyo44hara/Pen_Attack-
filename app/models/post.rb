@@ -1,11 +1,20 @@
 class Post < ApplicationRecord
-
+  # アソシエーション
     has_many :post_tags, dependent: :destroy
     has_many :tags, through: :post_tags
     has_many :yells, dependent: :destroy
     has_many :post_comments, dependent: :destroy
     has_many :view_counts, dependent: :destroy
     belongs_to :member
+
+  # バリデーション
+    validates :image, {presence: true}
+    validates :title, {presence: true, length: {maximum:15}}
+    validates :body, {presence: true, length: {maximum:300}}
+    validates :appeal_point, {presence: true, length: {maximum:100}}
+    validates :improve_point, {presence: true, length: {maximum:100}}
+    validates :star, {presence: true}
+    validates :tags, {presence: true}
 
   # 制作時間の単位をそれぞれ、分・時間・日で分けています。
   enum unit: { minutes: 0, time: 1, day: 2 }

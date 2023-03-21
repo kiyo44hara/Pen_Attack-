@@ -11,6 +11,7 @@
             <!--ファイル選択アイコン-->
             <%= form_with model: @member do |f| %>
             <span class= "edit">編集中</span>
+            <%= render "layouts/error", model: f.object %>
             <div class= "change-profile_image">
               <label>
                 <%= f.file_field :profile_image, placeholder:'プロフィール画像', accept: 'image/*', class: "file_selecter" %>ファイルを選択
