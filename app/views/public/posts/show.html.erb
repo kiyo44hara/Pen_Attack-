@@ -77,14 +77,14 @@
                       </td>
                     </tr>
               <% end %>
-              <!--コメント投稿エリア-->
+            </table>
+            <!--コメント投稿エリア-->
               <div class= "comment-text">
-                <%= form_with(model: [@post, @post_comment], local: true) do |f| %>
-                  <%= f.text_area :comment, placeholder: 'コメントを入力して下さい(200文字以内)', maxlength: 200, cols: 50, rows: 5 %>
+                <%= form_with(model: [@post, @post_comment] ) do |f| %>
+                  <div><%= f.text_area :comment, placeholder: 'コメントを入力して下さい(200文字以内)', maxlength: 200, cols: 50, rows: 5 %></div>
                   <div><%= f.submit 'コメント送信' %></div>
                 <% end %>
               </div>
-            </table>
             </div>
 
           <!--class="items"終了-->

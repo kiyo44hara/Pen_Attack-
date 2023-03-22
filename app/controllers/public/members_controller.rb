@@ -10,35 +10,36 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts
-    case params[:sort]
-    when "latest"
-      @posts = @posts.latest
-    when "old"
-      @posts = @posts.old
-    when "star_latest"
-      @posts = @posts.star_latest
-    when "star_old"
-      @posts = @posts.star_old
+    if params[:sort]
+      case params[:sort]
+      when "latest"
+        @posts = @posts.latest
+      when "old"
+        @posts = @posts.old
+      when "star_latest"
+        @posts = @posts.star_latest
+      when "star_old"
+        @posts = @posts.star_old
+      end
+      @posts = @posts.page(params[:page]).per(8)
+    else
+      @posts = @member.posts.latest.page(params[:page]).per(8)
     end
-    @posts = @posts.page(params[:page]).per(8)
   end
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts
+    @posts = @member.posts.page(params[:page]).per(8)
   end
 
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-       redirect_to member_path
+       redirect_to member_path, notice: "プロフィールを更新しました。"
     else
-      @posts = @member.posts
+      @posts = @member.posts.page(params[:page]).per(8)
       render:edit
     end
-  end
-
-  def destroy
   end
 
   private

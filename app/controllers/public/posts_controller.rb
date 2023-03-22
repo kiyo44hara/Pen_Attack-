@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
     # tag_list = 投稿の中身全てと、タグの名前。詳細はpostモデルを参照してください。
     if @post.save
        @post.save_tag(tag_list)
-      redirect_to member_path(current_member)
+      redirect_to member_path(current_member), notice: "作品を投稿しました！"
     else
       render:new
     end
@@ -55,7 +55,7 @@ class Public::PostsController < ApplicationController
         relation.delete
        end
        @post.save_tag(tag_list)
-       redirect_to post_path(@post.id)
+       redirect_to post_path(@post.id), notice: "作品を編集しました。"
     else
       render:edit
     end

@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    attributes:
+      member:
+        name: "ニックネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"
+
+      models:
+       member: "会員"
+
+  devise:
+    confirmations:
+      confirmed: "メールアドレスが確認できました"
+    failure:
+      invalid: "%{authentication_keys}またはパスワードが違います。"
+      timeout: "セッションがタイムアウトしました。もう一度ログインしてください。"
+      unauthenticated: "ログインもしくはアカウント登録してください。"
+
+    sessions:
+      already_signed_out: 既にログアウト済みです。
+      new:
+      sign_in: ログイン
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
+
+  errors:
+    messages:
+      not_saved:
+        one: "エラーが発生したため、会員登録ができませんでした。"
+        other: "%{count} 件のエラーが発生したため、会員登録ができませんでした。"
+

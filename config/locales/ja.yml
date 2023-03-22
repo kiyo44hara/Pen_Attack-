@@ -6,6 +6,21 @@ ja:
         time: "時間"
         day: "日"
 
+  activerecord:
+    models:
+      post: "イラスト"
+    attributes:
+      post:
+        image: "画像"
+        title: "タイトル"
+        body: "作品紹介"
+        appeal_point: "「ここ見て！」"
+        improve_point: "「改善点」"
+        star: "評価"
+        tags: "タグ"
+
+
+
 
   time:
     formats:
@@ -19,3 +34,24 @@ ja:
       previous: "&rsaquo; 前のページ"
       next: "次のページ &rsaquo;"
       truncate: "..."
+
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: "は空にできません。"
+      confirmation: "と%{attribute}の入力が一致しません"
+      empty: "を入力してください"
+      in: "は%{count}の範囲に含めてください"
+      invalid: "は不正な値です"
+      model_invalid: "バリデーションに失敗しました: %{errors}"
+    template:
+      body: "次の項目を確認してください"
+      header: "%{model}に%{count}個のエラーが発生しました"
+
+  helpers:
+    select:
+      prompt: "選択してください"
+    submit:
+      create: "登録する"
+      submit: "保存する"
+      update: "更新する"

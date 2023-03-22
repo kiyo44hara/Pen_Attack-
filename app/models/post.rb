@@ -14,7 +14,6 @@ class Post < ApplicationRecord
     validates :appeal_point, {presence: true, length: {maximum:100}}
     validates :improve_point, {presence: true, length: {maximum:100}}
     validates :star, {presence: true}
-    validates :tags, {presence: true}
 
   # 制作時間の単位をそれぞれ、分・時間・日で分けています。
   enum unit: { minutes: 0, time: 1, day: 2 }
