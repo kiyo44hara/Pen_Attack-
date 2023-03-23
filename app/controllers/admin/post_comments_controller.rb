@@ -1,4 +1,5 @@
 class Admin::PostCommentsController < ApplicationController
+  before_action :authenticate_admin!
 
   # コメントのステータス更新。
   def update

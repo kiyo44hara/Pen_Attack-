@@ -1,4 +1,5 @@
 class Public::SearchesController < ApplicationController
+  before_action :authenticate_member!
 
   # 検索内容に応じて、表示する順番も指定しています。
   def search

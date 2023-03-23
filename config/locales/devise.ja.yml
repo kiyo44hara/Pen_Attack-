@@ -17,6 +17,8 @@ ja:
       invalid: "%{authentication_keys}またはパスワードが違います。"
       timeout: "セッションがタイムアウトしました。もう一度ログインしてください。"
       unauthenticated: "ログインもしくはアカウント登録してください。"
+      inactive: "退会済みアカウントです。再度新規登録してからご利用ください。"
+      not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
 
     sessions:
       already_signed_out: 既にログアウト済みです。

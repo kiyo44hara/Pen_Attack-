@@ -1,5 +1,7 @@
 class Public::MembersController < ApplicationController
+  before_action :authenticate_member!
   before_action :ensure_guest_member, only: [:edit]
+  before_action :is_matching_login_member, only: [:edit, :update, :destroy]
 
   def yells
     @member = Member.find(params[:id])
@@ -51,7 +53,15 @@ class Public::MembersController < ApplicationController
   def ensure_guest_member
     @member = Member.find(params[:id])
     if @member.name == 'guestmember'
-      redirect_to member_path(current_member), notice: 'ゲストメンバーはプロフィール変種画面へ遷移できません！'
+      redirect_to member_path(current_member), notice: 'ゲストメンバーはプロフィール編集画面へ遷移できません！'
+    end
+  end
+
+  # 本人の登録情報を、他人に編集されないようにしています。
+  def is_matching_login_member
+    @member = Member.find(params[:id])
+    unless @member.id == current_member.id
+      redirect_to root_path
     end
   end
 end

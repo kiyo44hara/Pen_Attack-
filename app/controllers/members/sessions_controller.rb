@@ -5,5 +5,4 @@ class Members::SessionsController < Devise::SessionsController
     sign_in member
     redirect_to root_path, notice: 'guestmemberでログインしました！'
   end
-
 end

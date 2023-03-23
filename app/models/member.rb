@@ -33,6 +33,11 @@ class Member < ApplicationRecord
     end
   end
 
+  # 退会メンバーがログインできないように設定
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
   # メンバー検索
   def self.looks(searches, words)
     if searches == "perfect_match"

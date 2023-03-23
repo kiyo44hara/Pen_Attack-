@@ -12,10 +12,13 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
   # ゲストメンバーでのサインイン
   devise_scope :member do
     post 'members/guest_sign_in', to: 'members/sessions#guest_sign_in'
   end
+
+
 
   namespace :admin do
     # 管理者トップページ(会員一覧・会員退会機能)
@@ -32,8 +35,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    root to: "homes#top"
-
+    root 'homes#top'
     # 顧客側検索機能画面
     get 'searches' => 'searches#search', as:'search'
 
