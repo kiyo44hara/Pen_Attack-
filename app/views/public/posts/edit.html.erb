@@ -7,7 +7,7 @@
               <h3 class= "title">編集画面</h3>
                 <div><%= image_tag @post.get_image(200,200) %></div>
                 <%= form_with model: @post do |f| %>
-                <%= render "layouts/error", model: f.object %>
+                <%= render "layouts/model_error", model: f.object %>
                   <%= render "post_new_edit", f: f %>
 
                   <!--レートの情報を持ってきています-->
