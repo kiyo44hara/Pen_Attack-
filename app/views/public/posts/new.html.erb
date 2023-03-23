@@ -6,7 +6,7 @@
             <div class= "items">
               <h3 class= "title">新規投稿</h3>
               <%= form_with model: @post do |f| %>
-              <%= render "layouts/error", model: f.object %>
+              <%= render "layouts/model_error", model: f.object %>
                 <h4>画像</h4>
                 <span><%= f.file_field :image, accept: "image/*" %></span>
 

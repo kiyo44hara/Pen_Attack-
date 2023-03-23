@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # ゲストメンバーでのサインイン
   devise_scope :member do
     post 'members/guest_sign_in', to: 'members/sessions#guest_sign_in'
+    get '/members', to: redirect("/members/sign_up")
   end
 
 

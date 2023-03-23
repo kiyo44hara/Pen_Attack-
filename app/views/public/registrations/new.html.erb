@@ -3,7 +3,7 @@
     <div class= "row">
         <div class= "col-sm-12 col-md-12 col-lg-6">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "public/shared/error_messages", resource: resource %>
+            <%= render "layouts/error_messages", resource: resource %>
 
             <main class= "sign_in">
               <div class= "image-container">

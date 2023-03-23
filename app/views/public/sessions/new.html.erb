@@ -1,10 +1,9 @@
 <body class= log_in-main-content>
-  <%= render 'public/shared/error_messages' %>
   <div class= "container-fluid">
     <div class= "row">
               <div class= "col-sm-12 col-md-12 col-lg-6">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <%= render "public/shared/error_messages", resource: resource %>
+              <%= render "layouts/error_messages", resource: resource %>
                 <img class= log_in-title-logo src="<%= asset_pack_path 'media/images/title-logo.png' %>">
               <main class= "log_in-sign_in">
                 <div class="field">
