@@ -27,6 +27,7 @@
          </header>
        <main class= "application-main">
        <div class="aleart"><%= alert %></div>
+       <div class="aleart"><%= flash[:error] %></div>
        <div class="notice"><%= render 'layouts/flash' %></div>
           <%= yield %>
        </main>

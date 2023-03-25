@@ -1,8 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
 
   private
+
+    # 例外処理(存在しないページに遷移するなどして、エラーが起こるのを防ぐ)
+    def not_found
+      flash[:error] = "既に削除されているか、存在しないページです。"
+      redirect_back(fallback_location: root_path)
+    end
+
     # メールアドレスの保存を許可
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up,keys:[:name, :email])

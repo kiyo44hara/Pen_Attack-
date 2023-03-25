@@ -20,10 +20,10 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    current_member.view_counts.create(post_id: @post.id)
-    @post_tags = @post.tags
-    @post_comment = PostComment.new
+      @post = Post.find(params[:id])
+      current_member.view_counts.create(post_id: @post.id)
+      @post_tags = @post.tags
+      @post_comment = PostComment.new
   end
 
   def index

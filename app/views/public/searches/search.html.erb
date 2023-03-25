@@ -16,8 +16,8 @@
               <img class= "index-image" src="<%= asset_pack_path "media/images/post_search.png" %>">投稿ワード検索結果
             </h4>
             <p class= "post-soat">
-              <%= link_to '新着順', search_path(latest: "ture", range: @range, word: @word) %>
-              <%= link_to '古い順', search_path(old: "ture", range: @range, word: @word) %>
+              <%= link_to '新着順', search_path(latest: "ture", range: @range, word: @word, search: @search) %>
+              <%= link_to '古い順', search_path(old: "ture", range: @range, word: @word, search: @search) %>
             </p>
               <%= render "public/posts/index", post: @posts %>
             <% else %><!--タグの検索結果です-->
@@ -25,8 +25,8 @@
                 <img class= "index-image" src="<%= asset_pack_path "media/images/tagkensaku.png" %>">タグワード検索結果
               </h4>
               <p class= "post-soat">
-                <%= link_to '新着順', search_path(latest: "ture", range: @range, word: @word) %>
-                <%= link_to '古い順', search_path(old: "ture", range: @range, word: @word) %>
+                <%= link_to '新着順', search_path(latest: "ture", range: @range, word: @word, search: @search) %>
+                <%= link_to '古い順', search_path(old: "ture", range: @range, word: @word, search: @search) %>
               </p>
               <%= render "public/posts/index", post: @posts %>
             <% end %>
