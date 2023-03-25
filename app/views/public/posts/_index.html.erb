@@ -30,18 +30,21 @@
             </div>
             <h6><%= post.title %></h6>
         <!--応援ボタンは会員側のみに表示するようにしています-->
-        <% if member_signed_in? %>
-          <% if post.yelled_by?(current_member) %>
-            <%= link_to post_yells_path(post.id), method: :delete do %>
-              <button type="button" class="fas fa-thumbs-up"><i class="fas fa-thumbs-up"></i></button>
-          <% end %>
-            <!--応援ボタン作成-->
-          <% else %>
-            <%= link_to post_yells_path(post.id), method: :post do %>
-              <button type="button" class="btn-border-gradient-wrap"><i class="far fa-thumbs-up"></i></button>
+          <div id= "yell_<%= post.id %>">
+            <span><%= post.yells.count %></span>
+            <% if member_signed_in? %>
+              <% if post.yelled_by?(current_member) %>
+                <%= link_to post_yells_path(post.id), method: :delete, remote: true do %>
+                  <button type="button" class="fas fa-thumbs-up"><i class="fas fa-thumbs-up"></i></button>
+              <% end %>
+                <!--応援ボタン作成-->
+              <% else %>
+                <%= link_to post_yells_path(post.id), method: :post, remote: true do %>
+                  <button type="button" class="btn-border-gradient-wrap"><i class="far fa-thumbs-up"></i></button>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
-        <% end %>
+          </div>
 
         </div>
   <% end %>

@@ -3,6 +3,7 @@ class Post < ApplicationRecord
     has_many :post_tags, dependent: :destroy
     has_many :tags, through: :post_tags
     has_many :yells, dependent: :destroy
+    has_many :yelled_members, through: :yells, source: :member
     has_many :post_comments, dependent: :destroy
     has_many :view_counts, dependent: :destroy
     belongs_to :member

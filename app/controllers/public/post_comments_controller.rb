@@ -17,7 +17,7 @@ class Public::PostCommentsController < ApplicationController
     if PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
       redirect_to post_path(params[:post_id]), notice: "コメントを削除しました。"
     else
-      redirect_to post_path(params[:post_id]), notice: "コメントを削除出来ませんでした。"
+      redirect_to post_path(params[:post_id]), notice: "エラー：コメントを削除出来ませんでした。"
     end
   end
 
