@@ -49,47 +49,11 @@
             </h6>
 
             <div class= "comment-area">
-            <h3>コメント</h3>
-
-            <table class= "area">
-              <!--1、コメントしたメンバーのアイコン＋コメント-->
-              <% @post.post_comments.each do |post_comment| %>
-                    <tr>
-                      <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
-                      <% if post_comment.is_deleted == false %>
-                        <td class= "comment"><%= post_comment.comment %></td>
-                      <% else %>
-                        <td class= "comment">このコメントは不適切と判断されたため、管理者によって削除されました。</td>
-                      <% end %>
-
-                      <!--コメント削除機能-->
-                      <td class= "delete-btn">
-                        <% if post_comment.member == current_member %>
-                          <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを削除しますか？" } do %>
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                          <% end %>
-                        <% end %>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <!--コメントしたメンバーの名前(マイページリンク付き)-->
-                      <td class= "comment-member">
-                        <%= link_to member_path(post_comment.member.id) do %>
-                          <%= post_comment.member.name %>
-                        <% end %>
-                      </td>
-                    </tr>
-              <% end %>
-            </table>
-            <!--コメント投稿エリア-->
-              <div class= "comment-text">
-                <%= form_with(model: [@post, @post_comment] ) do |f| %>
-                  <div><%= f.text_area :comment, placeholder: 'コメントを入力して下さい(200文字以内)', maxlength: 200, cols: 50, rows: 5 %></div>
-                  <div><%= f.submit 'コメント送信' %></div>
-                <% end %>
-              </div>
+                <%= render "public/post_comments/comment_area", post: @post %>
             </div>
+
+            <!--コメント投稿エリア-->
+            <%= render "comment_form", post: @post %>
 
           <!--class="items"終了-->
           </div>

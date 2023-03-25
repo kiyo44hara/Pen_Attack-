@@ -1,0 +1,7 @@
+<td class= "delete-btn">
+              <% if post_comment.member == current_member %>
+                <%= link_to post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを削除しますか？" },remote: true do %>
+                  <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                <% end %>
+              <% end %>
+</td>

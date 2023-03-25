@@ -1,0 +1,6 @@
+<div class= "comment-text">
+                  <%= form_with(model: [@post, PostComment.new],local: false ) do |f| %>
+                    <div><%= f.text_area :comment, placeholder: 'コメントを入力して下さい(200文字以内)', maxlength: 200, cols: 50, rows: 5 %></div>
+                    <div><%= f.submit 'コメント送信' %></div>
+                  <% end %>
+</div>

@@ -6,7 +6,7 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    @posts = Post.where(id: yells).page(params[:page])
+    @posts = Post.where(id: yells).latest.page(params[:page])
   end
 
   def show

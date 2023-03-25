@@ -32,7 +32,7 @@ class Public::PostsController < ApplicationController
     elsif params[:old]
       @posts = Post.old.page(params[:page])
     else
-      @posts = Post.all.page(params[:page])
+      @posts = Post.latest.page(params[:page])
     end
   end
 
