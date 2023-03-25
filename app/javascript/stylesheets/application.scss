@@ -42,7 +42,15 @@ footer img{
   padding: 15px;
 }
 
-/*　ハンバーガーボタン　*/
+// 応援ボタンレイアウト
+.btn-border-gradient-wrap {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, lightgreen, deepskyblue);
+}
+
+/*　ハンバーガーメニュー(改)　*/
 .hamburger {
   display : block;
   position: fixed;

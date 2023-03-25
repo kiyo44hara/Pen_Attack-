@@ -43,7 +43,7 @@ class Member < ApplicationRecord
     if searches == "perfect_match"
       @member = Member.where("name LIKE ?", "#{words}")
     else
-      @member = Member.where("name LIKE ?", "%#{words}%")
+        @member = Member.where("name LIKE ?", "%#{words}%")
     end
   end
 end

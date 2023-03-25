@@ -31,7 +31,7 @@ class Public::MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts.page(params[:page]).per(8)
+    @posts = @member.posts.latest.page(params[:page]).per(8)
   end
 
   def update
@@ -53,7 +53,7 @@ class Public::MembersController < ApplicationController
   def ensure_guest_member
     @member = Member.find(params[:id])
     if @member.name == 'guestmember'
-      redirect_to member_path(current_member), notice: 'ゲストメンバーはプロフィール編集画面へ遷移できません！'
+      redirect_to member_path(current_member), notice: 'ゲストメンバーのプロフィール変更はできません！'
     end
   end
 

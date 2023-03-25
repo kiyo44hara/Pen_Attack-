@@ -20,6 +20,11 @@ ja:
       inactive: "退会済みアカウントです。再度新規登録してからご利用ください。"
       not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
 
+    registrations:
+      new:
+      sign_up: アカウント登録
+      signed_up: アカウント登録が完了しました。
+
     sessions:
       already_signed_out: 既にログアウト済みです。
       new:

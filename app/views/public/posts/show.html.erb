@@ -9,7 +9,10 @@
             <!--閲覧数～レートの表示-->
             <h4 class= "item1">
               <span><%= @post.view_counts.count %><i class="fas fa-heart" style="color: rgba(255,129,137,100);"></i></span>
-              <span><%= render "yell_button", post: @post %></span>
+              <span>
+                <%= @post.yells.count %>
+                <%= render "yell_button", post: @post %>
+                </span>
 
             <% if @post.member == current_member %>
               <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>

@@ -1,11 +1,11 @@
 <!--応援ボタン削除-->
 <% if post.yelled_by?(current_member) %>
   <%= link_to post_yells_path(post.id), method: :delete do %>
-    <button type="button" class="btn btn-danger btn"><i class="fas fa-thumbs-up"></i></button>
+      <i class="fas fa-thumbs-up"></i>
   <% end %>
 <!--応援ボタン作成-->
 <% else %>
   <%= link_to post_yells_path(post.id), method: :post do %>
-    <button type="button" class="btn btn-primary btn"><i class="far fa-thumbs-up"></i></button>
+    <button type="button" class="btn-border-gradient-wrap"><i class="far fa-thumbs-up"></i></button>
   <% end %>
 <% end %>
