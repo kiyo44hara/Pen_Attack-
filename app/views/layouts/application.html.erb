@@ -26,8 +26,8 @@
            <%= render 'layouts/header' %>
          </header>
        <main class= "application-main">
-       <div class="notice"><%= notice %></div>
        <div class="aleart"><%= alert %></div>
+       <div class="notice"><%= render 'layouts/flash' %></div>
           <%= yield %>
        </main>
          <footer>
