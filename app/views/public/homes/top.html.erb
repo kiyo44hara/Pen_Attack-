@@ -28,11 +28,13 @@
           <h2 class="text">新着イラスト</h2>
           <div class= "image-index">
             <% @posts.each do |post| %>
-              <div class= "image">
-                <%= link_to post_path(post.id) do %>
-                  <%= image_tag post.get_image(120,120) %>
-                <% end %>
-              </div>
+              <% if post.member.is_deleted == false %>
+                <div class= "image">
+                  <%= link_to post_path(post.id) do %>
+                    <%= image_tag post.get_image(120,120) %>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>

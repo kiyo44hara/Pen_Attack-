@@ -21,6 +21,9 @@ class Public::PostsController < ApplicationController
 
   def show
       @post = Post.find(params[:id])
+      if @post.member.is_deleted == true
+        redirect_to root_path, notice: '既に退会済みのメンバーです！'
+      end
       current_member.view_counts.create(post_id: @post.id)
       @post_tags = @post.tags
       @post_comment = PostComment.new
