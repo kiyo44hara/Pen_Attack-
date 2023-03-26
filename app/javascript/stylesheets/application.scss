@@ -153,6 +153,7 @@ nav.hamburger-menu.active {
   left: -130px;
 }
 
+// エラーorフラッシュメッセージ
 .notice {
   display: inline-block;
   color: white;
@@ -166,4 +167,33 @@ nav.hamburger-menu.active {
 
 #error_explanation {
   color: white;
+}
+
+// 検索画面(クリエイター検索)
+.member_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1500px;
+  height: 920px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.member_search .items {
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.member_search .image {
+  margin: 60px;
+}
+
+.search_paginate {
+  text-align: center;
+}
+
+.search_paginate nav {
+  display: inline-block;
 }

@@ -7,7 +7,7 @@ class Admin::SearchesController < ApplicationController
     @word = params[:word]
     @search = params[:search]
     if @range == "クリエイター"
-        @members = Member.looks(params[:search], params[:word]).page(params[:page])
+        @members = Member.looks(params[:search], params[:word]).page(params[:page]).per(15)
     elsif @range == "イラスト"
       @posts = Post.looks(params[:search], params[:word]).latest.page(params[:page])
       if params[:old]

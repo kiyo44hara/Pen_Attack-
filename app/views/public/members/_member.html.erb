@@ -28,14 +28,12 @@
                   <% if post.member == current_member %>
                   <%= link_to "編集する", edit_post_path(post), class: "btn btn-success"%>
                   <% else %>
-                  <div class= "test">
                     <span id= "yell_<%= post.id %>">
                       <%= render "public/posts/yell_button", post: post %>
                     </span>
                   <% end %>
                   <!--詳細ボタン-->
-                      <%= link_to "詳細画面", post_path(post.id), class: "btn btn-primary"%>
-                  </div>
+                  <%= link_to "詳細画面", post_path(post.id), class: "btn btn-primary"%>
                 </div>
               </div>
             <% end %>

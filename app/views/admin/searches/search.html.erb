@@ -4,12 +4,21 @@
 
             <% if @range == 'クリエイター' %>
             <h4 class= "post-index-title">
-              <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">メンバー検索結果
+              <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">クリエイター検索結果
             </h4>
-              <% @members.each do |member| %>
-                <%= image_tag member.get_profile_image(100,100) %></br>
-                <%= member.name %>
-              <% end %>
+                <div class= "member_search">
+                  <div class= "items">
+                    <% @members.each do |member| %>
+                      <div class= "image">
+                        <div><%= member.name %></div>
+                        <div><%= image_tag member.get_profile_image(150,150) %></div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class= "search_paginate">
+                    <%= paginate @members %>
+                </div>
 
             <% elsif @range == 'イラスト' %>
             <h4 class= "post-index-title">
