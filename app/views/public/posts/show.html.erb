@@ -13,12 +13,19 @@
                 <%= render "yell_button", post: @post %>
               </span>
 
-
             <% if @post.member == current_member %>
               <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
             <% end %>
               <!--レート機能の情報を持ってきています-->
               <span><%= render "star", post: @post %></span>
+              <!--製作者リンク付き-->
+              <span class= "creater_link">
+                 製作者:
+                <%= link_to member_path(@post.member) do %>
+                 <%= @post.member.name %>
+                <% end %>
+              </span>
+
             </h4>
 
             <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
