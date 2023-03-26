@@ -11,6 +11,9 @@ class Public::MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
+    if @member.is_deleted == true
+      redirect_to root_path, notice: '既に退会済みのメンバーです！'
+    end
     @posts = @member.posts
     if params[:sort]
       case params[:sort]

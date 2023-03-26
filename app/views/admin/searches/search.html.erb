@@ -1,33 +1,44 @@
 <body class= "log_in-admin-content">
   <div class= "row">
     <div class= "col-sm-12 col-md-12 col-lg-12">
-          <% if @range == 'クリエイター' %>
+
+            <% if @range == 'クリエイター' %>
             <h4 class= "post-index-title">
-                <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">メンバー検索結果
+              <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">クリエイター検索結果
             </h4>
-            <% @members.each do |member| %>
-              <%= image_tag member.get_profile_image(100,100) %></br>
-              <%= member.name %>
-            <% end %>
-          <% elsif @range == 'イラスト' %>
+                <div class= "member_search">
+                  <div class= "items">
+                    <% @members.each do |member| %>
+                      <div class= "image">
+                        <div><%= member.name %></div>
+                        <div><%= image_tag member.get_profile_image(150,150) %></div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class= "search_paginate">
+                    <%= paginate @members %>
+                </div>
+
+            <% elsif @range == 'イラスト' %>
             <h4 class= "post-index-title">
               <img class= "index-image" src="<%= asset_pack_path "media/images/post_search.png" %>">投稿ワード検索結果
             </h4>
             <p class= "post-soat">
-              <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word) %>
-              <%= link_to '古い順', admin_search_path(old: "ture", range: @range, word: @word) %>
+              <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word, search: @search) %>
+              <%= link_to '古い順', admin_search_path(old: "ture", range: @range, word: @word, search: @search) %>
             </p>
-            <%= render "public/posts/index", post: @posts %>
-          <% else %>
-            <h4 class= "post-index-title">
-              <img class= "index-image" src="<%= asset_pack_path "media/images/tagkensaku.png" %>">タグワード検索結果
-            </h4>
-            <p class= "post-soat">
-              <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word) %>
-              <%= link_to '古い順', admin_search_path(old: "ture", range: @range, word: @word) %>
-            </p>
-            <%= render "public/posts/index", post: @posts %>
-          <% end %>
+              <%= render "public/posts/index", post: @posts %>
+            <% else %><!--タグの検索結果です-->
+              <h4 class= "post-index-title">
+                <img class= "index-image" src="<%= asset_pack_path "media/images/tagkensaku.png" %>">タグワード検索結果
+              </h4>
+              <p class= "post-soat">
+                <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word, search: @search) %>
+                <%= link_to '古い順', admin_search_path(old: "ture", range: @range, word: @word, search: @search) %>
+              </p>
+              <%= render "public/posts/index", post: @posts %>
+            <% end %>
     </div>
   </div>
 </body>

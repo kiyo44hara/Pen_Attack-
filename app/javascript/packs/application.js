@@ -49,6 +49,31 @@ $(document).on('turbolinks:load', function() {
     });
 });
 
+
+// スライダー
+$(document).on('turbolinks:load', function() {
+    const mySwiper = new Swiper('.mv01 .swiper', {
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
+        loop: true,
+        loopAdditionalSlides: 1,
+        speed: 2000,
+        autoplay: {
+            delay: 9000,
+            disableOnInteraction: false,
+            waitForTransition: false,
+        },
+        // ドラッグ操作が終わり次第スライド切り替えが行われる
+        followFinger: false,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
+
 // アップロードしたいファイルを選択した時に、ファイル名が表示される
 
 $(document).on('turbolinks:load', function() {

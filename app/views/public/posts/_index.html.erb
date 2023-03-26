@@ -1,7 +1,7 @@
 <div class= "index-page">
   <div class= "items">
   <% @posts.each do |post| %>
-
+    <% if post.member.is_deleted == false %>
         <div class= "item">
              <p><%= image_tag post.member.get_profile_image(15,15) %>
                 <span class="member-name">
@@ -47,6 +47,7 @@
           </div>
 
         </div>
+    <% end %>
   <% end %>
   <div class= "index-pagenate"><%= paginate @posts%></div>
   </div>

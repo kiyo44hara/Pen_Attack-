@@ -3,6 +3,12 @@
             <table class= "area">
               <!--1、コメントしたメンバーのアイコン＋コメント-->
               <% @post.post_comments.each do |post_comment| %>
+                <% if post_comment.member.is_deleted == true %>
+                  <tr>
+                    <td><%= image_tag post_comment.member.not_member_image(100,100) %></td>
+                    <td class= "comment">このメンバーは既に退会されています。</td>
+                  </tr>
+                <% else %>
                     <tr>
                       <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
                       <% if post_comment.is_deleted == false %>
@@ -23,6 +29,7 @@
                         <% end %>
                       </td>
                     </tr>
+                <% end %>
               <% end %>
             </table>
 <div class="notice"><%= render 'layouts/flash' %></div>

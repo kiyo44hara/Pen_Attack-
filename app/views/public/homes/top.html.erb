@@ -5,21 +5,64 @@
     <div class= "row">
       <div class= "col-sm-12 col-md-12 col-lg-12">
         <main class= "tops-main-content">
-          <div class= "tops-main-image">
-            <div class= "tops-main-title">
-              <span class= "text1">今週のお題</br></span>
-              <span class= "text2">「水遊び」</span>
-            </div>
-                <img class= "main-image" src="<%= asset_pack_path "media/images/top-image.png" %>">
-            <p class= "main-text">イラストが完成したら、タグをつけて投稿しよう!</p>
-            <div class= "tops-main-button">
-              <%= link_to new_post_path do %>
-              <button type="button" class="btn btn-primary">新規投稿</button>
-              <% end %>
+          <script src="application.js"></script>
+          <div class="mv01 l-section">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+
+                <!--<div>-->
+                  <!--スライド1-->
+                  <div class="swiper-slide">
+                    <div class="slide">
+                      <div class= "slide-media-img-cover">
+                        <img  src="<%= asset_pack_path "media/images/top-image.png" %>">
+                      </div>
+                      <div class= "tops-main-title">
+                        <span class= "text1">今週のお題</br></span>
+                        <span class= "text2">「水遊び」</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!--スライド2-->
+                  <div class="swiper-slide">
+                    <div class="slide">
+                      <div class= "slide-media-img-cover">
+                      <img  src="<%= asset_pack_path "media/images/top-image2.png" %>">
+                      </div>
+                      <div class= "tops-main-title2">
+                        <span class= "text1">４月１日～４月１４日</br></span>
+                        <span class= "text2">「全力画力アップ期間！」<span>
+                      </div>
+                    </div>
+                  </div>
+                  <!--スライド3-->
+                  <div class="swiper-slide">
+                    <div class="slide">
+                      <div class= "slide-media-img-cover">
+                      <img src="<%= asset_pack_path "media/images/top-image3.png" %>">
+                      </div>
+                      <div class= "tops-main-title">
+                        <span class= "text1">うちの子自慢しませんか？</br></span>
+                        <span class= "text2">「TRPG」</span>
+                      </div>
+                    </div>
+                  </div>
+                <!--</div>-->
+
+              </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
           </div>
-        </main>
-      </div>
+            <p class= "main-text">イラストが完成したら、タグをつけて投稿しよう!</p>
+              <div class= "tops-main-button">
+                <%= link_to new_post_path do %>
+                <button type="button" class="btn btn-primary btn-lg">新規投稿</button>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </main>
     </div>
 
     <div class= "row">
@@ -28,11 +71,13 @@
           <h2 class="text">新着イラスト</h2>
           <div class= "image-index">
             <% @posts.each do |post| %>
-              <div class= "image">
-                <%= link_to post_path(post.id) do %>
-                  <%= image_tag post.get_image(120,120) %>
-                <% end %>
-              </div>
+              <% if post.member.is_deleted == false %>
+                <div class= "image">
+                  <%= link_to post_path(post.id) do %>
+                    <%= image_tag post.get_image(120,120) %>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
