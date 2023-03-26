@@ -1,7 +1,7 @@
 .tops-content {
   margin: 0 auto;
   width: 100%;
-  background-image: url("../../images/topgamen.png"); 
+  background-image: url("../../images/topgamen.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -10,17 +10,17 @@
 }
 
 .tops-main-content {
-  // background-color: rgba(0,0,0,0.50);
-  height: 560px;
+  background-color: rgba(0,0,0,0.50);
+  height: 600px;
 }
 
-.tops-main-image {
-  position: relative;
-  // background-color: rgba(0,0,0,0.50);
-  width: 800px;
-  height: 550px;
-  margin: 0 auto;
-  padding: 20px;
+.swiper {
+  width: 900px;
+}
+
+.swiper img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .tops-main-title {
@@ -42,11 +42,25 @@
   font-size: 40px;
 }
 
-.main-image {
+.tops-main-title2 {
+  height: 200px;
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.70);
+  display: inline-block;
+  position: absolute;
+  top: 60px;
+  right: 430px;
   padding: 20px;
-  max-width: 100%;
-  max-height: 100%;
+  line-height: 70px;
 }
+
+.tops-main-title2 .text2 {
+  font-size: 30px;
+}
+
 
 .main-text {
   color: white;
@@ -54,7 +68,7 @@
 }
 
 .tops-main-button {
-  text-align: right;
+  text-align: center;
 }
 
 .new-post-index {

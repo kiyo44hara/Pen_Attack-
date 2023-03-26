@@ -49,6 +49,19 @@ $(document).on('turbolinks:load', function() {
     });
 });
 
+
+// スライダー
+$(document).on('turbolinks:load', function() {
+    const mySwiper = new Swiper('.swiper', {
+        loop: true,
+
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
+
 // アップロードしたいファイルを選択した時に、ファイル名が表示される
 
 $(document).on('turbolinks:load', function() {
