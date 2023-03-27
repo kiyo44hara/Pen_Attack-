@@ -30,11 +30,12 @@
 
             <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
             <h3 class= "item2"><%= @post.title %>
-              <span class= "tag-name">
+              <div class= "tag-name">
+                タグ:
                 <% @post_tags.each do |tag| %>
-                <%= tag.name %>
+                  <%= link_to tag.name, search_path(latest: "ture", range: "タグ", word: tag.name, search: "perfect_match") %>
                 <% end %>
-              </span>
+              </div>
             </h3>
             <!--制作日-->
             <h6><%= l @post.created_at %></h6>

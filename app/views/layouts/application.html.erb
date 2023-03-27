@@ -16,15 +16,17 @@
 
     <body>
          <header>
-           <!--検索窓-->
+           <!--検索窓、会員、管理者、未ログイン-->
            <% if member_signed_in? %>
               <%= form_with url: search_path, method: :get do |f| %>
               <%= render 'layouts/search', f: f %>
               <% end %>
-           <% else %>
+           <% elsif admin_signed_in? %>
               <%= form_with url: admin_search_path, method: :get do |f| %>
               <%= render 'layouts/search', f: f %>
               <% end %>
+            <% else %>
+            <!--広告等を載せても良い-->
            <% end %>
            <!--ハンバーガーメニュー-->
            <%= render 'layouts/header' %>

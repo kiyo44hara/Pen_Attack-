@@ -15,7 +15,11 @@
                   <div class="swiper-slide">
                     <div class="slide">
                       <div class= "slide-media-img-cover">
+
+                      <%= link_to search_path(latest: "ture", range: "タグ", word: "水遊び", search: "perfect_match") do %>
                         <img  src="<%= asset_pack_path "media/images/top-image.png" %>">
+                      <% end %>
+
                       </div>
                       <div class= "tops-main-title">
                         <span class= "text1">今週のお題</br></span>
