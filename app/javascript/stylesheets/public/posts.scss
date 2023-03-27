@@ -194,7 +194,9 @@
 }
 
 .index-pagenate {
-  position: absolute;
-  left: 500px;
-  top: 780px;
+  text-align: center;
+}
+
+.index-pagenate nav {
+  display: inline-block;
 }

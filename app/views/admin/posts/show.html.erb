@@ -11,6 +11,9 @@
                   <span><%= @post.view_counts.count %><i class="fas fa-heart" style="color: rgba(255,129,137,100);"></i></span>
                   <!--レート機能の情報を持ってきています-->
                   <%= render "public/posts/star", post: @post %>
+                  <span class= "creater_link">
+                     製作者:<%= @post.member.name %>
+                  </span>
 
                   <!--管理者による投稿削除機能-->
                       <%= link_to admin_post_path(@post.id), method: :delete, data: {confirm: "投稿を削除しますか？" } do %>
@@ -20,11 +23,12 @@
 
                 <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
                       <h3 class= "item2"><%= @post.title %>
-                        <span class= "tag-name">
+                        <div class= "tag-name">
+                          タグ:
                           <% @post_tags.each do |tag| %>
-                          <%= tag.name %>
+                            <%= link_to tag.name, admin_search_path(latest: "ture", range: "タグ", word: tag.name, search: "perfect_match") %>
                           <% end %>
-                        </span>
+                        </div>
                       </h3>
                       <!--制作日-->
                       <h6><%= l @post.created_at %></h6>

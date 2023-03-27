@@ -28,11 +28,11 @@ class Member < ApplicationRecord
   end
 
   # 退会メンバーの画像設定
-  def not_member_image(width, height)
-      file_path = Rails.root.join('app/assets/images/not-member.png')
-      profile_image.attach(io: File.open(file_path), filename: 'not-member.png', content_type: 'image/jpeg' )
-      profile_image.variant(resize_to_fill: [width, height]).processed
-  end
+  # def not_member_image(width, height)
+  #     file_path = Rails.root.join('app/javascript/images/not-member.png')
+  #     not_active_profile_image.attach(io: File.open(file_path), filename: 'not-member.png', content_type: 'image/jpeg' )
+  #     not_active_profile_image.variant(resize_to_fill: [width, height]).processed
+  # end
 
   # ゲストログインの設定
   def self.guest

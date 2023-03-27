@@ -4,7 +4,7 @@
 
             <% if @range == 'クリエイター' %>
             <h4 class= "post-index-title">
-              <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">クリエイター検索結果
+              <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">クリエイター「<%= @word %>」検索結果
             </h4>
                 <div class= "member_search">
                   <div class= "items">
@@ -22,7 +22,7 @@
 
             <% elsif @range == 'イラスト' %>
             <h4 class= "post-index-title">
-              <img class= "index-image" src="<%= asset_pack_path "media/images/post_search.png" %>">投稿ワード検索結果
+              <img class= "index-image" src="<%= asset_pack_path "media/images/post_search.png" %>">イラスト「<%= @word %>」検索結果
             </h4>
             <p class= "post-soat">
               <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word, search: @search) %>
@@ -31,7 +31,7 @@
               <%= render "public/posts/index", post: @posts %>
             <% else %><!--タグの検索結果です-->
               <h4 class= "post-index-title">
-                <img class= "index-image" src="<%= asset_pack_path "media/images/tagkensaku.png" %>">タグワード検索結果
+                <img class= "index-image" src="<%= asset_pack_path "media/images/tagkensaku.png" %>">タグ「<%= @word %>」の検索結果
               </h4>
               <p class= "post-soat">
                 <%= link_to '新着順', admin_search_path(latest: "ture", range: @range, word: @word, search: @search) %>

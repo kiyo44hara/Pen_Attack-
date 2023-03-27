@@ -1,10 +1,15 @@
-<body class= log_in-admin-content>
-  <div class= "container-fluid">
-    <div class= "row">
-      <div class= "col-sm-12 col-md-12 col-lg-12">
-        <h4 class= "post-index-title">投稿一覧(管理者画面)</h4>
-        <%= render "public/posts/index", post: @posts %>
-      </div>
+<body class= "post-index-content">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-12 col-lg-12">
+
+          <h4 class= "post-index-title">
+            <img class= "index-image" src="<%= asset_pack_path "media/images/post_index.png" %>">投稿一覧
+          </h4>
+          <p class= "post-soat">
+          <%= link_to '新着順', admin_posts_path(latest: "ture") %>
+          <%= link_to '古い順', admin_posts_path(old: "ture") %>
+          <%= render "public/posts/index", post: @posts %>
+
     </div>
   </div>
 </body>
