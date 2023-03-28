@@ -67,7 +67,10 @@
 
 
 ## 設計書
-
+[画面遷移図](https://drive.google.com/file/d/1tA-5-yRNZSQVRW-mdJzaKPbMzI9-oeOX/view?usp=sharing)  
+[ER図](https://drive.google.com/file/d/1CHYvCrXmkFheoWgyt15BA6GBa7AUmFF_/view?usp=sharing)  
+[テーブル定義書](https://docs.google.com/spreadsheets/d/15BChamjie8QjU21LMOJJdueojo6JMp2FlI9i_hcCqKs/edit?usp=sharing)  
+[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1RbSlZ8hO95_Q9RspnACeVF17RtSteCvlptEAbR3OWZo/edit#gid=439978719)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -76,5 +79,5 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-- 検討中です。
+<!--## 使用素材-->
+<!--- 検討中です。-->
