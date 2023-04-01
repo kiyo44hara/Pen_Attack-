@@ -10,8 +10,10 @@
                   <div class= "items">
                     <% @members.each do |member| %>
                       <div class= "image">
-                        <div><%= member.name %></div>
-                        <div><%= image_tag member.get_profile_image(150,150) %></div>
+                        <%= link_to member_path(member.id) do %>
+                          <div><%= member.name %></div>
+                          <div><%= image_tag member.get_profile_image(150,150) %></div>
+                        <% end %>
                       </div>
                     <% end %>
                   </div>

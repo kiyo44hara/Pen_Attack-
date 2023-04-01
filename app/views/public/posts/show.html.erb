@@ -4,15 +4,16 @@
       <div class= "col-sm-12 col-md-12 col-lg-12">
         <div class= "post-show-page">
           <div class= "items">
-
+            <!--投稿画像-->
             <div><%= image_tag @post.get_imege_full(800,800) %></div>
-            <!--閲覧数～レートの表示-->
             <h4 class= "item1">
+              <!--閲覧数～レートの表示-->
               <span><%= @post.view_counts.count %><i class="fas fa-heart" style="color: rgba(255,129,137,100);"></i></span>
+              <!--応援ボタン-->
               <span id= "yell_<%= @post.id %>">
                 <%= render "yell_button", post: @post %>
               </span>
-
+            <!--編集ボタン(投稿者本人にのみ表示)-->
             <% if @post.member == current_member %>
               <%= link_to "編集する", edit_post_path, class: "btn btn-success"%>
             <% end %>
@@ -28,7 +29,7 @@
 
             </h4>
 
-            <!--タイトルの横にタグを設置。あとでタグクリックで一覧に飛ぶようにリンクを追加する-->
+            <!--リンク付きタグ-->
             <h3 class= "item2"><%= @post.title %>
               <div class= "tag-name">
                 タグ:
@@ -55,7 +56,7 @@
               <%= @post.production_time %>
               <span><%= @post.unit_i18n %></span>
             </h6>
-
+            <!--post_commentsファイルに格納。コメントされたものの情報を表示するビューです-->
             <div class= "comment-area">
                 <%= render "public/post_comments/comment_area", post: @post %>
             </div>
@@ -63,8 +64,8 @@
             <!--コメント投稿エリア-->
             <%= render "comment_form", post: @post %>
 
-          <!--class="items"終了-->
-          </div>
+
+          </div><!--class="items"終了-->
 
         </div>
       </div>
