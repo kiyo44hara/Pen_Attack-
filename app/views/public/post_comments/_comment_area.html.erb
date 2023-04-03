@@ -1,23 +1,35 @@
-
+<!--投稿詳細画面に使用中のテンプレートです。-->
              <h3>コメント</h3>
             <table class= "area">
-              <!--1、コメントしたメンバーのアイコン＋コメント-->
+              <!--コメントエリア-->
               <% @post.post_comments.each do |post_comment| %>
-                <% if post_comment.member.is_deleted == true %>
+                <% if post_comment.member.is_deleted == true %><!--退会済みメンバーの表示-->
                   <tr>
-                    <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
+                    <!--退会専用画像-->
+                    <td><img  src="<%= asset_pack_path "media/images/not-member.png" %>"style="max-width: 100px; max-height: 100px;"></td>
+                    <!--専用メッセージ-->
                     <td class= "comment">このメンバーは既に退会されています。</td>
                   </tr>
-                <% else %>
+
+                    <!--専用ネーム-->
+                  <tr>
+                    <td>退会メンバー</td>
+                  </tr>
+
+                <% else %><!--アクティブメンバーの表示-->
                     <tr>
+                      <!--プロフィール画像-->
                       <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
+                      <!--管理者権限によるコメントの表示・非表示-->
                       <% if post_comment.is_deleted == false %>
+                      <!--デフォルト-->
                         <td class= "comment"><%= post_comment.comment %></td>
                       <% else %>
+                      <!--管理者によって非表示になったコメント-->
                         <td class= "comment">このコメントは不適切と判断されたため、管理者によって削除されました。</td>
                       <% end %>
 
-                      <!--コメント削除機能-->
+                      <!--コメント削除機能(非同期)-->
                       <%= render "public/posts/comment_delete", post_comment: post_comment %>
                     </tr>
 

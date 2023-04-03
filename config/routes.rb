@@ -13,9 +13,11 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  # ゲストメンバーでのサインイン
+
   devise_scope :member do
+    # ゲストメンバーでのサインイン
     post 'members/guest_sign_in', to: 'members/sessions#guest_sign_in'
+    # 新規登録エラー後、更新をかけるとエラーが起きる不具合解消
     get '/members', to: redirect("/members/sign_up")
   end
 
@@ -49,11 +51,10 @@ Rails.application.routes.draw do
     # 顧客側のマイページ
     resources :members, only: [:show, :edit, :update, :destroy] do
       member do
+      # 応援一覧ページ
         get :yells
       end
     end
-
-  #↓ scope end
-  end
+  end #public scope end
 
 end

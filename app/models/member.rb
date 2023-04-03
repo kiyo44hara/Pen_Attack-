@@ -21,18 +21,11 @@ class Member < ApplicationRecord
   # プロフィール画像未設定or設定済み
   def get_profile_image(width, height)
     unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/no-image.png')
-      profile_image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/jpeg' )
+      file_path = Rails.root.join('app/javascript/images/no-image.png')
+      profile_image.attach(io: File.open(file_path), filename: 'no-image.png', content_type: 'image/png' )
     end
       profile_image.variant(resize_to_fill: [width, height]).processed
   end
-
-  # 退会メンバーの画像設定
-  # def not_member_image(width, height)
-  #     file_path = Rails.root.join('app/javascript/images/not-member.png')
-  #     not_active_profile_image.attach(io: File.open(file_path), filename: 'not-member.png', content_type: 'image/jpeg' )
-  #     not_active_profile_image.variant(resize_to_fill: [width, height]).processed
-  # end
 
   # ゲストログインの設定
   def self.guest
