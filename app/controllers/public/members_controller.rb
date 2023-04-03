@@ -31,7 +31,7 @@ class Public::MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
-    @posts = @member.posts.latest.page(params[:page]).per(8)
+    @posts = @member.posts.latest.limit(8)
   end
 
   def update
@@ -39,7 +39,7 @@ class Public::MembersController < ApplicationController
     if @member.update(member_params)
        redirect_to member_path, notice: "プロフィールを更新しました。"
     else
-      @posts = @member.posts.page(params[:page]).per(8)
+      @posts = @member.posts.latest.limit(8)
       render:edit
     end
   end
@@ -69,7 +69,7 @@ class Public::MembersController < ApplicationController
   def is_deleted_true_member
    @member = Member.find(params[:id])
     if @member.is_deleted == true
-      redirect_to root_path, notice: '既に退会済みの会員ーです！'
+      redirect_to root_path, notice: '既に退会済みの会員です！'
     end
   end
 end
