@@ -13,6 +13,10 @@ class Public::PostsController < ApplicationController
     # tag_list = 投稿の中身全てと、タグの名前。詳細はpostモデルを参照してください。
     if @post.save
        @post.save_tag(tag_list)
+       tags = Vision.get_image_data(@post.image)
+       tags.each do |tag|
+          @post.tags.create(name: tag)
+       end
       redirect_to member_path(current_member), notice: "作品を投稿しました！"
     else
       render:new

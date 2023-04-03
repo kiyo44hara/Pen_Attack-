@@ -25,18 +25,22 @@
               <%= form_with url: admin_search_path, method: :get do |f| %>
               <%= render 'layouts/search', f: f %>
               <% end %>
-            <% else %>
+           <% else %>
             <!--広告等を載せても良い-->
            <% end %>
            <!--ハンバーガーメニュー-->
            <%= render 'layouts/header' %>
          </header>
+
        <main class= "application-main">
+
        <div class="aleart"><%= alert %></div>
        <div class="aleart"><%= flash[:error] %></div>
        <div class="notice"><%= render 'layouts/flash' %></div>
           <%= yield %>
+
        </main>
+
          <footer>
            <%= render 'layouts/footer' %>
          </footer>
