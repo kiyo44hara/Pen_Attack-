@@ -10,9 +10,11 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     tag_list = params[:post][:name].split(',')
+
     # tag_list = 投稿の中身全てと、タグの名前。詳細はpostモデルを参照してください。
     if @post.save
        @post.save_tag(tag_list)
+      # APIによるタグ取得
        tags = Vision.get_image_data(@post.image)
        tags.each do |tag|
           @post.tags.create(name: tag)
@@ -25,22 +27,16 @@ class Public::PostsController < ApplicationController
 
   def show
       @post = Post.find(params[:id])
-      if @post.member.is_deleted == true
-        redirect_to root_path, notice: '既に退会済みのメンバーです！'
-      end
+      redirect_to root_path, notice: '既に退会済みの会員です！' if @post.member.is_deleted == true
       current_member.view_counts.create(post_id: @post.id)
       @post_tags = @post.tags
       @post_comment = PostComment.new
   end
 
   def index
-    if params[:latest]
-      @posts = Post.latest.page(params[:page])
-    elsif params[:old]
-      @posts = Post.old.page(params[:page])
-    else
-      @posts = Post.latest.page(params[:page])
-    end
+      @posts = Post.latest
+      @posts = Post.old if params[:old]
+      @posts = Post.page(params[:page])
   end
 
   def edit
@@ -51,9 +47,7 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
     tag_list = params[:post][:name].split(',')
-
     params[:post][:star] = params[:score]
 
     if @post.update(post_params)
