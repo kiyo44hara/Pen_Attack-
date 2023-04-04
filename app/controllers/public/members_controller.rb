@@ -39,7 +39,7 @@ class Public::MembersController < ApplicationController
     if @member.update(member_params)
        redirect_to member_path, notice: "プロフィールを更新しました。"
     else
-      @posts = @member.posts.latest.limit(8)
+      @posts = @member.posts.limit(8)
       render:edit
     end
   end
