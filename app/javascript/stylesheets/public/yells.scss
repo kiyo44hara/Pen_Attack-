@@ -1,3 +1,17 @@
-// Place all the styles related to the public/yells controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.post-yells-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,0.80);
+  width: 800px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.post-yells-page .items {
+  margin: 20px 0;
+}
+
+.post-yells-page .item {
+  margin: 5px 0;
+}

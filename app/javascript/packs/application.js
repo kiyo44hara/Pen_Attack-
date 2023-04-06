@@ -17,6 +17,7 @@ import "../stylesheets/public/sessions"
 import "../stylesheets/public/tops"
 import "../stylesheets/public/members"
 import "../stylesheets/public/posts"
+import "../stylesheets/public/yells"
 import "../stylesheets/admin/admins"
 import '@fortawesome/fontawesome-free/js/all'
 

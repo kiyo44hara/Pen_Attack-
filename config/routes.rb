@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
     # 顧客側の投稿機能に、応援、コメント機能をネストさせています
     resources :posts, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
-      resource :yells, only: [:create, :destroy]
+      resource :yells, only: [:show, :create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
 
