@@ -33,9 +33,9 @@
 
                   <th>
                     <% if member.is_deleted == false %>
-                      <%= button_to "退会させる", admin_member_path(member), method: :patch, data: {confirm: "メンバーを退会させますか？" },class: "btn btn-danger"%>
+                      <%= button_to "退会させる", admin_member_path(member), method: :patch, data: {confirm: "会員を退会させますか？" },class: "btn btn-danger"%>
                     <% else %>
-                      <%= button_to "復活させる", admin_member_path(member), method: :patch, data: {confirm: "メンバーのアカウントを復活させますか？" },class: "btn btn-success"%>
+                      <%= button_to "復活させる", admin_member_path(member), method: :patch, data: {confirm: "会員のアカウントを復活させますか？" },class: "btn btn-success"%>
                     <% end %>
                   </th>
                 </tr>
