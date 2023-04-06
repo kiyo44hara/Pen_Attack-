@@ -11,6 +11,7 @@ class Public::MembersController < ApplicationController
   end
 
   def show
+    @member = Member.find(params[:id])
     @posts = @member.posts
     if params[:sort]
       case params[:sort]

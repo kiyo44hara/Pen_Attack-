@@ -48,8 +48,10 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
     end
 
+
     # 顧客側のマイページ
     resources :members, only: [:show, :edit, :update, :destroy] do
+      resource :relationships, only: [:create, :destroy]
       member do
       # 応援一覧ページ
         get :yells
