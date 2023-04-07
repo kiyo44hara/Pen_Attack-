@@ -1,5 +1,7 @@
 <!--応援ボタン削除-->
-<span><%= post.yells.count %></span>
+<%= link_to post_yells_path(post) do %>
+  <span><%= post.yells.count %></span>
+<% end %>
 <% if post.yelled_by?(current_member) %>
   <%= link_to post_yells_path(post.id), method: :delete, remote: true do %>
       <i class="fas fa-thumbs-up"></i>

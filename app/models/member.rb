@@ -6,6 +6,11 @@ class Member < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :view_counts, dependent: :destroy
 
+  has_many :relationships, dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followings, through: :relationships, source: :follower
+  has_many :followers, through: :passive_relationships, source: :member
+
   # バリデーション
   validates :name, {presence: true, uniqueness: true, length: {maximum:10}}
   validates :introduction, {length: {maximum:300}}
@@ -48,4 +53,12 @@ class Member < ApplicationRecord
         @member = Member.where("name LIKE ?", "%#{words}%")
     end
   end
+
+  # フォロー・フォロワー機能
+
+    # フォロー済みか確認する
+    def following?(member)
+      followings.include?(member)
+    end
+
 end

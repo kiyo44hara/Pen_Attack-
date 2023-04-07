@@ -18,6 +18,8 @@
                     <% end %>
               <% end %>
             </div>
+            <!--フォローボタン-->
+            <%= render "follow_button", member: @member %>
             <!--自己紹介エリア-->
             <div class= "introduction">
               <div class= "box"><%= @member.introduction %></div>

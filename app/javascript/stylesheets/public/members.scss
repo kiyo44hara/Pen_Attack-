@@ -17,7 +17,7 @@
  text-align: center;
 }
 
-.my-page-form .btn {
+.my-page-button-new .btn {
  width: 60px;
  position: absolute;
  right: 145px;
@@ -181,38 +181,3 @@
  width: 1200px;
  height: 880px;
 }
-
-// レスポンシブ対応
-// @media screen and (max-width:991px) {
-//   .my-page-form {
-//    left: 300px;
-//   }
-
-//   .member-post-index {
-//     left: 120px;
-//     width: 0px;
-//   }
-
-//   .my-page-posts {
-//    right: 0px;
-//    width: 0px;
-//    left: 200px;
-//   }
-
-//   .my-page-posts .image {
-//    padding-bottom: 70px;
-//   }
-
-//   .front-color .color {
-//    top: -20px;
-//    width: 770px;
-//    height: 3050px;
-//   }
-
-//   .my-pagenite {
-//    top: -120px;
-//    right: 20px;
-//    bottom: 0px;
-//    left: 0px;
-//   }
-// }
