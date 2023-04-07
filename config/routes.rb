@@ -51,10 +51,10 @@ Rails.application.routes.draw do
 
     # 顧客側のマイページ
     resources :members, only: [:show, :edit, :update, :destroy] do
-      resource :relationships, only: [:create, :destroy]
+      resource :relationships, only: [:show, :create, :destroy]
       member do
-      # 応援一覧ページ
-        get :yells
+
+      get :yells  # 応援一覧ページ
       end
     end
   end #public scope end
