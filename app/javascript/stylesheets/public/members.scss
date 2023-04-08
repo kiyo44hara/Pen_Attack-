@@ -25,7 +25,7 @@
 
 .introduction {
  position: absolute;
- top: 360px;
+ top: 380px;
  right: 15px;
  width: 320px;
  height: 360px;
@@ -33,6 +33,16 @@
  border: 1px solid rgba(20,20,20,100);
  border-radius: 15px;
  padding: 7px;
+}
+
+.follow-button .btn {
+ position: absolute;
+ top: 335px;
+ left: 120px;
+}
+
+.follow_count {
+ text-align: center;
 }
 
 .introduction .box {
