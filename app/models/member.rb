@@ -16,6 +16,9 @@ class Member < ApplicationRecord
   validates :introduction, {length: {maximum:300}}
   validates :is_deleted, inclusion: { in: [true, false] }
 
+# 会員登録順に並び替える機能
+  scope :member_latest, -> {order(created_at: :desc)}
+  scope :member_old, -> {order(created_at: :asc)}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -6,6 +6,10 @@
             <h4 class= "post-index-title">
               <img class= "index-image" src="<%= asset_pack_path "media/images/memberkensaku.png" %>">クリエイター「<%= @word %>」検索結果
             </h4>
+            <p class= "post-soat">
+              <%= link_to '新着順', search_path(member_latest: "ture", range: @range, word: @word, search: @search) %>
+              <%= link_to '古い順', search_path(member_old: "ture", range: @range, word: @word, search: @search) %>
+            </p>
                 <div class= "member_search">
                   <div class= "items">
                     <% @members.each do |member| %>
