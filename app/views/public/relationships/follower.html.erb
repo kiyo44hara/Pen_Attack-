@@ -1,0 +1,38 @@
+<body class= "post-show-content">
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "post-yells-page">
+          <div class= "items">
+
+            <div>
+              <h4>
+                <span>
+                  <%= image_tag @member.get_profile_image(100,100) %>
+                  「<%= @member.name %>」さんの
+                </span>
+                <span>フォロワー</span>
+              </h4>
+            </div>
+
+            <% @passive_relationships.each do |member| %>
+              <div class= "item">
+                <div>
+                  <div><%= member.name %></div>
+                  <span><%= image_tag member.get_profile_image(50,50) %></span>
+                  <span>
+                    <%= link_to member_path(member) do %>
+                      訪問する
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+            <% end %>
+            <div class= "index-pagenate"><%= paginate @passive_relationships %></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

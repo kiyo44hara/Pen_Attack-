@@ -9,7 +9,9 @@ class Public::SearchesController < ApplicationController
 
   # メンバー検索
     if @range == "クリエイター"
-        @members = Member.looks(params[:search], params[:word]).page(params[:page]).per(15)
+        @members = Member.looks(params[:search], params[:word]).member_latest
+        @members = Member.looks(params[:search], params[:word]).member_old if params[:member_old]
+        @members = @members.page(params[:page]).per(15)
   # 投稿検索
     elsif @range == "イラスト"
       @posts = Post.looks(params[:search], params[:word]).latest

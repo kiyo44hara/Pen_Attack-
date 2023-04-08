@@ -51,9 +51,10 @@ Rails.application.routes.draw do
 
     # 顧客側のマイページ
     resources :members, only: [:show, :edit, :update, :destroy] do
-      resource :relationships, only: [:show, :create, :destroy]
+      resource :relationships, only: [:create, :destroy]
+      get 'relationships/follow' => 'relationships#follow', as:'follow'
+      get 'relationships/follower' => 'relationships#follower', as:'follower'
       member do
-
       get :yells  # 応援一覧ページ
       end
     end

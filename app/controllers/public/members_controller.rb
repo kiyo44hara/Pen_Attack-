@@ -7,7 +7,18 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    @posts = Post.where(id: yells).latest.page(params[:page])
+    @posts = Post.where(id: yells)
+    if params[:sort]
+      case params[:sort]
+      when "yell_latest"
+        @posts = Post.where(id: yells).yell_latest
+      when "yell_old"
+        @posts = Post.where(id: yells).yell_old
+      end
+        @posts = @posts.page(params[:page])
+    else
+    @posts = Post.where(id: yells).yell_latest.page(params[:page])
+    end
   end
 
   def show
