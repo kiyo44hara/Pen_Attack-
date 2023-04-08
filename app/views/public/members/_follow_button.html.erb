@@ -12,9 +12,14 @@
         <% end %>
         <span>
           フォロー
-          <%= link_to member_relationships_path(member_id: member) do%>
+          <%= link_to member_follow_path(member_id: member) do %>
             <%= member.relationships.count %>
           <% end %>
         </span>
-        <span>フォロワー<%= member.passive_relationships.count %></span>
+        <span>
+          フォロワー
+          <%= link_to member_follower_path(member_id: member) do %>
+            <%= member.passive_relationships.count %>
+          <% end %>
+        </span>
 </div>

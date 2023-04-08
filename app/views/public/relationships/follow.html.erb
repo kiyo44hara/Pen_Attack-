@@ -5,8 +5,7 @@
         <div class= "post-yells-page">
           <div class= "items">
 
-      <% if @range == 'フォロー' %>
-        <div>
+            <div>
               <h4>
                 <span>
                   <%= image_tag @member.get_profile_image(100,100) %>
@@ -19,8 +18,8 @@
             <% @relationships.each do |member| %>
               <div class= "item">
                 <div>
+                  <div><%= member.name %></div>
                   <span><%= image_tag member.get_profile_image(50,50) %></span>
-                  <span><%= member.name %></span>
                   <span>
                     <%= link_to member_path(member) do %>
                       訪問する
@@ -30,32 +29,6 @@
               </div>
             <% end %>
             <div class= "index-pagenate"><%= paginate @relationships %></div>
-      <% else %>
-            <div>
-              <h4>
-                <span>
-                  <%= image_tag @member.get_profile_image(100,100) %>
-                  「<%= @member.name %>」さんの
-                </span>
-                <span>フォロワー</span>
-              </h4>
-            </div>
-
-            <% @passive_relationship.each do |member| %>
-              <div class= "item">
-                <div>
-                  <span><%= image_tag member.get_profile_image(50,50) %></span>
-                  <span><%= member.name %></span>
-                  <span>
-                    <%= link_to member_path(member) do %>
-                      訪問する
-                    <% end %>
-                  </span>
-                </div>
-              </div>
-              <div class= "index-pagenate"><%= paginate @passive_relationships %></div>
-            <% end %>
-      <% end %>
 
 
           </div>

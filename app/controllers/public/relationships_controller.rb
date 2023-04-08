@@ -1,17 +1,18 @@
 class Public::RelationshipsController < ApplicationController
   before_action :authenticate_member!
 
-  def show
-    @range = params[:range]
+  def follow
     @member = Member.find(params[:member_id])
-    if @range == "フォロー"
-        follow_members = @member.relationships.pluck(:follower_id)
-        @relationships = Member.where(id: follow_members).page(params[:page])
-    else        #"フォロワー"
-        follower_members = @member.passive_relationships.pluck(:member_id)
-        @passive_relationship = Member.where(id: follower_members).page(params[:page])
-    end
+    follow_members = @member.relationships.pluck(:follower_id)
+    @relationships = Member.where(id: follow_members).page(params[:page]).per(9)
   end
+
+  def follower
+    @member = Member.find(params[:member_id])
+    follower_members = @member.passive_relationships.pluck(:member_id)
+    @passive_relationships = Member.where(id: follower_members).page(params[:page])
+  end
+
 
   # 詳細はモデルに記載
   def create
