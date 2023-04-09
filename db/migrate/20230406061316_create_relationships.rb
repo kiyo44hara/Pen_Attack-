@@ -7,8 +7,9 @@ class CreateRelationships < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_foreign_key :relationships, :members, column: :member_id
-    add_foreign_key :relationships, :members, column: :follower_id
+    # add_foreign_key :relationships, :members, column: :member_id
+    # add_foreign_key :relationships, :members, column: :follower_id
+    # 本番環境に適応できない為コメントアウト
 
     add_index :relationships, [:member_id, :follower_id], unique: true
   end
