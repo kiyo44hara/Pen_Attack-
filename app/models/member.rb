@@ -12,7 +12,7 @@ class Member < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :member
 
   # バリデーション
-  validates :name, {presence: true, uniqueness: true, length: {maximum:10}}
+  validates :name, {presence: true, uniqueness: true, length: {maximum:11}}
   validates :introduction, {length: {maximum:300}}
   validates :is_deleted, inclusion: { in: [true, false] }
 
