@@ -52,6 +52,17 @@
             <table>
                   <!--1、コメントしたメンバーのアイコン＋コメント-->
               <% @post.post_comments.each do |post_comment| %>
+                <% if post_comment.member.is_deleted == true %><!--退会済みメンバーの表示-->
+                    <tr>
+                      <!--退会専用画像-->
+                      <td><img  src="<%= asset_pack_path "media/images/not-member.png" %>"style="max-width: 100px; max-height: 100px;"></td>
+                      <!--専用メッセージ-->
+                      <td class= "comment">このメンバーは既に退会されています。</td>
+                    </tr>
+                    <tr>
+                      <td>Member_"<%= post_comment.member.id %>"</td>
+                    </tr>
+                <% else %>
                     <tr>
                       <td><%= image_tag post_comment.member.get_profile_image(100,100) %></td>
                       <% if post_comment.is_deleted == false %>
@@ -59,31 +70,30 @@
                       <% else %>
                         <td class= "comment">このコメントは不適切と判断されたため、管理者によって削除されました。</td>
                       <% end %>
+
+                    <!--管理者によるコメント削除機能-->
+                      <td class= "delete-btn">
+
+                          <% if post_comment.is_deleted == false %>
+                            <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :patch,data: {confirm: "コメントを非表示にしますか？" } do %>
+                              <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-low-vision"></i></button>
+                              <!--<button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>-->
+                            <% end %>
+
+                          <% else %>
+                            <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :patch,data: {confirm: "コメントを復活させますか？" } do %>
+                              <button type="button" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></button>
+                            <% end %>
+                          <% end %>
+                      </td>
                     </tr>
-
-
-                  <!--コメントしたメンバーの名前-->
+                    <!--コメントしたメンバーの名前-->
                     <tr>
                       <td class= "comment-member">
                           <%= post_comment.member.name %>
                       </td>
                     </tr>
-
-                    <tr>
-                      <td class= "delete-btn">
-                    <!--管理者によるコメント削除機能-->
-                          <% if post_comment.is_deleted == false %>
-                            <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :patch,data: {confirm: "コメントを削除しますか？" } do %>
-                              <button type="button" class="btn btn-danger btn-sm">コメント削除</button>
-                            <% end %>
-
-                          <% else %>
-                            <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :patch,data: {confirm: "コメントを復活させますか？" } do %>
-                              <button type="button" class="btn btn-success btn-sm">コメント復活</button>
-                            <% end %>
-                          <% end %>
-                      </td>
-                    </tr>
+                <% end %>
                <% end %>
             </table>
           </div>
