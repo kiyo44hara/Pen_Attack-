@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
     # 管理者側投稿機能に、コメント機能をネストさせています
     resources :posts, only: [:index, :show, :destroy] do
-      resources :post_comments, only: [:update]
+      resources :post_comments, only: [:update, :destroy]
     end
   end
 

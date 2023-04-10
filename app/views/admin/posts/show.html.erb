@@ -58,6 +58,11 @@
                       <td><img  src="<%= asset_pack_path "media/images/not-member.png" %>"style="max-width: 100px; max-height: 100px;"></td>
                       <!--専用メッセージ-->
                       <td class= "comment">このメンバーは既に退会されています。</td>
+                      <td class= "delete-btn">
+                        <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを完全に削除しますか？" } do %>
+                        <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                        <% end %>
+                      </td>
                     </tr>
                     <tr>
                       <td>Member_"<%= post_comment.member.id %>"</td>
@@ -72,19 +77,22 @@
                       <% end %>
 
                     <!--管理者によるコメント削除機能-->
-                      <td class= "delete-btn">
-
+                      <td>
                           <% if post_comment.is_deleted == false %>
                             <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :patch,data: {confirm: "コメントを非表示にしますか？" } do %>
                               <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-low-vision"></i></button>
                               <!--<button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>-->
                             <% end %>
-
                           <% else %>
                             <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :patch,data: {confirm: "コメントを復活させますか？" } do %>
                               <button type="button" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></button>
                             <% end %>
                           <% end %>
+                      </td>
+                      <td> <!--コメントの物理的削除-->
+                        <%= link_to admin_post_post_comment_path(post_comment.post, post_comment), method: :delete,data: {confirm: "コメントを完全に削除しますか？" } do %>
+                        <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                        <% end %>
                       </td>
                     </tr>
                     <!--コメントしたメンバーの名前-->
