@@ -58,6 +58,12 @@ Rails.application.routes.draw do
       get :yells  # 応援一覧ページ
       end
     end
+
+    # 顧客側：お問い合わせ
+    resource :contacts, only: [:new, :create]
+    # エラー出た状態での更新後、ルートエラー対策
+    get '/contacts', to: redirect("contacts/new")
+
   end #public scope end
 
 end
