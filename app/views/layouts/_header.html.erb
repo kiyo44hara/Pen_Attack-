@@ -25,6 +25,9 @@
         <li>
           <a href="#"><%= link_to 'ログアウト', destroy_member_session_path, method: :delete %></a>
         </li>
+         <li>
+          <a href="#"><%= link_to 'お問い合わせ', new_contacts_path %></a>
+        </li>
 
       <% elsif admin_signed_in? %>
 

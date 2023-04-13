@@ -19,7 +19,9 @@ ja:
         star: "評価"
         tags: "タグ"
 
-
+      contact:
+        name: "「お名前」"
+        content: "「お問い合わせ内容」"
 
 
   time:

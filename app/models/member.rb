@@ -12,13 +12,15 @@ class Member < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :member
 
   # バリデーション
-  validates :name, {presence: true, uniqueness: true, length: {maximum:10}}
+  validates :name, {presence: true, uniqueness: true, length: {maximum:11}}
   validates :introduction, {length: {maximum:300}}
   validates :is_deleted, inclusion: { in: [true, false] }
 
 # 会員登録順に並び替える機能
   scope :member_latest, -> {order(created_at: :desc)}
   scope :member_old, -> {order(created_at: :asc)}
+  scope :active, -> {where(is_deleted: false)}
+  scope :not_active, -> {where(is_deleted: true)}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
