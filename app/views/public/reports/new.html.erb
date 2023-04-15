@@ -1,0 +1,8 @@
+<h4>問題あるユーザーの通報を行います。</h4>
+
+<%= form_with model:[@member, @report] do |f| %>
+  <div><%= @member.id %>:「<%= @member.name %>」を通報する</div>
+  <div><%= f.text_area :reason %></div>
+  <div><%= f.text_field :url %></div>
+  <div><%= f.submit "通報する" %></div>
+<% end %>
