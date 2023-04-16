@@ -1,0 +1,38 @@
+<body class= log_in-admin-content>
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <main class= "admin-member-index">
+          <div class= "items">
+            <h1>通報一覧</h1>
+
+              <table div class="table-responsive table-bordered table table-hover ">
+                <!--会員一覧見出し-->
+                <tr>
+                  <th class= "member-title">通報ID</th>
+                  <th class= "member-title">問題のあるユーザー</th>
+                  <th class= "member-title">報告者</th>
+                  <th class= "member-title">対応ステータス</th>
+                </tr>
+                <% @reports.each do |report| %>
+                <!--通報ID,会員名、通報者-->
+                <tr>
+                  <th><%= report.id %></th>
+                  <th><%= report.reported.name %></th>
+                  <th><%= report.reporter.name %></th>
+
+                  <!--対応ステータス-->
+                  <th>
+                    <%= report.status_i18n %>
+                  </th>
+                  <th><%= button_to "詳細", admin_report_path(report), method: :get, class: "btn btn-primary"%></th>
+                </tr>
+                <% end %>
+                <td class= "admin-pagenate"><%= paginate @reports%></td>
+              </table>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>

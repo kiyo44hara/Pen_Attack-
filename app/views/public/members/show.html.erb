@@ -34,6 +34,11 @@
             <div class= "yells-link">
               <%= link_to '応援した作品一覧', yells_member_path(@member) %>
             </div>
+
+            <!--通報する-->
+            <div class= "report-link">
+              <%= link_to '問題あるユーザーを通報する', new_member_reports_path(@member) %>
+            </div>
           </main>
         </div>
 

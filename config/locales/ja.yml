@@ -29,6 +29,9 @@ ja:
         name: "「お名前」"
         content: "「お問い合わせ内容」"
 
+      report:
+        reason: "【通報内容】"
+
 
   time:
     formats:
