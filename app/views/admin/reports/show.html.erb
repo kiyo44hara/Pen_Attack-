@@ -1,0 +1,40 @@
+<!--投稿詳細ページのレイアウトを参照にしています。-->
+<body class= "log_in-admin-content">
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "post-show-page">
+          <div class= "items">
+            <h4 class= "item1">
+                <h6>会員ID:<%= @report.reporter.id %></h6>
+                <h4>「<%= @report.reporter.name %>」様からの通報です。</h4>
+
+
+              <h5>通報日</h5>
+              <h6><%= @report.created_at %></h6>
+
+              <h5>通報対象</h5>
+              <h6>会員ID：<%= @report.reported.id %></h6>
+              <h6>会員名：<%= @report.reported.name %></h6>
+
+              <h5>参照URL</h5>
+              <h6><%= @report.reason %></h6>
+
+              <h5>詳細内容</h5>
+              <h6><%= @report.reason %></h6>
+
+              <h5>対応ステータス</h5>
+              <h6><%= @report.status_i18n %></h6>
+              <%= form_with model:@report, url:admin_report_path(@report), method: :patch do |f| %>
+                <%= f.select :status, Report.statuses.keys.map { |k| [t("enums.report.status.#{k}"), k]} %>
+                <%= f.submit "更新する" %>
+              <% end %>
+
+              <div>
+                <%= link_to "通報一覧に戻る", admin_reports_path %>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>

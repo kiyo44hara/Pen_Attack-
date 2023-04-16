@@ -1,0 +1,33 @@
+<!--投稿詳細のレイアウトを参照にしています。-->
+<body class= "post-show-content">
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "post-show-page">
+          <div class= "items">
+
+            <h4 class="item1">お問い合わせ</h4>
+            <%= form_with(model: @contact) do |f| %>
+              <%= render "layouts/model_error", model: f.object %>
+                <div>
+
+                  <div><%= f.label "【お名前】" %></div>
+                  <div><%= f.text_field :name, placeholder: "ユーザーネーム", class: "input-form" %></div>
+
+                  <div><%= f.label "【お問い合わせ内容】" %></div>
+                  <div><%= f.text_area :content, placeholder: "お問い合わせ内容", class: "input-form", cols: 50, rows: 10 %></div>
+
+                  <div class= "contact_btn"><%= f.submit '送信', class: 'btn btn-success',data: {confirm: "送信しても宜しいですか？" } %></div>
+
+                  <div><%= link_to 'キャンセル', root_path,data: {confirm: "キャンセルしますか？(内容は保存されません。)" } %></div>
+
+                </div>
+
+
+            <% end %>
+          </div><!--class="items"終了-->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

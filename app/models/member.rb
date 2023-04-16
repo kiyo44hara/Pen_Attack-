@@ -11,6 +11,9 @@ class Member < ApplicationRecord
   has_many :followings, through: :relationships, source: :follower
   has_many :followers, through: :passive_relationships, source: :member
 
+  has_many :reports, class_name: 'Report', foreign_key: 'reporter_id', dependent: :destroy
+  has_many :passive_reports, class_name: 'Report', foreign_key: 'reported_id',dependent: :destroy
+
   # バリデーション
   validates :name, {presence: true, uniqueness: true, length: {maximum:11}}
   validates :introduction, {length: {maximum:300}}
@@ -19,6 +22,8 @@ class Member < ApplicationRecord
 # 会員登録順に並び替える機能
   scope :member_latest, -> {order(created_at: :desc)}
   scope :member_old, -> {order(created_at: :asc)}
+  scope :active, -> {where(is_deleted: false)}
+  scope :not_active, -> {where(is_deleted: true)}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

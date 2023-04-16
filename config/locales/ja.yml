@@ -6,6 +6,12 @@ ja:
         time: "時間"
         day: "日"
 
+    report:
+      status:
+        waiting: "対応待ち"
+        confirming: "確認中"
+        finish: "確認済み"
+
   activerecord:
     models:
       post: "イラスト"
@@ -19,7 +25,12 @@ ja:
         star: "評価"
         tags: "タグ"
 
+      contact:
+        name: "「お名前」"
+        content: "「お問い合わせ内容」"
 
+      report:
+        reason: "【通報内容】"
 
 
   time:

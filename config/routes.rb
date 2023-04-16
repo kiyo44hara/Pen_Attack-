@@ -28,12 +28,15 @@ Rails.application.routes.draw do
     get '/' => 'members#index'
     resources :members, only: [:update]
 
+    # 通報機能(一覧・詳細・更新)
+    resources :reports, only: [:index, :show, :update]
+
     # 管理者側検索画面
     get 'searches' => 'searches#search', as:'search'
 
     # 管理者側投稿機能に、コメント機能をネストさせています
     resources :posts, only: [:index, :show, :destroy] do
-      resources :post_comments, only: [:update]
+      resources :post_comments, only: [:update, :destroy]
     end
   end
 
@@ -52,12 +55,20 @@ Rails.application.routes.draw do
     # 顧客側のマイページ
     resources :members, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
+      resource :reports, only: [:new, :create]
+      get '/reports', to: redirect("/members/:member_id/reports/new")
       get 'relationships/follow' => 'relationships#follow', as:'follow'
       get 'relationships/follower' => 'relationships#follower', as:'follower'
       member do
       get :yells  # 応援一覧ページ
       end
     end
+
+    # 顧客側：お問い合わせ
+    resource :contacts, only: [:new, :create]
+    # エラー出た状態での更新後、ルートエラー対策
+    get '/contacts', to: redirect("contacts/new")
+
   end #public scope end
 
 end

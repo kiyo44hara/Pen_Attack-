@@ -5,6 +5,12 @@
         <main class= "admin-member-index">
           <div class= "items">
             <h1>会員一覧</h1>
+              <p class= "post-soat">
+                <%= link_to '登録順(新着)/', admin_path(@member, sort: :member_latest) %>
+                <%= link_to '登録順(古い)/', admin_path(@member, sort: :member_old) %>
+                <%= link_to 'アクティブ/', admin_path(@member, sort: :active) %>
+                <%= link_to '退会済み', admin_path(@member, sort: :not_active) %>
+              </p>
 
               <table div class="table-responsive table-bordered table table-hover ">
                 <!--会員一覧見出し-->

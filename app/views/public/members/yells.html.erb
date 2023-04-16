@@ -8,8 +8,8 @@
             <img class= "index-image" src="<%= asset_pack_path "media/images/yell_index.png" %>"><%= @member.name %>さんの応援
           </h4>
           <p class= "post-soat">
-            <%= link_to '新着順(応援)　', yells_member_path(@member, sort: :yell_latest) %>
-            <%= link_to '古い順(応援)　', yells_member_path(@member, sort: :yell_old) %>
+            <%= link_to '新着順(応援)　', yells_member_path(yell_latest: "true") %>
+            <%= link_to '古い順(応援)　', yells_member_path(yell_old: "true") %>
           </p>
           <%= render "public/posts/index", post: @posts %>
 

@@ -1,0 +1,30 @@
+<!--投稿詳細のレイアウトを参照にしています。-->
+<body class= "post-show-content">
+  <div class= "container-fluid">
+    <div class= "row">
+      <div class= "col-sm-12 col-md-12 col-lg-12">
+        <div class= "post-show-page">
+          <div class= "items">
+
+            <h4>問題あるユーザーの通報を行います。</h4>
+
+            <%= form_with model:[@member, @report] do |f| %>
+              <%= render "layouts/model_error", model: f.object %>
+
+              <div>対象者：「<%= @member.name %>」</div>
+              <div><%= image_tag @member.get_profile_image(100,100) %></div>
+              <div><%= f.label "【通報内容】" %></div>
+              <div><%= f.text_area :reason, cols: 50, rows: 10 %></div>
+
+              <div><%= f.label "【参照URL】" %></div>
+              <div><%= f.text_area :url ,cols: 60,rows: 1 %></div>
+              <div class= "contact_btn"><%= f.submit '送信', class: 'btn btn-success',data: {confirm: "送信しても宜しいですか？" } %></div>
+              <div><%= link_to 'キャンセル', root_path,data: {confirm: "キャンセルしますか？(内容は保存されません。)" } %></div>
+            <% end %>
+
+          </div><!--class="items"終了-->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

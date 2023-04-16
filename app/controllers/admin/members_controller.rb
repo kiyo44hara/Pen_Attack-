@@ -3,6 +3,17 @@ class Admin::MembersController < ApplicationController
 
   def index
     @members = Member.all.page(params[:page]).per(10)
+      case params[:sort]
+      when "member_latest"
+        @members = @members.member_latest
+      when "member_old"
+        @members = @members.member_old
+      when "active"
+        @members = @members.active
+      when "not_active"
+        @members = @members.not_active
+      end
+        @members = @members.page(params[:page]).per(10)
   end
 
   # 会員のステータス更新。
