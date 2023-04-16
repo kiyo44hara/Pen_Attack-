@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     resources :members, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
       resource :reports, only: [:new, :create]
+      get '/reports', to: redirect("/members/:member_id/reports/new")
       get 'relationships/follow' => 'relationships#follow', as:'follow'
       get 'relationships/follower' => 'relationships#follower', as:'follower'
       member do
