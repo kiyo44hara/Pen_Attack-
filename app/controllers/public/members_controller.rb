@@ -7,13 +7,13 @@ class Public::MembersController < ApplicationController
   def yells
     @member = Member.find(params[:id])
     yells = Yell.where(member_id: @member.id).pluck(:post_id)
-    if params[:yell_latest]
-      @posts = Post.where(id: yells).yell_latest.page(params[:page])
-    elsif params[:yell_old]
-      @posts = Post.where(id: yells).yell_old.page(params[:page])
-    else
-      @posts = Post.where(id: yells).yell_latest.page(params[:page])
-    end
+    # if params[:yell_latest]
+    #   @posts = Post.where(id: yells).yell_latest.page(params[:page])
+    # elsif params[:yell_old]
+    #   @posts = Post.where(id: yells).yell_old.page(params[:page])
+    # else
+      @posts = Post.where(id: yells).page(params[:page])
+    # end (不具合を確認した為、修正中です)
   end
 
   def show

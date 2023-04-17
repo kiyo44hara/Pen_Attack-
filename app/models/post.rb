@@ -25,9 +25,9 @@ class Post < ApplicationRecord
   scope :star_latest, -> { order(star: :desc)}
   scope :star_old, -> { order(star: :asc)}
 
-  # 応援した投稿を並び替える機能
-  scope :yell_latest, -> { joins(:yells).order('yells.created_at DESC')}
-  scope :yell_old, -> { joins(:yells).order('yells.created_at ASC')}
+  # 応援した投稿を並び替える機能(不具合)
+  # scope :yell_latest, -> { joins(:yells).order('yells.created_at DESC')}
+  # scope :yell_old, -> { joins(:yells).order('yells.created_at ASC')}
 
   # 投稿イラスト設定
   has_one_attached :image
