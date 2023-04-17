@@ -34,9 +34,9 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-      @posts = Post.latest
-      @posts = Post.old if params[:old]
-      @posts = Post.page(params[:page])
+      @posts = Post.latest.page(params[:page])
+      @posts = Post.old.page(params[:page]) if params[:old]
+      @posts = Post.latest.page(params[:page]) if params[:latest]
   end
 
   def edit
